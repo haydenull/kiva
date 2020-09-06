@@ -1,0 +1,29 @@
+{
+  "name": "@kamen-rider/kiva-ui",
+  "version": "0.0.1",
+  "description": "kiva-ui",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "kiva serve"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "ui",
+    "mobile",
+    "vue"
+  ],
+  "author": "Haaayden",
+  "license": "ISC",
+  "devDependencies": {
+    "@kamen-rider/kiva-cli": "^0.0.1",
+    "vue-router": "^3.4.3"
+  }
+}
