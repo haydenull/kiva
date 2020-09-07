@@ -1,5 +1,5 @@
 {
-  "name": "@kamen-rider/kiva-ui",
+  "name": "@wozjs/kiva-ui",
   "version": "0.0.1",
   "description": "kiva-ui",
   "main": "index.js",
@@ -23,7 +23,7 @@
   "author": "Haaayden",
   "license": "ISC",
   "devDependencies": {
-    "@kamen-rider/kiva-cli": "^0.0.1",
+    "@wozjs/kiva-cli": "^0.0.1",
     "vue-router": "^3.4.3"
   }
 }

@@ -11,91 +11,109 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue, Prop, Mixins, Watch } from 'vue-property-decorator'
+<script>
+import bindEventMixin from '../../mixins/bindEvent'
+import { getScrollEventTarget } from '../../utils/dom'
 
-import bindEventMixin from '../mixins/bindEvent'
-import { getScrollEventTarget } from '../utils/dom'
-import { IScrollElement } from '../utils/types'
+export default {
+  name: 'kiva-list',
 
-@Component({})
-export default class List extends Mixins(bindEventMixin(function(bind) {
-  //  @ts-ignore
-  if (!this.scrollEventTarget) {
-    // @ts-ignore
-    this.scrollEventTarget = getScrollEventTarget(this.$el)
-  }
-  // @ts-ignore 此处 this 被 call 绑定为 Vue 实例
-  bind(this.scrollEventTarget, 'scroll', this.check)
-})) {
-  // 是否正在加载中
-  @Prop({ type: Boolean, default: false, required: true }) readonly loading!: boolean
-  // 是否全部数据加载完毕
-  @Prop({ type: Boolean, default: false, required: true }) readonly finished!: boolean
-  // 是否加载失败
-  @Prop({ type: Boolean, default: false, required: true }) readonly error!: boolean
-  // 滚动条与底部距离 <= offset 时触发 load 事件
-  @Prop({ type: Number, default: 150, required: false }) readonly offset?: number
-  // 是否在初始化时立即检查高度
-  @Prop({ type: Boolean, default: true, required: false }) readonly immediateCheck?: boolean
+  mixins: [
+    bindEventMixin(function(bind) {
+      if (!this.scrollEventTarget) {
+        this.scrollEventTarget = getScrollEventTarget(this.$el)
+      }
+      // 此处 this 被 call 绑定为 Vue 实例
+      bind(this.scrollEventTarget, 'scroll', this.check)
+    }),
+  ],
 
-  scrollEventTarget: IScrollElement | null = null
+  props: {
+    loading: {        // 是否正在加载中
+      type: Boolean,
+      default: false,
+    },
+    finished: {        // 是否全部数据加载完毕
+      type: Boolean,
+      default: false,
+    },
+    error: {           // 是否加载失败
+      type: Boolean,
+      default: false,
+    },
+    offset: {           // 滚动条与底部距离 <= offset 时触发 load 事件
+      type: Number,
+      default: 150,
+    },
+    immediateCheck: {   // 是否在初始化时立即检查高度
+      type: Boolean,
+      default: true,
+    },
+  },
 
-  @Watch('loading')
-  onLoadingChange() {
-    this.check()
-  }
-  @Watch('finished')
-  onFinishedChange() {
-    this.check()
-  }
+  data () {
+    return {
+      scrollEventTarget: null
+    }
+  },
 
-  mounted() {
+  watch: {
+    loading() {
+      this.check()
+    },
+    finished() {
+      this.check()
+    }
+  },
+
+  mounted () {
     console.log('=== List mounted ===')
     if (this.immediateCheck) this.check()
-  }
+  },
 
-  check() {
-    this.$nextTick(() => {
-      if (this.loading || this.error || this.finished) return
+  methods: {
+    check() {
+      this.$nextTick(() => {
+        if (this.loading || this.error || this.finished) return
 
-      if (!this.scrollEventTarget) {
-        this.scrollEventTarget = getScrollEventTarget((this.$el as HTMLElement))
-      }
-
-      const { $el: el, scrollEventTarget: scroller, offset = 150 } = this
-
-      let scrollerRect
-      if ('getBoundingClientRect' in scroller) {
-        scrollerRect = scroller.getBoundingClientRect()
-      } else {
-        scrollerRect = {
-          top: 0,
-          bottom: scroller.innerHeight,
+        if (!this.scrollEventTarget) {
+          this.scrollEventTarget = getScrollEventTarget((this.$el))
         }
-      }
 
-      let isReachBottom = false
-      let pointerRect = (this.$refs.faiz_pointer as Element).getBoundingClientRect()
+        const { $el: el, scrollEventTarget: scroller, offset = 150 } = this
 
-      isReachBottom = pointerRect.bottom - scrollerRect.bottom <= offset
+        let scrollerRect
+        if ('getBoundingClientRect' in scroller) {
+          scrollerRect = scroller.getBoundingClientRect()
+        } else {
+          scrollerRect = {
+            top: 0,
+            bottom: scroller.innerHeight,
+          }
+        }
 
-      if (isReachBottom) {
-        this.$emit('update:loading', true)
-        this.$emit('load')
-      }
+        let isReachBottom = false
+        let pointerRect = (this.$refs.faiz_pointer).getBoundingClientRect()
 
-    })
-  }
+        isReachBottom = pointerRect.bottom - scrollerRect.bottom <= offset
 
-  onClickError() {
-    this.$emit('update:error', false)
-    this.check()
-  }
+        if (isReachBottom) {
+          this.$emit('update:loading', true)
+          this.$emit('load')
+        }
+
+      })
+    },
+    onClickError() {
+      this.$emit('update:error', false)
+      this.check()
+    }
+  },
+
 }
 </script>
 
-<style scoped>
+<style lang="less">
 .btn_refresh {
   flex-direction: row;
   justify-content: center;

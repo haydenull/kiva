@@ -1,5 +1,5 @@
 {
-  "name": "@kamen-rider/kiva-cli",
+  "name": "@wozjs/kiva-cli",
   "version": "0.0.1",
   "description": "kiva-cli",
   "main": "index.js",
