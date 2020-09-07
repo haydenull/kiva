@@ -113,7 +113,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style>
 .btn_refresh {
   flex-direction: row;
   justify-content: center;

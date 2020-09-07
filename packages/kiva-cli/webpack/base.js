@@ -24,6 +24,7 @@ module.exports = function() {
     plugins: [
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, '../site/debug/index.html'),
+        favicon: path.resolve(__dirname, '../site/common/assets/favicon.ico'),
         filename: 'index.html',
         inject: true,
       }),

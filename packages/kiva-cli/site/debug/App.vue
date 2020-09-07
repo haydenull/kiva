@@ -1,7 +1,9 @@
 <template>
   <div>
-    <h1>Kiva</h1>
-    <kiva-button />
+    <h1>Kiva title</h1>
+    <keep-alive>
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 
