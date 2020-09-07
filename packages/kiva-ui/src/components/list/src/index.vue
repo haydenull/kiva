@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import bindEventMixin from '../../mixins/bindEvent'
-import { getScrollEventTarget } from '../../utils/dom'
+import bindEventMixin from '../../../mixins/bindEvent'
+import { getScrollEventTarget } from '../../../utils/dom'
 
 export default {
   name: 'kiva-list',

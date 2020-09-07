@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <h1>Kiva</h1>
-    <kiva-button />
-  </div>
+  <div>kiva-button demo</div>
 </template>
 
 <script>

@@ -30,6 +30,6 @@ export default function bindEventMixin(cb) {
     mounted() { bind.call(this) },
     activated() { bind.call(this) },
     deactivated() { unbind.call(this) },
-    beforeDestroy() { unbind.call(this) },,
+    beforeDestroy() { unbind.call(this) },
   }
 }

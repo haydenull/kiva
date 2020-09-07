@@ -19,29 +19,6 @@ module.exports = function() {
           test: /\.vue$/,
           loader: require.resolve('vue-loader'),
         },
-        // {
-        //   test: /\.css$/,
-        //   oneOf: [
-        //     {
-        //       loader: [
-        //         {
-        //           loader: require.resolve('vue-style-loader'),
-        //           options: {
-        //             sourceMap: true,
-        //           }
-        //         },
-        //         {
-        //           loader: require.resolve('css-loader'),
-        //           options: {
-        //             sourceMap: true,
-        //             importLoaders: 2
-        //           }
-        //         }
-        //       ],
-        //       sideEffects: false,
-        //     }
-        //   ],
-        // },
         {
           test: /\.css$/,
           loader: [
@@ -52,7 +29,11 @@ module.exports = function() {
         },
       ],
     },
-    resolve: {},
+    resolve: {
+      alias: {
+        '@ui': process.cwd(),
+      }
+    },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new VueLoaderPlugin(),
