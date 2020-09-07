@@ -2,7 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const { merge } = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+
 const Webpackbar = require('webpackbar')
 const chalk = require('chalk')
 const FriendlyErrorsPlugin = require('friendly-errors-plugin')
@@ -15,18 +15,19 @@ module.exports = function() {
     devtool: 'cheap-module-source-map',
     module: {
       rules: [
-        {
-          test: /\.vue$/,
-          loader: require.resolve('vue-loader'),
-        },
-        {
-          test: /\.css$/,
-          loader: [
-            require.resolve('vue-style-loader'),
-            require.resolve('style-loader'),
-            require.resolve('css-loader'),
-          ]
-        },
+        // {
+        //   test: /\.vue$/,
+        //   loader: 'vue-loader',
+        // },
+        // {
+        //   test: /\.less$/,
+        //   loader: [
+        //     require.resolve('vue-style-loader'),
+        //     require.resolve('style-loader'),
+        //     require.resolve('css-loader'),
+        //     require.resolve('less-loader'),
+        //   ]
+        // },
       ],
     },
     resolve: {
@@ -36,7 +37,6 @@ module.exports = function() {
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
-      new VueLoaderPlugin(),
       new Webpackbar({
         name: 'Kiva Cli'
       }),
