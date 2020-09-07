@@ -1,3 +1,6 @@
 <template>
-  <router-link to="/kiva-button">kiva-button</router-link>
+  <div>
+    <router-link to="/button">kiva-button</router-link>
+    <router-link to="/list">kiva-list</router-link>
+  </div>
 </template>
