@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const Webpackbar = require('webpackbar')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const baseConfig = require('./base')()
 
@@ -31,6 +32,14 @@ module.exports = function() {
       ],
     },
     resolve: {},
+    externals: {
+      vue: {
+        root: 'Vue',
+        commonjs: 'vue',
+        commonjs2: 'vue',
+        amd: 'vue'
+      }
+    },
     plugins: [
       new MiniCssExtractPlugin({
         filename: '[name].css',
@@ -39,13 +48,17 @@ module.exports = function() {
       new Webpackbar({
         name: 'Kiva Cli Build All'
       }),
+      new CleanWebpackPlugin(),
     ],
     output: {
-      pathinfo: true,
-      filename: '[name].js',
-      chunkFilename: '[name].chunk.js',
-      publicPath: '/',
       path: path.resolve(process.cwd(), 'dist/all'),
+      publicPath: '/dist/',
+      filename: 'kiva-ui.common.js',
+      chunkFilename: '[name].chunk.js',
+      pathinfo: true,
+      library: 'kiva-ui',
+      libraryTarget: 'umd',
+      umdNamedDefine: true,
     },
   }
 

@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const Webpackbar = require('webpackbar')
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 
 const baseConfig = require('./base')()
 
@@ -44,13 +45,14 @@ module.exports = function() {
       new Webpackbar({
         name: 'Kiva Cli Build Demo'
       }),
+      new CleanWebpackPlugin(),
     ],
     output: {
-      pathinfo: true,
+      path: path.resolve(process.cwd(), 'dist/demo'),
+      publicPath: '/',
       filename: 'js/[name].js',
       chunkFilename: 'js/[name].chunk.js',
-      publicPath: '/',
-      path: path.resolve(process.cwd(), 'dist/demo'),
+      pathinfo: true,
     },
   }
 
