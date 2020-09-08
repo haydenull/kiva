@@ -2,7 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const { merge } = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const Webpackbar = require('webpackbar')
 const chalk = require('chalk')
 const FriendlyErrorsPlugin = require('friendly-errors-plugin')
@@ -35,7 +35,17 @@ module.exports = function() {
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new Webpackbar({
-        name: 'Kiva Cli'
+        name: 'Kiva Cli Serve'
+      }),
+      new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, '../site/debug/index.html'),
+        favicon: path.resolve(__dirname, '../site/common/assets/favicon.ico'),
+        filename: 'index.html',
+        inject: true,
+      }),
+      new MiniCssExtractPlugin({
+        filename: 'css/[name].[hash].css',
+        chunkFilename: 'css/[name].chunk.css',
       }),
       new FriendlyErrorsPlugin({
         compilationSuccessInfo: {

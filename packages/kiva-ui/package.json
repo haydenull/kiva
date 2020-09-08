@@ -11,7 +11,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "kiva serve",
-    "build": "kiva build"
+    "build:all": "kiva build all",
+    "build:component": "kiva build component",
+    "build:demo": "kiva build demo",
+    "build": "npm run build:all && npm run build:component && npm run build:demo"
   },
   "publishConfig": {
     "access": "public"

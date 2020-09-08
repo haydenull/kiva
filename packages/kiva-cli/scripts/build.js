@@ -3,12 +3,12 @@ process.env.NODE_ENV = 'production'
 const chalk = require('chalk')
 const webpack = require('webpack')
 
-const getWebpackConfig = require('../webpack/prod')
 
-async function build() {
-  console.log('start build')
+async function build(type) {
+  console.log('start build', type)
   console.log()
 
+  const getWebpackConfig = require(`../webpack/prod.${type}`)
   // console.log('==== webpack config ===', getWebpackConfig())
   const compiler = webpack(getWebpackConfig())
 
@@ -27,7 +27,7 @@ async function build() {
 }
 
 module.exports = function(...args) {
-  return build().then(res => {
+  return build(...args).then(res => {
     console.log('build success', res)
   }).catch(err => {
     console.error(chalk.red(`build error`, err))

@@ -1,5 +1,8 @@
 <template>
-  <div class="test">kiva-button demo <span></span> </div>
+  <div>
+    <div class="test">kiva-button demo <span></span> </div>
+    <kiva-button txt="111" />
+  </div>
 </template>
 
 <script>

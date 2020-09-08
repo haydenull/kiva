@@ -12,8 +12,7 @@ module.exports = function() {
   const prodConfig = {
     mode: 'production',
     entry: {
-      // ui: path.resolve(__dirname, '../site/debug/entry/ui.js'),
-      demos: path.resolve(__dirname, '../site/debug/main.js'),
+      demo: path.resolve(__dirname, '../site/debug/main.js'),
     },
     module: {
       rules: [
@@ -32,15 +31,27 @@ module.exports = function() {
     },
     resolve: {},
     plugins: [
-      // new VueLoaderPlugin(),
-      // new MiniCssExtractPlugin({
-      //   filename: 'static/css/[name].[contenthash:8].css',
-      //   chunkFilename: 'static/css/chunk.[id].css'
-      // }),
+      new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, '../site/debug/index.html'),
+        favicon: path.resolve(__dirname, '../site/common/assets/favicon.ico'),
+        filename: 'index.html',
+        inject: true,
+      }),
+      new MiniCssExtractPlugin({
+        filename: 'css/[name].[hash].css',
+        chunkFilename: 'css/[name].chunk.css',
+      }),
       new Webpackbar({
-        name: 'Kiva Cli'
+        name: 'Kiva Cli Build Demo'
       }),
     ],
+    output: {
+      pathinfo: true,
+      filename: 'js/[name].js',
+      chunkFilename: 'js/[name].chunk.js',
+      publicPath: '/',
+      path: path.resolve(process.cwd(), 'dist/demo'),
+    },
   }
 
   return merge(baseConfig, prodConfig)

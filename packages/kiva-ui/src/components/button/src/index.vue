@@ -1,6 +1,6 @@
 <template>
   <div class="kiva-container">
-    <button>{{ txt }}</button>
+    <button class="button">{{ txt }}</button>
   </div>
 </template>
 
@@ -20,3 +20,9 @@ export default {
 
 }
 </script>
+
+<style lang="less">
+.button {
+  color: aqua;
+}
+</style>

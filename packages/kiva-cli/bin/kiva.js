@@ -32,10 +32,10 @@ program
 
 // build
 program
-  .command('build')
+  .command('build <type>')
   .description('build lib')
-  .action((siteType, cmd) => {
-    require('../scripts/build')(siteType)
+  .action((type, cmd) => {
+    require('../scripts/build')(type)
   })
 
 program.parse(process.argv)

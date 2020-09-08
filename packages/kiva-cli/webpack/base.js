@@ -1,5 +1,4 @@
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
@@ -62,29 +61,12 @@ module.exports = function() {
       ],
     },
     plugins: [
-      new MiniCssExtractPlugin({
-        filename: 'css/[name].[hash].css',
-        chunkFilename: 'css/[name].chunk.css',
-      }),
-      new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, '../site/debug/index.html'),
-        favicon: path.resolve(__dirname, '../site/common/assets/favicon.ico'),
-        filename: 'index.html',
-        inject: true,
-      }),
       new VueLoaderPlugin(),
     ],
     resolve: {
       alias: {
         '@ui': process.cwd(),
       }
-    },
-    output: {
-      pathinfo: true,
-      filename: 'js/[name].js',
-      chunkFilename: 'js/[name].chunk.js',
-      publicPath: '/',
-      path: path.resolve(process.cwd(), 'dist'),
     },
   }
   return baseConfig

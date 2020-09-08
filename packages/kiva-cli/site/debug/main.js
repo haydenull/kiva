@@ -6,8 +6,6 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-console.log('=== Kiva ===', Kiva)
-
 Vue.use(Kiva)
 
 new Vue({
