@@ -1,6 +1,6 @@
 import Vue from 'vue'
 // import Kiva from '@ui/src/index.js'
-import Kiva from './ui'
+import Kiva from './entry/ui'
 import App from './App.vue'
 import router from './router'
 

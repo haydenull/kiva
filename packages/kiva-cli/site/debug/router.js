@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VurRouter from 'vue-router'
 // import { components, demos } from '@ui/src/index.js'
-import { demos } from './ui'
+import { demos } from './entry/demos'
 
 import Home from './components/Home.vue'
 
