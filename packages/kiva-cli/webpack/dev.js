@@ -13,7 +13,10 @@ module.exports = function() {
   const devConfig = {
     mode: 'development',
     devtool: 'cheap-module-source-map',
-    entry: path.resolve(__dirname, '../site/debug/main.js'),
+    entry: {
+      debug: [path.resolve(__dirname, '../site/debug/main.js')],
+      docs: [path.resolve(__dirname, '../site/docs/main.js')],
+    },
     module: {
       rules: [
         // {
@@ -40,7 +43,15 @@ module.exports = function() {
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, '../site/debug/index.html'),
         favicon: path.resolve(__dirname, '../site/common/assets/favicon.ico'),
+        filename: 'debug.html',
+        chunks: ['chunks', 'debug'],
+        inject: true,
+      }),
+      new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, '../site/docs/index.html'),
+        favicon: path.resolve(__dirname, '../site/common/assets/favicon.ico'),
         filename: 'index.html',
+        chunks: ['chunks', 'docs'],
         inject: true,
       }),
       new MiniCssExtractPlugin({
@@ -56,6 +67,9 @@ module.exports = function() {
         logLevel: 'WARNING',
       }),
     ],
+    output: {
+      chunkFilename: '[name].js',
+    },
   }
   return merge(baseConfig, devConfig)
 }

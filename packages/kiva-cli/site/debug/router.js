@@ -20,7 +20,7 @@ function genRoutes() {
   return routes
 }
 
-console.log('=== routes ===', genRoutes())
+console.log('=== debug site routes ===', genRoutes())
 
 Vue.use(VurRouter)
 const router = new VurRouter({
