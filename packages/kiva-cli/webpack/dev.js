@@ -13,6 +13,7 @@ module.exports = function() {
   const devConfig = {
     mode: 'development',
     devtool: 'cheap-module-source-map',
+    entry: path.resolve(__dirname, '../site/debug/main.js'),
     module: {
       rules: [
         // {
@@ -30,11 +31,7 @@ module.exports = function() {
         // },
       ],
     },
-    resolve: {
-      alias: {
-        '@ui': process.cwd(),
-      }
-    },
+    resolve: {},
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new Webpackbar({

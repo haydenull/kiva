@@ -5,7 +5,6 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = function() {
   const baseConfig = {
-    entry: path.resolve(__dirname, '../site/debug/main.js'),
     module: {
       rules: [
         {
@@ -65,7 +64,7 @@ module.exports = function() {
     plugins: [
       new MiniCssExtractPlugin({
         filename: 'css/[name].[hash].css',
-        chunkFilename: 'css/[id].[hash].css',
+        chunkFilename: 'css/[name].chunk.css',
       }),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, '../site/debug/index.html'),
@@ -75,11 +74,15 @@ module.exports = function() {
       }),
       new VueLoaderPlugin(),
     ],
-    resolve: {},
+    resolve: {
+      alias: {
+        '@ui': process.cwd(),
+      }
+    },
     output: {
       pathinfo: true,
-      filename: 'static/js/[name].js',
-      chunkFilename: 'static/js/[name].chunk.js',
+      filename: 'js/[name].js',
+      chunkFilename: 'js/[name].chunk.js',
       publicPath: '/',
       path: path.resolve(process.cwd(), 'dist'),
     },

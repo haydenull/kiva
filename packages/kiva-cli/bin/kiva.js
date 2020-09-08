@@ -25,9 +25,17 @@ program
 // serve
 program
   .command('serve')
-  .description('serve examples')
+  .description('serve demo and debug')
   .action((siteType, cmd) => {
     require('../scripts/serve')(siteType)
+  })
+
+// build
+program
+  .command('build')
+  .description('build lib')
+  .action((siteType, cmd) => {
+    require('../scripts/build')(siteType)
   })
 
 program.parse(process.argv)

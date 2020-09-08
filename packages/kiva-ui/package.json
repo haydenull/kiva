@@ -10,7 +10,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "kiva serve"
+    "dev": "kiva serve",
+    "build": "kiva build"
   },
   "publishConfig": {
     "access": "public"
