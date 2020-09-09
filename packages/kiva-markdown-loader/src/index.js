@@ -7,6 +7,8 @@ const htmlToVue = require('./htmlToVue')
 
 const markdownParser = new MarkdownIt({
   html: true,
+  linkify: true,
+  breaks: true,
 })
 
 module.exports = function(source) {
@@ -15,8 +17,9 @@ module.exports = function(source) {
   const { content, data: frontMatter } = grayMatter(source)
   source = content
 
-  console.log('=== kiva markdown loader ===', frontMatter)
+  // TODO: 为何重复调用 3 次
+  // console.log('=== kiva markdown loader ===', frontMatter)
 
-  return htmlToVue(markdownParser.render(source))
+  return htmlToVue(markdownParser.render(source), frontMatter)
 
 }

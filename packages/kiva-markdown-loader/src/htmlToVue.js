@@ -1,4 +1,5 @@
-module.exports = function(htmlString) {
+module.exports = function(htmlString, config) {
+  htmlString = htmlString.trim()
   return `
     <template>
       <section v-html="content" v-once />
@@ -6,18 +7,19 @@ module.exports = function(htmlString) {
 
     <script>
       export default {
+        kivaDocConfig: ${JSON.stringify(config)},
         data() {
           return {
-            content: '',
+            content: '${htmlString}',
           }
         },
 
-        created() {
-          this.content = "<div>loader<div>"
-        },
-
         methods: {
+          addRoutes() {
+            this.$router.addRoutes({
 
+            })
+          },
         }
       }
     </script>

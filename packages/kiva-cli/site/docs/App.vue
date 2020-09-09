@@ -4,6 +4,7 @@
     <keep-alive>
       <router-view />
     </keep-alive>
+    <iframe src="debug.html#/" frameborder="0"></iframe>
   </div>
 </template>
 
