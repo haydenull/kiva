@@ -1,24 +1,24 @@
 <template>
   <div class="w100 h100 flex flex-column">
     <header class="header flex flex-cross-center">
-      <span>Kiva</span>
+      <span class="scroll-transparent">Kiva</span>
     </header>
     <div class="container flex flex1">
       <!-- nav left -->
-      <div class="nav">
-        <nav-group group-title="test" :group-nav-list="navList" />
+      <div class="nav scroll-transparent">
+        <nav-group group-title="Group Name" :group-nav-list="$store.state.docs" />
       </div>
 
-      <!-- content -->
-      <div class="content flex1">
+      <!-- content center -->
+      <div class="content flex1 scroll-transparent">
         <keep-alive>
           <router-view />
         </keep-alive>
       </div>
 
-      <!-- simlator -->
+      <!-- simlator right -->
       <div class="simlator">
-        <iframe class="w100 h100" src="debug.html#/" frameborder="0"></iframe>
+        <iframe class="w100 h100" :src="$store.state.debugSiteUrl" frameborder="0"></iframe>
       </div>
 
     </div>
@@ -34,10 +34,7 @@ export default {
   },
   data () {
     return {
-      navList: [
-        { path: '/button', title: '按钮' },
-        { path: '/list', title: ' 列表' },
-      ]
+      navList: this.$store.docs
     }
   }
 }
@@ -59,22 +56,25 @@ html, body {
 }
 
 .container {
-  background-color: #fafafa;
+  // background-color: #fafafa;
+  overflow: hidden; // hack 其子元素 nav content overflow-y: scroll 无效的问题
 }
 .nav {
   width: 220px;
   background-color: #fff;
   box-shadow: #ebedf0 0 4px 12px;
+  overflow-y: scroll;
 }
 .content {
   padding: 30px;
+  overflow-y: scroll;
 }
 .simlator {
   width: 375px;
   max-height: 667px;
-  // background-color: #fafafa;
+  background-color: #fafafa;
   border-radius: 12px;
   box-shadow: #ebedf0 0 4px 12px;
-  margin-top: 30px;
+  margin: 30px 30px 10px 10px;
 }
 </style>

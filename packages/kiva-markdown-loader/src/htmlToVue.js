@@ -1,5 +1,7 @@
+const escape = require('js-string-escape')
+
 module.exports = function(htmlString, config) {
-  htmlString = htmlString.trim()
+  htmlString = escape(htmlString)
   return `
     <template>
       <section v-html="content" v-once />
