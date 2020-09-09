@@ -23,7 +23,9 @@ function genRoutes() {
 
   Object.keys(docs).forEach(key => {
     const doc = docs[key]
-    routes.push({ path: `/${key}`, component: doc })
+    const config = doc.kivaDocConfig
+    const path = config.path || key
+    routes.push({ path: `/${path}`, component: doc })
   })
 
   return routes

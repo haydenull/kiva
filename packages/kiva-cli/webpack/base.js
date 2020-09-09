@@ -15,6 +15,10 @@ module.exports = function() {
           loader: [
             {
               loader: MiniCssExtractPlugin.loader,
+              options: {
+                hmr: true,
+                reloadAll: true,
+              },
             },
             // 'style-loader',
             {
@@ -28,7 +32,14 @@ module.exports = function() {
         {
           test: /\.less$/,
           loader: [
-            MiniCssExtractPlugin.loader,       // 将 css 提取为单独的文件
+            {
+              loader: MiniCssExtractPlugin.loader,  // 将 css 提取为单独的文件
+              options: {
+                hmr: true,
+                reloadAll: true,
+              },
+            },
+            // MiniCssExtractPlugin.loader,       // 将 css 提取为单独的文件
             // style-loader 与 MiniCssExtractPlugin.loader 冲突，会产生 documen is not defined 错误
             // 'style-loader',                 // creates style nodes from JS strings
             {
