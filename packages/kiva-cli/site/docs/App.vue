@@ -1,12 +1,17 @@
 <template>
   <div class="w100 h100 flex flex-column">
     <header class="header flex flex-cross-center">
-      <span class="scroll-transparent">Kiva</span>
+      <span @click="$router.push('/')" class="scroll-transparent">Kiva</span>
     </header>
     <div class="container flex flex1">
       <!-- nav left -->
       <div class="nav scroll-transparent">
-        <nav-group group-title="Group Name" :group-nav-list="$store.state.docs" />
+        <nav-group
+          v-for="group in $store.state.docs"
+          :key="group.group"
+          :group-title="group.group"
+          :group-nav-list="group.navs"
+        />
       </div>
 
       <!-- content center -->

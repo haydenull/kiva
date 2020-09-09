@@ -18,10 +18,20 @@ requireDocs.keys().forEach(docPath => {
 
 function genDocConfigList() {
   let docConfigList = []
+  let map = new Map()
   Object.keys(docs).forEach(key => {
     const doc = docs[key]
     const config = doc.kivaDocConfig
-    docConfigList.push(config)
+    if (map.has(config.group)) {
+      const index = map.get(config.group)
+      docConfigList[index].navs.push(config)
+    } else {
+      docConfigList.push({
+        group: config.group,
+        navs: [ config ]
+      })
+      map.set(config.group, docConfigList.length - 1)
+    }
   })
   return docConfigList
 }
@@ -63,7 +73,6 @@ router.afterEach((to, from) => {
     }
   }
   store.commit('updateDebugSiteUrl', componentPath)
-  console.log('=== router afterEach ===', to, routes, componentPath)
 })
 
 export default router
