@@ -32,6 +32,13 @@ module.exports = function() {
         //     require.resolve('less-loader'),
         //   ]
         // },
+        {
+          test: /\.md$/,
+          loader: [
+            'vue-loader',
+            '@wozjs/kiva-markdown-loader',
+          ]
+        },
       ],
     },
     resolve: {},
