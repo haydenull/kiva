@@ -6,16 +6,28 @@ import store from './store'
 
 // https://webpack.js.org/guides/dependency-management/#require-context
 // 匹配 components 下一级目录的 README.md    .components/list/README.md
-const requireDocs = require.context('@ui/src', true, /components\/[^\/]*\/README\.md$/)
-
+const requireComponentDocs = require.context('@ui/src', true, /components\/[^\/]*\/README\.md$/)
 // 获取所有组件 doc
-const docs = {}
-requireDocs.keys().forEach(docPath => {
-  const doc = requireDocs(docPath).default
+const componentDocs = {}
+requireComponentDocs.keys().forEach(docPath => {
+  const doc = requireComponentDocs(docPath).default
   const key = docPath.match(/components\/([^\/]*)\/README\.md$/)[1]
-  if (key) docs[key] = doc
+  if (key) componentDocs[key] = doc
 })
 
+// 获取自定义 doc
+const requireCustomDocs = require.context('@ui/docs', false, /.md$/)
+const customDocs = {}
+requireCustomDocs.keys().forEach(docPath => {
+  const doc = requireCustomDocs(docPath).default
+  const key = docPath.match(/.\/(.*)\.md$/)[1]
+  if (key) customDocs[`docs/${key}`] = doc
+})
+
+// 归纳所有 doc
+const docs = Object.assign({ '/': Home }, customDocs, componentDocs)
+
+// 生成 docs 站点左侧导航栏数据
 function genDocConfigList() {
   let docConfigList = []
   let map = new Map()
@@ -39,16 +51,15 @@ store.commit('updateDocs', genDocConfigList())
 
 
 function genRoutes() {
-  let routes = [
-    { path: '/', component: Home },
-  ]
+  let routes = []
 
   Object.keys(docs).forEach(key => {
     const doc = docs[key]
     // 额外保存 md 文件路径, 即组件路由地址, 切换文档站点路由时对应查找组件路由
     doc.kivaDocConfig = Object.assign({}, doc.kivaDocConfig, { componentPath: key })
     const config = doc.kivaDocConfig
-    const path = config.path || key
+    let path = config.path || key
+    if (path === '/') path = ''
     routes.push({ path: `/${path}`, component: doc })
   })
 
@@ -72,6 +83,8 @@ router.afterEach((to, from) => {
       break
     }
   }
+  console.log('=== 导航守卫 ===', to, from)
+  componentPath = componentPath.replace(/^\/(.*)/, (res, $1) => $1)
   store.commit('updateDebugSiteUrl', componentPath)
 })
 

@@ -13,6 +13,7 @@ const store = new Vuex.Store({
       state.docs = docs
     },
     updateDebugSiteUrl(state, path = '') {
+      console.log('=== updateDebugSiteUrl ===', path)
       state.debugSiteUrl = state.debugSiteUrl.replace(/(^debug.html#\/).*/, (res, $1) => $1 + path)
     },
   }

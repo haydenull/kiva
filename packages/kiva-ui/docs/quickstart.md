@@ -1,3 +1,9 @@
+---
+title: 快速开始
+path: quickstart
+group: 开发指南
+---
+
 # 快速上手
 
 ### 安装

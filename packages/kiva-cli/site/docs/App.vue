@@ -1,7 +1,9 @@
 <template>
   <div class="w100 h100 flex flex-column">
     <header class="header flex flex-cross-center">
-      <span @click="$router.push('/')" class="scroll-transparent">Kiva</span>
+      <span class="scroll-transparent">
+        <router-link to="/">Kiva</router-link>
+      </span>
     </header>
     <div class="container flex flex1">
       <!-- nav left -->
@@ -51,11 +53,11 @@ html, body {
   height: 100%;
 }
 .header {
-  color: #fff;
   height: 60px;
   padding: 0 30px;
   background-color: #001938;
-  span {
+  span a {
+    color: #fff;
     font-size: 22px;
   }
 }
