@@ -3343,6 +3343,14 @@ figures@^3.0.0:
   dependencies:
     escape-string-regexp "^1.0.5"
 
+file-loader@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.npm.taobao.org/file-loader/download/file-loader-6.1.0.tgz?cache=0&sync_timestamp=1598876045721&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffile-loader%2Fdownload%2Ffile-loader-6.1.0.tgz#65b9fcfb0ea7f65a234a1f10cdd7f1ab9a33f253"
+  integrity sha1-Zbn8+w6n9lojSh8Qzdfxq5oz8lM=
+  dependencies:
+    loader-utils "^2.0.0"
+    schema-utils "^2.7.1"
+
 file-uri-to-path@1.0.0:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/file-uri-to-path/download/file-uri-to-path-1.0.0.tgz#553a7b8446ff6f684359c445f1e37a05dacc33dd"
