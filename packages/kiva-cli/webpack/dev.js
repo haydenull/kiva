@@ -36,7 +36,12 @@ module.exports = function() {
           test: /\.md$/,
           loader: [
             'vue-loader',
-            '@wozjs/kiva-markdown-loader',
+            {
+              loader: '@wozjs/kiva-markdown-loader',
+              options: {
+                useCardWrapper: true,
+              }
+            },
           ]
         },
       ],

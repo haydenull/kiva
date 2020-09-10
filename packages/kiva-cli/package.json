@@ -38,6 +38,7 @@
     "friendly-errors-plugin": "^1.1.2",
     "fs-extra": "^9.0.1",
     "glob": "^7.1.6",
+    "highlight.js": "^10.2.0",
     "html-webpack-plugin": "^4.4.1",
     "less": "^3.12.2",
     "less-loader": "^7.0.1",

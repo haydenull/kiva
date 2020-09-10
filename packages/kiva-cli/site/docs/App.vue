@@ -73,6 +73,14 @@ html, body {
 .content {
   padding: 30px;
   overflow-y: scroll;
+
+  .kiva-markdown-card {
+    margin-bottom: 24px;
+    padding: 24px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 8px 12px #ebedf0;
+  }
 }
 .simlator {
   width: 375px;
