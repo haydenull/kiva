@@ -55,7 +55,8 @@ html, body {
 .header {
   height: 60px;
   padding: 0 30px;
-  background-color: #001938;
+  // background-color: #001938;
+  background-color: #285b41;
   span a {
     color: #fff;
     font-size: 22px;
@@ -63,7 +64,6 @@ html, body {
 }
 
 .container {
-  // background-color: #fafafa;
   overflow: hidden; // hack 其子元素 nav content overflow-y: scroll 无效的问题
 }
 .nav {

@@ -1,30 +1,41 @@
 /* Sspai Web Theme A theme to [sspai](ssp.ai) default theme. Developed by Codegass(wchweichenhao@gmial.com) & Yves(yves@sspai.com) Download Cuto on the App Store and Google Play! */
 
+@import '../var.less';
+
+// body {
+// 	font-size: 16px;
+// 	color: #333;
+// 	background: #fff;
+// 	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
+// 	margin: 0;
+// }
+
 body {
-	font-size: 15px;
-	color: #333;
-	background: #fff;
-	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
+	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
+	color: #34495e;
+	-webkit-font-smoothing: antialiased;
+	line-height: 1.6rem;
+	letter-spacing: 0;
 	margin: 0;
-	/* padding: 10%; */
+	overflow-x: hidden;
 }
 h1 {
 	font-size: 2.2em;
 	font-weight: 700;
 	line-height: 1.1;
 	padding-top: 16px;
-	margin-bottom: 4px;
+	margin-bottom: 26px;
 }
 h2, h3, h4, h5, h6 {
 	line-height: 1.5em;
 	margin-top: 2.2em;
-	margin-bottom: 4px;
+	margin-bottom: 1rem;
 }
 h2 {
 	font-size: 1.4em;
 	margin: 40px 10px 20px 0;
 	padding-left: 9px;
-	border-left: 6px solid #ff7e79;
+	border-left: 6px solid @mainColorLight;
 	font-weight: 700;
 	line-height: 1.4;
 }
@@ -32,8 +43,7 @@ h3 {
 	font-weight: 700;
 	font-size: 1.2em;
 	line-height: 1.4;
-	margin: 10px 0 5px;
-	padding-top: 10px;
+	margin: 10px 0;
 }
 h4 {
 	font-weight: 700;
@@ -73,11 +83,11 @@ p {
 	line-height: 1.8;
 }
 a {
-	color: #f22f27;
+	color: @mainColorLight;
 	text-decoration: none;
 }
 a:hover {
-	color: #f55852;
+	color: @mainColor;
 	text-decoration: underline;
 }
 a:focus {
@@ -127,9 +137,8 @@ em, dfn {
 del {
 	text-decoration: line-through;
 }
-/*code {font-size:90%;}*/
 
-/*pre {text-align:left; overflow-x: scroll; color: #257fa0; background: #f6f6f6; padding: 10pt 15pt; border-radius: 3px; border: solid 1px #e2e2e2;}*/
+/* pre {text-align:left; overflow-x: scroll; color: #257fa0; background: #f6f6f6; padding: 10pt 15pt; border-radius: 3px; border: solid 1px #e2e2e2;} */
 
 pre {
 	margin: 0 0 10px;
@@ -144,16 +153,15 @@ pre {
 	padding: 10px 20px;
 	border: none;
 	margin-bottom: 25px;
-	color: #666;
+	/* color: #666; */
 	font-family: Courier, sans-serif;
 }
 code {
-	color: #c7254e;
-	background-color: #f9f2f4;
+	/* color: #c7254e; */
+	/* background-color: #f9f2f4; */
 	border-radius: 4px;
 	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-	padding: 2px 4px;
-	font-size: 90%;
+	/* font-size: 90%; */
 }
 p>code {
 	color: #c7264e;
@@ -249,4 +257,42 @@ a:target {
 	outline: 0;
 	animation-iteration-count: 1;
 	-webkit-animation-timing-function: ease-in-out;
+}
+
+// 表格
+table {
+	width: 100%; /*表格宽度*/
+	max-width: 65em; /*表格最大宽度，避免表格过宽*/
+	border: 1px solid #dedede; /*表格外边框设置*/
+	margin: 15px auto; /*外边距*/
+	border-collapse: collapse; /*使用单一线条的边框*/
+	empty-cells: show; /*单元格无内容依旧绘制边框*/
+	border-radius: 6px;
+	overflow: hidden;
+}
+table th,
+table td {
+height: 35px; /*统一每一行的默认高度*/
+border: 1px solid #dedede; /*内部边框样式*/
+padding: 0 10px; /*内边距*/
+}
+
+table th {
+	font-weight: bold; /*加粗*/
+	text-align: center !important; /*内容居中，加上 !important 避免被 Markdown 样式覆盖*/
+	background: rgba(40,91,65,0.36); /*背景色*/
+}
+table tbody tr:nth-child(2n) {
+	background: rgba(40,91,65,0.1);
+}
+
+table tr:hover {
+	background: rgba(40,91,65,0.2);
+}
+
+table th {
+	white-space: nowrap; /*表头内容强制在一行显示*/
+}
+table td:nth-child(1) {
+	white-space: nowrap; // 首列不换行
 }

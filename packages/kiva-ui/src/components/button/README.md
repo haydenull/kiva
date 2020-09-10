@@ -132,7 +132,7 @@ Vue.use(Button);
 ### Props
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| --- | :---: | ---: | --- |
 | type | 类型，可选值为 `primary` `info` `warning` `danger` | _string_ | `default` |
 | size | 尺寸，可选值为 `large` `small` `mini` | _string_ | `normal` |
 | text | 按钮文字 | _string_ | - |
