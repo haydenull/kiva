@@ -11,14 +11,31 @@ const markdownParser = new MarkdownIt({
   linkify: true,
   breaks: true,
   highlight: (str, lang) => {
+    // let res = `
+    //   <pre class="hljs" lang="${lang}">
+    //   <code>${str}<code>
+    // </pre>
+    // `
+    // if (lang && highlight.getLanguage(lang)) {
+    //   try {
+    //     // return highlight.highlight(lang, str).value
+    //     res = `
+    //       <pre class="hljs" lang="${lang}">
+    //         <code>${highlight.highlight(lang, str, true).value}<code>
+    //       </pre>
+    //     `
+    //   } catch (error) {}
+    // }
+    // return res
     if (lang && highlight.getLanguage(lang)) {
       try {
-        return highlight.highlight(lang, str).value
-      } catch (error) {
-        return str
-      }
+        return '<pre class="hljs"><code>' +
+        highlight.highlight(lang, str, true).value +
+               '</code></pre>';
+      } catch (__) {}
     }
-    return str
+
+    return '<pre class="hljs"><code>' + markdownParser.utils.escapeHtml(str) + '</code></pre>';
   },
 })
 

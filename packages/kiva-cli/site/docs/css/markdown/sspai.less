@@ -1,6 +1,6 @@
 /* Sspai Web Theme A theme to [sspai](ssp.ai) default theme. Developed by Codegass(wchweichenhao@gmial.com) & Yves(yves@sspai.com) Download Cuto on the App Store and Google Play! */
 
-@import '../var.less';
+// @import '../var.less';
 
 // body {
 // 	font-size: 16px;
@@ -9,6 +9,14 @@
 // 	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
 // 	margin: 0;
 // }
+
+.inline-code() {
+	color: #c7264e;
+	background-color: #f9f2f4;
+	font-size: .95em;
+	border-radius: 3px;
+	padding: .065em .4em;
+}
 
 body {
 	font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
@@ -146,7 +154,6 @@ pre {
 	line-height: 1.42857;
 	word-break: break-all;
 	word-wrap: break-word;
-	border-radius: 4px;
 	white-space: pre-wrap;
 	display: block;
 	background: #f8f8f8;
@@ -155,21 +162,22 @@ pre {
 	margin-bottom: 25px;
 	/* color: #666; */
 	font-family: Courier, sans-serif;
+	border-radius: 6px;
+	overflow: hidden;
 }
 code {
 	/* color: #c7254e; */
 	/* background-color: #f9f2f4; */
-	border-radius: 4px;
+	border-radius: 6px;
 	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 	/* font-size: 90%; */
 }
-p>code {
-	color: #c7264e;
-	background-color: #f9f2f4;
-	font-size: .95em;
-	border-radius: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
+p > code {
+	.inline-code();
+}
+pre > code {
+	display: block;
+	overflow-x: auto;
 }
 figure {
 	margin: 1em 0;
@@ -289,10 +297,16 @@ table tbody tr:nth-child(2n) {
 table tr:hover {
 	background: rgba(40,91,65,0.2);
 }
+table tr:nth-child(2n):hover {
+	background: rgba(40,91,65,0.2);
+}
 
 table th {
 	white-space: nowrap; /*表头内容强制在一行显示*/
 }
 table td:nth-child(1) {
 	white-space: nowrap; // 首列不换行
+}
+table code {
+	.inline-code();
 }

@@ -26,25 +26,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less">
-.nav__group {
-  margin-bottom: 16px;
-}
-.nav__title {
-  padding: 8px 0 8px 30px;
-  color: #455a64;
-  font-weight: bold;
-  font-size: 15px;
-  line-height: 28px;
-}
-.nav__item {
-  a {
-    display: block;
-    padding: 8px 0 8px 30px;
-    color: #455a64;
-    font-size: 14px;
-    line-height: 28px;
-  }
-}
-</style>
