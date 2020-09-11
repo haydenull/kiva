@@ -73,3 +73,57 @@ html, body {
     line-height: 28px;
   }
 }
+
+// 正文目录
+.kiva-anchor {
+  position: fixed;
+  bottom: 100px;
+  right: 430px;
+  width: 200px;
+  text-align: right;
+  padding: 10px 10px;
+  border-radius: 8px;
+  // padding-left: 30px;
+}
+.kiva-anchor__item {
+  .kiva-anchor__item__circle {
+    display: inline-block;
+    width: 16px;
+    height: 4px;
+    border-radius: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+    background: rgba(76, 112, 108, .1);
+    transition: background .5s;
+  }
+  .kiva-anchor__item__text {
+    .ellipsis-single(150px);
+    display: inline-block;
+    vertical-align: middle;
+    visibility: hidden;
+    margin-right: 14px;
+    transition: visibility .1s;
+  }
+}
+
+.kiva-anchor:hover {
+  background: rgba(76, 112, 108, .1);
+  text-decoration: none;
+  .kiva-anchor__item__circle {
+    background: @mainColorLight;
+  }
+  .kiva-anchor__item__text {
+    visibility: visible;
+    color: @mainColorLight;
+  }
+}
+.kiva-anchor__item:hover {
+  text-decoration: none;
+  .kiva-anchor__item__circle {
+    background: @mainColorHeavy;
+  }
+  .kiva-anchor__item__text {
+    visibility: visible;
+    color: @mainColorHeavy;
+  }
+}

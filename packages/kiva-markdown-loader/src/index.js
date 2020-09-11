@@ -5,6 +5,7 @@ const highlight = require('highlight.js')
 
 const htmlToVue = require('./htmlToVue')
 const cardWrapper = require('./kivaCardWrapper')
+const addAuthor = require('./addAuthor')
 
 const markdownParser = new MarkdownIt({
   html: true,
@@ -44,6 +45,8 @@ module.exports = function(source) {
   // TODO: 为何重复调用 3 次
   // console.log('=== kiva markdown loader ===', frontMatter)
   let htmlString = markdownParser.render(source)
+
+  htmlString = addAuthor(htmlString)
 
   if (options.useCardWrapper) htmlString = cardWrapper(htmlString)
 

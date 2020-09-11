@@ -43,3 +43,20 @@
   height: 6px;
   background-color: transparent;
 }
+
+// 溢出隐藏
+.ellipsis-single(@width) {
+  width: @width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ellipsis-muli(@width: 150px, @lines: 2) {
+  width: @width;
+  word-wrap: break-word;         /* 内容存在英语或数字时强制换行 */
+  overflow: hidden;             /* 隐藏溢出部分 */
+  text-overflow: ellipsis;      /* 显示省略符号来代表被隐藏的文本 */
+  display: -webkit-box;         /* 将对象作为弹性伸缩盒子模型显示 */
+  -webkit-box-orient: vertical; /* 设置盒子内排列顺序为纵向 */
+  -webkit-line-clamp: @lines;        /* 限制块元素显示的文本的行数 */
+}
