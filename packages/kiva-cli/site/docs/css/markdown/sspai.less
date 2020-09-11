@@ -163,7 +163,8 @@ pre {
 	/* color: #666; */
 	font-family: Courier, sans-serif;
 	border-radius: 6px;
-	overflow: hidden;
+  overflow: hidden;
+  position: relative;
 }
 code {
 	/* color: #c7254e; */
@@ -175,10 +176,19 @@ code {
 p > code {
 	.inline-code();
 }
-pre > code {
+pre > code.hljs {
 	display: block;
-	overflow-x: auto;
+  overflow-x: auto;
+  background: #f8f8f8;
 }
+pre > code.hljs[lang]::before {
+  content: attr(lang);
+  position: absolute;
+  right: 8px;
+  top: 2px;
+  color: #ababab;
+}
+
 figure {
 	margin: 1em 0;
 }
@@ -271,7 +281,7 @@ a:target {
 table {
 	width: 100%; /*表格宽度*/
 	max-width: 65em; /*表格最大宽度，避免表格过宽*/
-	border: 1px solid #dedede; /*表格外边框设置*/
+	border: 1px solid #bebebe; /*表格外边框设置*/
 	margin: 15px auto; /*外边距*/
 	border-collapse: collapse; /*使用单一线条的边框*/
 	empty-cells: show; /*单元格无内容依旧绘制边框*/
@@ -281,7 +291,7 @@ table {
 table th,
 table td {
 height: 35px; /*统一每一行的默认高度*/
-border: 1px solid #dedede; /*内部边框样式*/
+border: 1px solid #d3d3d3; /*内部边框样式*/
 padding: 0 10px; /*内边距*/
 }
 

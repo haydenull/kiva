@@ -11,31 +11,27 @@ const markdownParser = new MarkdownIt({
   linkify: true,
   breaks: true,
   highlight: (str, lang) => {
-    // let res = `
-    //   <pre class="hljs" lang="${lang}">
-    //   <code>${str}<code>
-    // </pre>
-    // `
+    // let res = `<pre class="hljs"><code lang="${lang}">${str}<code></pre>`
     // if (lang && highlight.getLanguage(lang)) {
     //   try {
     //     // return highlight.highlight(lang, str).value
-    //     res = `
-    //       <pre class="hljs" lang="${lang}">
-    //         <code>${highlight.highlight(lang, str, true).value}<code>
-    //       </pre>
-    //     `
+    //     // 此处不可换行,否则会重复生成 pre code 标签
+    //     res = `<pre class="hljs"><code lang="${lang}">${highlight.highlight(lang, str, true).value}<code></pre>`
     //   } catch (error) {}
     // }
     // return res
+
+
     if (lang && highlight.getLanguage(lang)) {
       try {
-        return '<pre class="hljs"><code>' +
-        highlight.highlight(lang, str, true).value +
-               '</code></pre>';
+        return '<pre><code class="hljs" lang="' + lang + '">'
+        + highlight.highlight(lang, str, true).value
+        + '</code></pre>';
       } catch (__) {}
     }
 
     return '<pre class="hljs"><code>' + markdownParser.utils.escapeHtml(str) + '</code></pre>';
+
   },
 })
 
