@@ -2,6 +2,8 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
+const genStyleLoaders = require('./util/genStyleLoaders')
+
 module.exports = function() {
   const baseConfig = {
     module: {
@@ -12,49 +14,11 @@ module.exports = function() {
         },
         {
           test: /\.css$/,
-          loader: [
-            {
-              loader: MiniCssExtractPlugin.loader,
-              options: {
-                hmr: true,
-                reloadAll: true,
-              },
-            },
-            // 'style-loader',
-            {
-              loader: 'css-loader',
-              options: {
-                sourceMap: true,
-              }
-            },
-          ]
+          loader: genStyleLoaders(),
         },
         {
           test: /\.less$/,
-          loader: [
-            {
-              loader: MiniCssExtractPlugin.loader,  // 将 css 提取为单独的文件
-              options: {
-                hmr: true,
-                reloadAll: true,
-              },
-            },
-            // MiniCssExtractPlugin.loader,       // 将 css 提取为单独的文件
-            // style-loader 与 MiniCssExtractPlugin.loader 冲突，会产生 documen is not defined 错误
-            // 'style-loader',                 // creates style nodes from JS strings
-            {
-              loader: 'css-loader',            // translates CSS into CommonJS
-              options: {
-                sourceMap: true,
-              }
-            },
-            {
-              loader: 'less-loader',             // compiles Less to CSS
-              options: {
-                sourceMap: true,
-              }
-            },
-          ]
+          loader: genStyleLoaders('less-loader'),
         },
         {
           test: /\.(png|jpe?g|gif|webp|bmp)(\?.*)?$/,

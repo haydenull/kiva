@@ -24,8 +24,12 @@
       </div>
 
       <!-- simlator right -->
-      <div class="simlator">
-        <iframe class="w100 h100" :src="$store.state.debugSiteUrl" frameborder="0"></iframe>
+      <div class="simlator flex flex-column">
+        <div class="simlatore__header">
+          <img src="../common/assets/img/phtitle.png" alt="" srcset="">
+          <input class="border-box" type="text" :value="'http://localhost:3002/' + $store.state.debugSiteUrl" readonly>
+        </div>
+        <iframe class="w100 flex1" :src="$store.state.debugSiteUrl" frameborder="0"></iframe>
       </div>
 
     </div>

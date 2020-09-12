@@ -29,11 +29,11 @@ html, body {
 .nav {
   width: 220px;
   background-color: #fff;
-  box-shadow: #ebedf0 0 4px 12px;
+  box-shadow: 0 4px 12px @shadowColor;
   overflow-y: scroll;
 }
 .content {
-  padding: 30px;
+  padding: 30px 20px 30px 30px;
   overflow-y: scroll;
 
   .kiva-markdown-card {
@@ -41,16 +41,42 @@ html, body {
     padding: 24px;
     border-radius: 12px;
     background-color: #fff;
-    box-shadow: 0 8px 12px #ebedf0;
+    box-shadow: 0 8px 12px @shadowColor;
   }
 }
 .simlator {
   width: 375px;
   max-height: 667px;
   background-color: #fafafa;
-  border-radius: 12px;
-  box-shadow: #ebedf0 0 4px 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px #ccdcd9;
   margin: 30px 30px 10px 10px;
+  overflow: hidden;
+  .simlatore__header {
+    width: auto;
+    background-color: @mainColor;
+    padding-bottom: 10px;
+    text-align: center;
+
+    img {
+      width: 90%;
+      display: inline-block;
+      margin-bottom: 0;
+    }
+    input {
+      width: 93%;
+      height: 26px;
+      border-radius: 6px;
+      border-style: none;
+      background: @shadowColor;
+      padding: 0 8px;
+    }
+    input:focus {
+      border: none;
+      outline: none;
+    }
+
+  }
 }
 
 // 左侧导航栏
@@ -107,7 +133,8 @@ html, body {
 }
 
 .kiva-anchor:hover {
-  background: rgba(76, 112, 108, .1);
+  background: rgba(240,244,244, .9);
+  box-shadow: 0 4px 12px #ccdcd9;
   text-decoration: none;
   .kiva-anchor__item__circle {
     background: @mainColorLight;

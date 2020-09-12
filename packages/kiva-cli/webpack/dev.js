@@ -2,7 +2,6 @@ const path = require('path')
 const webpack = require('webpack')
 const { merge } = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const Webpackbar = require('webpackbar')
 const chalk = require('chalk')
 const FriendlyErrorsPlugin = require('friendly-errors-plugin')
@@ -19,19 +18,6 @@ module.exports = function() {
     },
     module: {
       rules: [
-        // {
-        //   test: /\.vue$/,
-        //   loader: 'vue-loader',
-        // },
-        // {
-        //   test: /\.less$/,
-        //   loader: [
-        //     require.resolve('vue-style-loader'),
-        //     require.resolve('style-loader'),
-        //     require.resolve('css-loader'),
-        //     require.resolve('less-loader'),
-        //   ]
-        // },
         {
           test: /\.md$/,
           loader: [
@@ -65,10 +51,6 @@ module.exports = function() {
         filename: 'index.html',
         chunks: ['chunks', 'docs'],
         inject: true,
-      }),
-      new MiniCssExtractPlugin({
-        filename: 'css/[name].[hash].css',
-        chunkFilename: 'css/[name].chunk.css',
       }),
       new FriendlyErrorsPlugin({
         compilationSuccessInfo: {
