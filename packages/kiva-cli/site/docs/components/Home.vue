@@ -18,7 +18,8 @@
         class="kiva-anchor__item"
         v-for="anchor in anchors"
         :key="anchor.hash"
-        :href="'/#' + anchor.hash"
+        href="javascript: void(0);"
+        @click="scrollToAnchor(anchor.hash)"
       >
         <span class="kiva-anchor__item__text">{{ anchor.title }}</span>
         <span class="kiva-anchor__item__circle"></span>
@@ -53,12 +54,15 @@ export default {
   },
   methods: {
     scrollToAnchor(hash) {
-      if (hash) {
-        this.$router.push({
-          path: this.$route.path,
-          hash,
+      const authorTargetElement = document.getElementById(hash)
+      if (authorTargetElement) {
+        // https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView
+        authorTargetElement.scrollIntoView({
+          block: 'start',
+          behavior: 'smooth',
         })
       }
+
     }
   }
 }

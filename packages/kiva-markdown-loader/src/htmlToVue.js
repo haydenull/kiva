@@ -1,5 +1,6 @@
 const escape = require('js-string-escape')
 
+// https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollIntoView
 module.exports = function(htmlString, config) {
   htmlString = escape(htmlString)
   return `
@@ -13,7 +14,8 @@ module.exports = function(htmlString, config) {
             class="kiva-anchor__item"
             v-for="anchor in anchors"
             :key="anchor.hash"
-            :href="'/#' + anchor.hash"
+            href="javascript: void(0);"
+            @click="scrollToAnchor(anchor.hash)"
           >
             <span class="kiva-anchor__item__text">{{ anchor.title }}</span>
             <span class="kiva-anchor__item__circle"></span>
@@ -42,6 +44,17 @@ module.exports = function(htmlString, config) {
             }
           })
           .filter(item => item.hash && item.title)
+        },
+        methods: {
+          scrollToAnchor(hash) {
+            const authorTargetElement = document.getElementById(hash)
+            if (authorTargetElement) {
+              authorTargetElement.scrollIntoView({
+                block: 'start',
+                behavior: 'smooth',
+              })
+            }
+          }
         },
 
       }
