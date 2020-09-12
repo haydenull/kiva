@@ -4,7 +4,12 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "test": "node scripts/test.js"
+  },
   "devDependencies": {
-    "lerna": "^3.22.1"
+    "jest": "^26.4.2",
+    "lerna": "^3.22.1",
+    "minimist": "^1.2.5"
   }
 }
