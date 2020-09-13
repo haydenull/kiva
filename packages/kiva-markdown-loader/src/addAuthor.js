@@ -11,7 +11,7 @@ module.exports = function(htmlString) {
     const id = pinyin($2, {
       style: pinyin.STYLE_NORMAL
     }).join('-')
-    return `<h2 id="${id}" ${$1}>${$2}</h2>`
+    return `<h2 id="${id}"${$1}>${$2}</h2>`
   })
 
 
