@@ -26,8 +26,8 @@
       <!-- simlator right -->
       <div class="simlator flex flex-column">
         <div class="simlatore__header">
-          <img src="../common/assets/img/phtitle.png" alt="" srcset="">
-          <input class="border-box" type="text" :value="'http://localhost:3002/' + $store.state.debugSiteUrl" readonly>
+          <img src="../common/assets/img/phtitle.png" alt="status bar" />
+          <input class="border-box" type="text" :value="simlatorShowUrl" readonly />
         </div>
         <iframe class="w100 flex1" :src="$store.state.debugSiteUrl" frameborder="0"></iframe>
       </div>
@@ -45,7 +45,13 @@ export default {
   },
   data () {
     return {
-      navList: this.$store.docs
+      navList: this.$store.docs,
+      urlOrigin: window.location.origin,
+    }
+  },
+  computed: {
+    simlatorShowUrl() {
+      return `${window.location.origin}/${this.$store.state.debugSiteUrl}`
     }
   }
 }
