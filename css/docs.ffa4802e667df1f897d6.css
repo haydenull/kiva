@@ -1,0 +1,590 @@
+/*
+
+Colorbrewer theme
+Original: https://github.com/mbostock/colorbrewer-theme (c) Mike Bostock <mike@ocks.org>
+Ported by Fabrício Tavares de Oliveira
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #fff;
+}
+
+.hljs,
+.hljs-subst {
+  color: #000;
+}
+
+.hljs-string,
+.hljs-meta,
+.hljs-symbol,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-addition {
+  color: #756bb1;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #636363;
+}
+
+.hljs-number,
+.hljs-regexp,
+.hljs-literal,
+.hljs-bullet,
+.hljs-link {
+  color: #31a354;
+}
+
+.hljs-deletion,
+.hljs-variable {
+  color: #88f;
+}
+
+
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-title,
+.hljs-section,
+.hljs-built_in,
+.hljs-doctag,
+.hljs-type,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-strong {
+  color: #3182bd;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-attribute {
+  color: #e6550d;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+html,
+body {
+  color: #323233;
+  font-size: 16px;
+  background-color: #f7f8fa;
+  -webkit-font-smoothing: antialiased;
+}
+.flex {
+  display: flex;
+}
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+.flex-main-center {
+  justify-content: center;
+}
+.flex-cross-center {
+  align-items: center;
+}
+.flex1 {
+  flex: 1;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-column {
+  flex-direction: column;
+}
+.w100 {
+  width: 100%;
+}
+.h100 {
+  height: 100%;
+}
+.border-box {
+  box-sizing: border-box;
+}
+.scroll-transparent:hover::-webkit-scrollbar-thumb {
+  background-color: #b9b9b9;
+  border-radius: 6px;
+}
+.scroll-transparent::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+/* Sspai Web Theme A theme to [sspai](ssp.ai) default theme. Developed by Codegass(wchweichenhao@gmial.com) & Yves(yves@sspai.com) Download Cuto on the App Store and Google Play! */
+body {
+  font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
+  color: #34495e;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6rem;
+  letter-spacing: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+h1 {
+  font-size: 2.2em;
+  font-weight: 700;
+  line-height: 1.1;
+  padding-top: 16px;
+  margin-bottom: 26px;
+}
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.5em;
+  margin-top: 2.2em;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-size: 1.4em;
+  margin: 40px 10px 20px 0;
+  padding-left: 9px;
+  border-left: 6px solid #629087;
+  font-weight: 700;
+  line-height: 1.6;
+}
+h3 {
+  font-weight: 700;
+  font-size: 1.2em;
+  line-height: 1.4;
+  margin: 10px 0;
+}
+h4 {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.1em;
+  line-height: 1.4;
+  margin: 10px 0 5px;
+  padding-top: 10px;
+}
+h5,
+h6 {
+  font-size: 0.9em;
+}
+h5 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+h6 {
+  font-weight: normal;
+  color: #AAA;
+}
+img {
+  width: 100%;
+  border-radius: 5px;
+  display: block;
+  margin-bottom: 15px;
+  height: auto;
+}
+dl,
+ol,
+ul {
+  margin-top: 12px;
+  margin-bottom: 20px;
+  padding-left: 5%;
+  line-height: 1.8;
+}
+p {
+  margin: 0 0 20px;
+  padding: 0;
+  line-height: 1.8;
+}
+a {
+  color: #629087;
+  text-decoration: none;
+}
+a:hover {
+  color: #4c706c;
+  text-decoration: underline;
+}
+a:focus {
+  outline-offset: -2px;
+}
+blockquote {
+  font-size: 1em;
+  font-style: normal;
+  padding: 30px 38px;
+  margin: 0 0 15px;
+  position: relative;
+  line-height: 1.8;
+  text-indent: 0;
+  border: none;
+  color: #888;
+}
+blockquote:before {
+  content: "“";
+  left: 12px;
+  top: 0;
+  color: #E0E0E0;
+  font-size: 4em;
+  font-family: Arial, serif;
+  line-height: 1em;
+  font-weight: 700;
+  position: absolute;
+}
+blockquote:after {
+  content: "”";
+  right: 12px;
+  bottom: -26px;
+  color: #E0E0E0;
+  font-size: 4em;
+  font-family: Arial, serif;
+  line-height: 1em;
+  font-weight: 700;
+  position: absolute;
+  bottom: -31px;
+}
+strong,
+dfn {
+  font-weight: 700;
+}
+em,
+dfn {
+  font-style: italic;
+  font-weight: 400;
+}
+del {
+  text-decoration: line-through;
+}
+/* pre {text-align:left; overflow-x: scroll; color: #257fa0; background: #f6f6f6; padding: 10pt 15pt; border-radius: 3px; border: solid 1px #e2e2e2;} */
+pre {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  display: block;
+  background: #f8f8f8;
+  padding: 10px 20px;
+  border: none;
+  margin-bottom: 25px;
+  /* color: #666; */
+  font-family: Courier, sans-serif;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+code {
+  /* color: #c7254e; */
+  /* background-color: #f9f2f4; */
+  border-radius: 6px;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  /* font-size: 90%; */
+}
+p > code {
+  color: #c7264e;
+  background-color: #f9f2f4;
+  font-size: 0.95em;
+  border-radius: 3px;
+  padding: 0.065em 0.4em;
+}
+pre > code.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #f8f8f8;
+}
+pre > code.hljs[lang]::before {
+  content: attr(lang);
+  position: absolute;
+  right: 8px;
+  top: 2px;
+  color: #ababab;
+}
+figure {
+  margin: 1em 0;
+}
+figcaption {
+  font-size: 0.75em;
+  padding: 0.5em 2em;
+  margin-bottom: 2em;
+}
+figure img {
+  margin-bottom: 0px;
+}
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+ol p,
+ul p {
+  margin-bottom: 0px;
+}
+li {
+  margin-bottom: 0.75em;
+  margin-top: 0.75em;
+}
+ol#footnotes {
+  font-size: 0.95em;
+  padding-top: 1em;
+  margin-top: 1em;
+  margin-left: 0;
+  border-top: 1px solid #eaeaea;
+  counter-reset: footer-counter;
+  list-style: none;
+  color: #555;
+  padding-left: 5%;
+  margin: 20px 0;
+}
+ol#footnotes li {
+  margin-bottom: 10px;
+  margin-left: 16px;
+  font-weight: 400;
+  line-height: 2;
+  list-style-type: none;
+}
+ol#footnotes li:before {
+  content: counter(footer-counter) ". ";
+  counter-increment: footer-counter;
+  font-weight: 800;
+  font-size: 0.95em;
+}
+@keyframes highfade {
+  0% {
+    background-color: none;
+  }
+  20% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: none;
+  }
+}
+@-webkit-keyframes highfade {
+  0% {
+    background-color: none;
+  }
+  20% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: none;
+  }
+}
+a:target,
+ol#footnotes li:target,
+sup a:target {
+  animation-name: highfade;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-name: highfade;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in-out;
+}
+a:target {
+  border: 0;
+  outline: 0;
+  animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in-out;
+}
+table {
+  width: 100%;
+  /*表格宽度*/
+  max-width: 65em;
+  /*表格最大宽度，避免表格过宽*/
+  border: 1px solid #bebebe;
+  /*表格外边框设置*/
+  margin: 15px auto;
+  /*外边距*/
+  border-collapse: collapse;
+  /*使用单一线条的边框*/
+  empty-cells: show;
+  /*单元格无内容依旧绘制边框*/
+  border-radius: 6px;
+  overflow: hidden;
+}
+table th,
+table td {
+  height: 35px;
+  /*统一每一行的默认高度*/
+  border: 1px solid #d3d3d3;
+  /*内部边框样式*/
+  padding: 0 10px;
+  /*内边距*/
+}
+table th {
+  font-weight: bold;
+  /*加粗*/
+  text-align: center !important;
+  /*内容居中，加上 !important 避免被 Markdown 样式覆盖*/
+  background: rgba(40, 91, 65, 0.36);
+  /*背景色*/
+}
+table tbody tr:nth-child(2n) {
+  background: rgba(40, 91, 65, 0.1);
+}
+table tr:hover {
+  background: rgba(40, 91, 65, 0.2);
+}
+table tr:nth-child(2n):hover {
+  background: rgba(40, 91, 65, 0.2);
+}
+table th {
+  white-space: nowrap;
+  /*表头内容强制在一行显示*/
+}
+table td:nth-child(1) {
+  white-space: nowrap;
+}
+table code {
+  color: #c7264e;
+  background-color: #f9f2f4;
+  font-size: 0.95em;
+  border-radius: 3px;
+  padding: 0.065em 0.4em;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+.header {
+  height: 60px;
+  padding: 0 30px;
+  background-color: #4c706c;
+}
+.header span a {
+  color: #fff;
+  font-size: 22px;
+}
+.container {
+  overflow: hidden;
+}
+.nav {
+  width: 220px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px #e8efee;
+  overflow-y: scroll;
+}
+.content {
+  padding: 30px 20px 30px 30px;
+  overflow-y: scroll;
+}
+.content .kiva-markdown-card {
+  margin-bottom: 24px;
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 8px 12px #e8efee;
+}
+.simlator {
+  width: 375px;
+  max-height: 667px;
+  background-color: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px #ccdcd9;
+  margin: 30px 30px 10px 10px;
+  overflow: hidden;
+}
+.simlator .simlatore__header {
+  width: auto;
+  background-color: #4c706c;
+  padding-bottom: 10px;
+  text-align: center;
+}
+.simlator .simlatore__header img {
+  width: 90%;
+  display: inline-block;
+  margin-bottom: 0;
+}
+.simlator .simlatore__header input {
+  width: 93%;
+  height: 26px;
+  border-radius: 6px;
+  border-style: none;
+  background: #e8efee;
+  padding: 0 8px;
+}
+.simlator .simlatore__header input:focus {
+  border: none;
+  outline: none;
+}
+.nav__group {
+  margin-bottom: 16px;
+}
+.nav__title {
+  padding: 8px 0 8px 30px;
+  color: #455a64;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 28px;
+}
+.nav__item a {
+  display: block;
+  padding: 8px 0 8px 30px;
+  color: #455a64;
+  font-size: 14px;
+  line-height: 28px;
+}
+.kiva-anchor {
+  position: fixed;
+  bottom: 100px;
+  right: 430px;
+  width: 200px;
+  text-align: right;
+  padding: 10px 10px;
+  border-radius: 8px;
+}
+.kiva-anchor__item .kiva-anchor__item__circle {
+  display: inline-block;
+  width: 16px;
+  height: 4px;
+  border-radius: 20px;
+  vertical-align: middle;
+  cursor: pointer;
+  background: rgba(76, 112, 108, 0.1);
+  transition: background 0.5s;
+}
+.kiva-anchor__item .kiva-anchor__item__text {
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: middle;
+  visibility: hidden;
+  margin-right: 14px;
+  transition: visibility 0.1s;
+}
+.kiva-anchor:hover {
+  background: rgba(240, 244, 244, 0.86);
+  box-shadow: 0 4px 12px #ccdcd9;
+  text-decoration: none;
+}
+.kiva-anchor:hover .kiva-anchor__item__circle {
+  background: #629087;
+}
+.kiva-anchor:hover .kiva-anchor__item__text {
+  visibility: visible;
+  color: #629087;
+}
+.kiva-anchor__item:hover {
+  text-decoration: none;
+}
+.kiva-anchor__item:hover .kiva-anchor__item__circle {
+  background: #1a3c2a;
+}
+.kiva-anchor__item:hover .kiva-anchor__item__text {
+  visibility: visible;
+  color: #1a3c2a;
+}
+
