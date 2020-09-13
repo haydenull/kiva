@@ -71,7 +71,7 @@ module.exports = function() {
     ],
     output: {
       path: path.resolve(process.cwd(), './site'),
-      publicPath: '/',
+      publicPath: './',
       filename: 'js/[name].js',
       chunkFilename: 'js/[name].chunk.js',
       pathinfo: true,
