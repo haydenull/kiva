@@ -38,4 +38,12 @@ program
     require('../scripts/build')(type)
   })
 
+// deploy
+program
+  .command('deploy')
+  .description('build lib')
+  .action((type, cmd) => {
+    require('../scripts/deploy')()
+  })
+
 program.parse(process.argv)

@@ -15,7 +15,8 @@
     "build:component": "kiva build component",
     "build:demo": "kiva build demo",
     "build:site": "kiva build site",
-    "build": "npm run build:all && npm run build:component && npm run build:site"
+    "build": "npm run build:all && npm run build:component && npm run build:site",
+    "deploy": "kiva deploy"
   },
   "publishConfig": {
     "access": "public"
