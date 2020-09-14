@@ -4,21 +4,9 @@ const chalk = require('chalk')
 const fs = require('fs-extra')
 const path = require('path')
 const spawn = require('../utils/spawn')
+const kivaConfig = require('../config')
+const ftp = require('../utils/ftp')
 
-let deployConfig = {
-  type: 'gh-pages',
-  dir: './site',
-  rootDir: './',
-}
-
-try {
-  const configFilePath = path.resolve(process.cwd(), 'kiva.config.js')
-  fs.accessSync(configFilePath)
-  const kivaConfig = require(configFilePath)
-  deployConfig = Object.assign({}, deployConfig, kivaConfig.deploy || {})
-} catch (err) {
-  console.log('未找到 kiva 配置文件', err)
-}
 
 function deployGhPages(dir, rootDir) {
   return new Promise(async (resolve, reject) => {
@@ -61,16 +49,20 @@ function deployGhPages(dir, rootDir) {
 
 }
 
+function deployFtp(localPath, remotePath) {
+  return ftp.uploadFiles(localPath, remotePath)
+}
+
 
 async function deploy() {
-  const { type, dir, rootDir } = deployConfig
+  const { type, dir, rootDir, ftp } = kivaConfig.deploy
   console.log('start deploy', type)
   console.log()
 
   if (type === 'gh-pages') {
     return deployGhPages(dir, rootDir)
   } else if (type === 'ftp') {
-
+    return deployFtp(path.resolve(process.cwd(), dir), ftp.remotePath)
   }
 
   throw new Error('unknown deploy type')

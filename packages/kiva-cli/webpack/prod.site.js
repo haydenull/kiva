@@ -64,7 +64,7 @@ module.exports = function() {
         logLevel: 'WARNING',
       }),
       new MiniCssExtractPlugin({
-        filename: 'css/[name].[hash].css',
+        filename: 'css/[name].css',
         chunkFilename: 'css/[name].chunk.css',
       }),
       new CleanWebpackPlugin(),
@@ -72,7 +72,7 @@ module.exports = function() {
     output: {
       path: path.resolve(process.cwd(), './site'),
       publicPath: './',
-      filename: 'js/[name].[hash].js',
+      filename: 'js/[name].js',
       chunkFilename: 'js/[name].chunk.js',
       pathinfo: true,
     },

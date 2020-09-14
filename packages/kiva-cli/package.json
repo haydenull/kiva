@@ -38,6 +38,7 @@
     "file-loader": "^6.1.0",
     "friendly-errors-plugin": "^1.1.2",
     "fs-extra": "^9.0.1",
+    "ftp": "^0.3.10",
     "glob": "^7.1.6",
     "highlight.js": "^10.2.0",
     "html-webpack-plugin": "^4.4.1",
