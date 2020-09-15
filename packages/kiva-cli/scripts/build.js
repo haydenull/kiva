@@ -2,6 +2,8 @@ process.env.NODE_ENV = 'production'
 
 const chalk = require('chalk')
 const webpack = require('webpack')
+const path = require('path')
+const spawn = require('../utils/spawn')
 
 
 async function build(type) {
@@ -12,7 +14,7 @@ async function build(type) {
   // console.log('==== webpack config ===', getWebpackConfig())
   const compiler = webpack(getWebpackConfig())
 
-  return new Promise((reslove, reject) => {
+  return new Promise((resolve, reject) => {
     compiler.run((err, status) => {
       if (err) {
         return reject(err)
@@ -21,7 +23,11 @@ async function build(type) {
       if (resFormated.errors.length) {
         return reject(resFormated.errors.join('\n\n'))
       }
-      return reslove(resFormated)
+      if (type === 'component') {
+        const gulpfile = path.resolve(__dirname, '../lib/buildStyle.js')
+        spawn('gulp', [ '--gulpfile', gulpfile ])
+      }
+      return resolve(resFormated)
     })
   })
 }
