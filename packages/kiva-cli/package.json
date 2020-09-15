@@ -45,6 +45,7 @@
     "glob": "^7.1.6",
     "gulp": "^4.0.2",
     "gulp-less": "^4.0.1",
+    "gulp-rename": "^2.0.0",
     "highlight.js": "^10.2.0",
     "html-webpack-plugin": "^4.4.1",
     "less": "^3.12.2",

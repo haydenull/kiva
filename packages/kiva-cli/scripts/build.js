@@ -25,7 +25,16 @@ async function build(type) {
       }
       if (type === 'component') {
         const gulpfile = path.resolve(__dirname, '../lib/buildStyle.js')
-        spawn('gulp', [ '--gulpfile', gulpfile ])
+
+        // gulp 默认会自动切换环境到配置文件所在的目录，需要使用 --cwd 显示声明
+        // https://github.com/gulpjs/gulp/issues/523
+        return spawn('gulp', [
+          '--gulpfile',
+          gulpfile,
+          '--cwd',
+          process.cwd(),
+        ],
+        { cwd: process.cwd() })
       }
       return resolve(resFormated)
     })

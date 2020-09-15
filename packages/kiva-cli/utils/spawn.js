@@ -4,6 +4,8 @@ module.exports = function(command, args = [], options = {}) {
   return new Promise((resolve, reject) => {
     if (!command) reject('command is required')
 
+    console.log('yyyyyyyyyy', options)
+
     const task = spawn(command, args, options)
 
     if (task.stdout) {
