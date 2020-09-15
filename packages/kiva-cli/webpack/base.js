@@ -30,6 +30,25 @@ module.exports = function() {
           }
         },
         {
+          test: /\.tsx?$/,
+          loader: 'ts-loader',
+          exclude: /node_modules/,
+          options: {
+            appendTsSuffixTo: [/\.vue$/],
+            transpileOnly: true,
+            compilerOptions: {
+              // "noImplicitAny": false,
+              "module": "es6",
+              // "target": "es6",
+              // "jsx": "react",
+              // "allowJs": true,
+              // "moduleResolution": "Node",
+              // "experimentalDecorators": true,
+              // "lib": ["es2017", "dom"],
+            }
+          }
+        },
+        {
           test: /\.(js|jsx)$/,
           loader: 'babel-loader',
           options: {

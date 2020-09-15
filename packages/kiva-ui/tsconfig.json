@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "outDir": "lib/",
+    "noImplicitAny": false,
+    "module": "es6",
+    "target": "es6",
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "Node",
+    "experimentalDecorators": true,
+    "lib": ["es2017", "dom"],
+    "declaration": true,
+    // "declarationDir": "types"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": ["node_modules"]
+}
