@@ -8,14 +8,19 @@ const Webpackbar = require('webpackbar')
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 
 const baseConfig = require('./base')()
+const compressConfig = require('./util/genCompress')
 
 function getEntries() {
   const glob = require('glob')
   const basePath = path.resolve(process.cwd(), './src')
-  const componentFiles = glob.sync(`${basePath}/components/**/index.js`)
+  // glob 花括号展开式  a{/b/c,bcd} 将展开为 a/b/c 与 abcd
+  // https://juejin.im/post/6844903906024095758
+  const componentFiles = glob.sync(`${basePath}/components/**/index.{js,ts}`)
+  console.log('=== componentFiles ===', componentFiles)
+  if (componentFiles.length <= 0) throw new Error('未检测到合法组件,请检查目录结构及文件名 \n')
   let res = {}
   componentFiles.forEach(filePath => {
-    const key = filePath.replace(/.*src\/components\/([^\/]*)\/index\.js$/, (res, $1) => $1)
+    const key = filePath.replace(/.*src\/components\/([^\/]*)\/index\.(js|ts)$/, (res, $1) => $1)
     // 设置打包后的目录及文件名
     res[`/${key}/index`] = filePath
   })
@@ -65,6 +70,11 @@ module.exports = function() {
       }),
       new CleanWebpackPlugin(),
     ],
+    optimization: {
+      minimizer: [
+        ...compressConfig,
+      ],
+    },
     output: {
       path: path.resolve(process.cwd(), 'dist/components'),
       publicPath: '/dist/',
