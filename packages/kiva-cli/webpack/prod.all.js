@@ -15,8 +15,7 @@ module.exports = function() {
   const prodConfig = {
     mode: 'production',
     entry: {
-      ui: path.resolve(__dirname, '../site/debug/entry/ui.js'),
-      // demos: path.resolve(__dirname, '../site/debug/main.js'),
+      'kiva-ui': path.resolve(__dirname, '../site/debug/entry/ui.js'),
     },
     module: {
       rules: [

@@ -44,8 +44,8 @@ function taskBuildPackageStyle() {
 
 // 编译公共 css
 function taskBuildCommonStyle() {
-  const destDir = path.resolve(process.cwd(), './lib/style')
-  return gulp.src(`${basePath}/style/index.{css,less}`)
+  const destDir = path.resolve(process.cwd(), './lib/styles')
+  return gulp.src(`${basePath}/styles/index.{css,less}`)
     .pipe(less())
     .pipe(gulp.dest(destDir))
 }

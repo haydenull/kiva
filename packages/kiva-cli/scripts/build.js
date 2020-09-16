@@ -12,7 +12,7 @@ async function build(type) {
 
   // 组件打包使用 gulp
   if (type === 'component') {
-    const gulpfile = path.resolve(__dirname, '../lib/buildStyle.js')
+    const gulpfile = path.resolve(__dirname, '../gulp/buildComponent.js')
 
     // gulp 默认会自动切换环境到配置文件所在的目录，需要使用 --cwd 显示声明
     // https://github.com/gulpjs/gulp/issues/523

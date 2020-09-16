@@ -1,7 +1,7 @@
 module.exports = {
   // 文档站点部署配置
   deploy: {
-    type: 'ftp',   // 可选 ftp  gh-pages
+    type: 'gh-pages',   // 可选 ftp  gh-pages
     dir: './site',      // 默认值 ./site
     rootDir: '../../',  // git subtree 要求在项目根目录执行
     ftp: {

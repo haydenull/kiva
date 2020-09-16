@@ -2,6 +2,10 @@
   color: aqua;
 }
 
+.button {
+  color: aqua;
+}
+
 
 .btn_refresh {
   flex-direction: row;
@@ -42,6 +46,31 @@
   font-size:.28rem;
 }
 
+
+.button {
+  color: red;
+}
+
+.list {
+  color: blue;
+}
+.common-color {
+  color: aliceblue;
+}
+.common-index {
+  color: bisque;
+}
+
+.test {
+  background: red;
+  padding: 10px;
+}
+.test span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: sandybrown;
+}
 
 .test {
   background: red;
