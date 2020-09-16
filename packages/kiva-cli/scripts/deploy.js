@@ -33,7 +33,6 @@ function deployGhPages(dir, rootDir) {
     .then(() => {
       // git subtree push 要求文件夹为相对路径，且需要在根路径执行
       dir = path.relative(rootDir, dir)
-      console.log('=== deploy push ===', dir, rootDir)
       return spawn('git', [
         'subtree',
         'push',
