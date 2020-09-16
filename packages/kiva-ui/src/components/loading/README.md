@@ -21,7 +21,7 @@ Vue.use(List)
 ### 自定义颜色
 ```html
 <template>
-  <kiva-loading color="#999">加载中...</kiva-loading>
+  <kiva-loading color="#e88b00">加载中...</kiva-loading>
 </template>
 ```
 
@@ -32,17 +32,17 @@ Vue.use(List)
 </template>
 ```
 
+### 默认表现为块元素
+```html
+<template>
+  <kiva-loading>加载中...</kiva-loading>
+</template>
+```
+
 ### 表现为行内元素
 ```html
 <template>
   <kiva-loading mode="inline">加载中...</kiva-loading>
-</template>
-```
-
-### 表现为块元素
-```html
-<template>
-  <kiva-loading>加载中...</kiva-loading>
 </template>
 ```
 
