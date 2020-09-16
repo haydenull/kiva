@@ -10,11 +10,27 @@ async function build(type) {
   console.log('start build', type)
   console.log()
 
+  // 组件打包使用 gulp
+  if (type === 'component') {
+    const gulpfile = path.resolve(__dirname, '../lib/buildStyle.js')
+
+    // gulp 默认会自动切换环境到配置文件所在的目录，需要使用 --cwd 显示声明
+    // https://github.com/gulpjs/gulp/issues/523
+    const child = spawn('gulp', [
+      '--gulpfile',
+      gulpfile,
+      '--cwd',
+      process.cwd(),
+    ],
+    { cwd: process.cwd() })
+    return child
+  }
+
   const getWebpackConfig = require(`../webpack/prod.${type}`)
-  // console.log('==== webpack config ===', getWebpackConfig())
   const compiler = webpack(getWebpackConfig())
 
   return new Promise((resolve, reject) => {
+
     compiler.run((err, status) => {
       if (err) {
         return reject(err)
@@ -22,19 +38,6 @@ async function build(type) {
       const resFormated = status.toJson({ all: false, warnings: true, errors: true })
       if (resFormated.errors.length) {
         return reject(resFormated.errors.join('\n\n'))
-      }
-      if (type === 'component') {
-        const gulpfile = path.resolve(__dirname, '../lib/buildStyle.js')
-
-        // gulp 默认会自动切换环境到配置文件所在的目录，需要使用 --cwd 显示声明
-        // https://github.com/gulpjs/gulp/issues/523
-        return spawn('gulp', [
-          '--gulpfile',
-          gulpfile,
-          '--cwd',
-          process.cwd(),
-        ],
-        { cwd: process.cwd() })
       }
       return resolve(resFormated)
     })

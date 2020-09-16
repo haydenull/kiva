@@ -4,8 +4,6 @@ module.exports = function(command, args = [], options = {}) {
   return new Promise((resolve, reject) => {
     if (!command) reject('command is required')
 
-    console.log('yyyyyyyyyy', options)
-
     const task = spawn(command, args, options)
 
     if (task.stdout) {
@@ -21,7 +19,7 @@ module.exports = function(command, args = [], options = {}) {
         e.code = code
         reject(e)
       }
-      resolve()
+      resolve(command + 'success')
     })
 
     task.on('error', reject)
@@ -33,7 +31,7 @@ module.exports = function(command, args = [], options = {}) {
           e.code = code
           reject(e)
         }
-        resolve()
+        resolve(command + 'success')
       })
     }
 

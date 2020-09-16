@@ -58,7 +58,7 @@ module.exports = function() {
       ],
     },
     output: {
-      path: path.resolve(process.cwd(), 'dist/all'),
+      path: path.resolve(process.cwd(), './dist'),
       publicPath: '/dist/',
       filename: 'kiva-ui.common.js',
       chunkFilename: '[name].chunk.js',
