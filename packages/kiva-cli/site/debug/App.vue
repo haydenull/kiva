@@ -14,5 +14,7 @@ export default {
 </script>
 
 <style>
-
+html, body {
+  background-color: #fafafa;
+}
 </style>

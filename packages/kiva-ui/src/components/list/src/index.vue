@@ -67,7 +67,6 @@ export default {
   },
 
   mounted () {
-    console.log('=== List mounted ===')
     if (this.immediateCheck) this.check()
   },
 
