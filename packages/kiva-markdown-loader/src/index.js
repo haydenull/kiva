@@ -2,11 +2,13 @@ const loaderUtils = require('loader-utils')
 const MarkdownIt = require('markdown-it')
 const grayMatter = require('gray-matter')
 const highlight = require('highlight.js')
+const hljsDefineVue = require("highlightjs-vue")
 
 const htmlToVue = require('./htmlToVue')
 const cardWrapper = require('./kivaCardWrapper')
 const addAuthor = require('./addAuthor')
 
+hljsDefineVue(highlight)
 const markdownParser = new MarkdownIt({
   html: true,
   linkify: true,
