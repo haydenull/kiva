@@ -6018,11 +6018,6 @@ highlight.js@^10.2.0:
   resolved "https://registry.npm.taobao.org/highlight.js/download/highlight.js-10.2.0.tgz#367151bcf813adebc54822f1cb51d2e1e599619f"
   integrity sha1-NnFRvPgTrevFSCLxy1HS4eWZYZ8=
 
-highlightjs-vue@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npm.taobao.org/highlightjs-vue/download/highlightjs-vue-1.0.0.tgz#fdfe97fbea6354e70ee44e3a955875e114db086d"
-  integrity sha1-/f6X++pjVOcO5E46lVh14RTbCG0=
-
 hmac-drbg@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/hmac-drbg/download/hmac-drbg-1.0.1.tgz#d2745701025a6c775a6c545793ed502fc0c649a1"
