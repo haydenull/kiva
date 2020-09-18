@@ -1,0 +1,41 @@
+
+.kiva-list {
+  &__error--line {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 14px;
+    color: #3192f1;
+    margin: 7.5px auto;
+    border: 1px solid #3192f1;
+    border-radius: 15px;
+    width: 190px;
+    height: 30px;
+    box-sizing:border-box;
+    &::after {
+      content: "点击重新加载";
+    }
+    &::before {
+      content: "";
+      height: 15px;
+      width: 15px;
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAbFBMVEUAAAAxk/I9oP8xkvJVqv8xkvIzlfQ5mPQxk/IylPI1l/Uyk/Ixk/IxkvIzlPMxk/IylPMzlfU1l/M2lvYyk/Ixk/Ixk/Ixk/Myk/Iyk/IylPM0l/cxk/Ixk/Iyk/IxlPEzk/MylPIzlfQxkvKzo2zxAAAAI3RSTlMA9QrqA8QtFrmKJN3ZgD7JeTUpErKinpmSdGYf49KrXFVORasJZ1QAAADuSURBVCjPjZJZksMgDAUtMHiP93Wy9/3vOFUuTzK2iSv6EajRAyF5O5susXdgEcY/wPWZ0RX/Ga+p1mnTI9UO2pC3XTbyfgTS3qqgtrerQLaiqkGi+m8XhzKtckP06agWfVCrRQ5yvYbogMZI7QhPaTn7kdaV1S+aIXcXvhPOPiV2/jHJ7AXlwgr5BiefxM+zNzxc+LE8raB34WFpm0Urx9Ua6y3q2R4XmGVVInZLK+HVpo4kWNMgoXuPgyGxq9yUXP07nCPFa68KIV/JqQ708Ax8P3gOGtptLScDIAJgXMNTZkaL6DwrvU/mb+b/F9EXEIe2mk7zAAAAAElFTkSuQmCC) no-repeat;
+      background-size: 100% auto;
+      margin-right: 3px;
+    }
+  }
+  &__nodata--line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding:0 15px;
+    height: 30px;
+    line-height: normal;
+    flex-shrink: 0;
+    margin: 7.5px 0;
+    color:#888;
+    font-size: 14px;
+  }
+}

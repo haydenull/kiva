@@ -3,9 +3,9 @@
 
     <slot></slot>
 
-    <div v-if="loading && !finished" class="hdImg_tips">加载中…</div>
-    <div v-if="error" @click="onClickError" class="btn_refresh"></div>
-    <div v-if="finished" class="hdImg_tips">已无数据</div>
+    <kiva-loading v-if="loading && !finished && !error">加载中…</kiva-loading>
+    <div v-if="error" @click="onClickError" class="kiva-list__error--line"></div>
+    <div v-if="finished" class="kiva-list__nodata--line">已无数据</div>
 
     <div ref="faiz_pointer" class="faiz_pointer"></div>
   </div>
@@ -111,46 +111,3 @@ export default {
 
 }
 </script>
-
-<style>
-.btn_refresh {
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  font-size: .28rem;
-  color: #3192f1;
-  margin: .15rem auto;
-  border: 1px solid #3192f1;
-  border-radius: .3rem;
-  width: 3.8rem;
-  height: .6rem;
-  box-sizing:border-box;
-}
-.btn_refresh:after {
-  content: "点击重新加载";
-}
-.btn_refresh:before {
-  content: "";
-  height: .3rem;
-  width: .3rem;
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAbFBMVEUAAAAxk/I9oP8xkvJVqv8xkvIzlfQ5mPQxk/IylPI1l/Uyk/Ixk/IxkvIzlPMxk/IylPMzlfU1l/M2lvYyk/Ixk/Ixk/Ixk/Myk/Iyk/IylPM0l/cxk/Ixk/Iyk/IxlPEzk/MylPIzlfQxkvKzo2zxAAAAI3RSTlMA9QrqA8QtFrmKJN3ZgD7JeTUpErKinpmSdGYf49KrXFVORasJZ1QAAADuSURBVCjPjZJZksMgDAUtMHiP93Wy9/3vOFUuTzK2iSv6EajRAyF5O5susXdgEcY/wPWZ0RX/Ga+p1mnTI9UO2pC3XTbyfgTS3qqgtrerQLaiqkGi+m8XhzKtckP06agWfVCrRQ5yvYbogMZI7QhPaTn7kdaV1S+aIXcXvhPOPiV2/jHJ7AXlwgr5BiefxM+zNzxc+LE8raB34WFpm0Urx9Ua6y3q2R4XmGVVInZLK+HVpo4kWNMgoXuPgyGxq9yUXP07nCPFa68KIV/JqQ708Ax8P3gOGtptLScDIAJgXMNTZkaL6DwrvU/mb+b/F9EXEIe2mk7zAAAAAElFTkSuQmCC) no-repeat;
-  background-size: 100% auto;
-  margin-right: .06rem
-}
-
-.hdImg_tips{
-  display: flex;
-  flex-direction: row;
-  padding:0 .3rem;
-  height:.6rem;
-  align-items: center;
-  justify-content: center;
-  line-height: normal;
-  flex-shrink: 0;
-  margin: .15rem 0;
-  color:#888;
-  font-size:.28rem;
-}
-
-</style>
