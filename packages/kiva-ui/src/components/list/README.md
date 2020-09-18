@@ -1,7 +1,7 @@
 ---
 title: 列表组件
 path: list
-group: 基础组件
+group: 展示组件
 ---
 
 # List 列表
