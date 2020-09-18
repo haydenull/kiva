@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import axios from 'axios'
 // import Kiva from '@ui/src/index.js'
 import Kiva from './entry/ui'
 import App from './App.vue'
@@ -10,6 +11,7 @@ Vue.config.productionTip = false
 
 Vue.use(Kiva)
 Vue.component(DemoBlock.name, DemoBlock)
+Vue.prototype.$axios = axios
 
 new Vue({
   router,

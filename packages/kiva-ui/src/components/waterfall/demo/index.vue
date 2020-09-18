@@ -27,44 +27,50 @@ export default {
   },
   methods: {
     async onLoad() {
-      console.log('=== exec onLoad ===')
-      const _this = this
-      $.ajax({
-        url: '//feeds.sina.cn/api/v2/tianyi',
-        data: {
-          cateid: 't_s',
-          cre: 'tianyi',
-          mod: 'whpic',
-          merge: 3,
-          statics: 1,
-          length: 20,
-          action: 0,
-          up: 0,
-          down: 0,
-        },
-        dataType: 'jsonp',
-        // jsonp: 'callback',
-        success(res) {
-          _this.loading = false
-          const data = res.result.data
-          console.log('=== onLoad2 res ===', data)
-          // _this.finished = true
-          if (data.length <= 0) return _this.finished = true
-          _this.listData = data.map(item => {
+      try {
+        const data = await this.$axios.get('/mock/waterfall/video')
+        console.log('=== fetch success ===', data)
+      } catch (error) {
+        console.log('=== fetch error ===', error)
+      }
 
-            return {
-              ...item,
-              faizCover: item.modinfo.thumbs[0].u,
-              faizWidth: item.modinfo.thumbs[0].s[0],
-              faizHeight: item.modinfo.thumbs[0].s[1],
-            }
-          })
-        },
-        error(err) {
-          _this.loading = false
-          _this.error = true
-        }
-      })
+      // const _this = this
+      // $.ajax({
+      //   url: '//feeds.sina.cn/api/v2/tianyi',
+      //   data: {
+      //     cateid: 't_s',
+      //     cre: 'tianyi',
+      //     mod: 'whpic',
+      //     merge: 3,
+      //     statics: 1,
+      //     length: 20,
+      //     action: 0,
+      //     up: 0,
+      //     down: 0,
+      //   },
+      //   dataType: 'jsonp',
+      //   // jsonp: 'callback',
+      //   success(res) {
+      //     _this.loading = false
+      //     const data = res.result.data
+      //     console.log('=== onLoad2 res ===', data)
+      //     // _this.finished = true
+      //     if (data.length <= 0) return _this.finished = true
+      //     _this.listData = data.map(item => {
+
+      //       return {
+      //         ...item,
+      //         faizCover: item.modinfo.thumbs[0].u,
+      //         faizWidth: item.modinfo.thumbs[0].s[0],
+      //         faizHeight: item.modinfo.thumbs[0].s[1],
+      //       }
+      //     })
+      //   },
+      //   error(err) {
+      //     _this.loading = false
+      //     _this.error = true
+      //   }
+      // })
 
     }
   }
