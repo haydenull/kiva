@@ -3,14 +3,17 @@ const Mock = require('mockjs')
 const path = require('path')
 
 function handleRoute(req, res, routeConfig) {
-  const { status = 'success', success = {}, error = {} } = routeConfig
-  if (status === 'success') {
-    if (typeof success === 'function') return success(req, res, Mock)
-    res.json(Mock.mock(success))
-  } else {
-    if (typeof error === 'function') return error(req, res, Mock)
-    res.status(500).json(Mock.mock(error))
-  }
+  const { status = 'success', success = {}, error = {}, delay = 0 } = routeConfig
+  setTimeout(() => {
+    if (status === 'success') {
+      if (typeof success === 'function') return success(req, res, Mock)
+      res.json(Mock.mock(success))
+    } else {
+      if (typeof error === 'function') return error(req, res, Mock)
+      res.status(500).json(Mock.mock(error))
+    }
+  }, delay)
+
 }
 
 module.exports = function(app) {

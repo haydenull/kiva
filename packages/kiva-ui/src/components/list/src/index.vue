@@ -57,14 +57,14 @@ export default {
     }
   },
 
-  watch: {
-    loading() {
-      this.check()
-    },
-    finished() {
-      this.check()
-    }
-  },
+  // watch: {
+  //   loading() {
+  //     this.check()
+  //   },
+  //   finished() {
+  //     this.check()
+  //   }
+  // },
 
   mounted () {
     if (this.immediateCheck) this.check()
