@@ -31,7 +31,7 @@ export default {
         const data = await this.$axios.get('/mock/waterfall/video')
         console.log('=== fetch success ===', data)
       } catch (error) {
-        console.log('=== fetch error ===', error)
+        console.log('=== fetch error ===', error.response)
       }
 
       // const _this = this

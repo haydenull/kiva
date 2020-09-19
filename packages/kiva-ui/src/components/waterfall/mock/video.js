@@ -1,6 +1,6 @@
 module.exports = {
   method: 'GET',
-  status: 'success',
+  status: 'error',
   success: {
     videoId: 11111,
     videoTitle: 'video title',
@@ -10,8 +10,7 @@ module.exports = {
       'id|+1': 1
     }]
   },
-  error: {
-    code: 500,
-    msg: 'mock server error',
+  error: function(req, res, Mock) {
+    res.json(Mock.mock({ test: 111 }))
   },
 }

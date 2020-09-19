@@ -1,6 +1,6 @@
 node_modules
 dist
-lib
+packages/kiva-ui/lib
 
 .DS_Store
 *.log
