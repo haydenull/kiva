@@ -22,6 +22,14 @@ program
   .version(require('../package.json').version)
   .usage('<command> [options]')
 
+// new
+program
+  .command('new <component-name>')
+  .description('new a standard component')
+  .action((componentName, cmd) => {
+    require('../scripts/new')(componentName)
+  })
+
 // serve
 program
   .command('serve')
@@ -41,7 +49,7 @@ program
 // deploy
 program
   .command('deploy')
-  .description('build lib')
+  .description('deploy by ftp')
   .action((type, cmd) => {
     require('../scripts/deploy')()
   })

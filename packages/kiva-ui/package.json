@@ -11,6 +11,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "kiva serve",
+    "new": "kiva new",
     "build:all": "kiva build all",
     "build:component": "kiva build component",
     "build:demo": "kiva build demo",
