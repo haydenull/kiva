@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   method: 'GET',
   status: 'error',
   success: {
@@ -11,6 +11,6 @@ module.exports = {
     }]
   },
   error: function(req, res, Mock) {
-    res.json(Mock.mock({ test: 111 }))
+    res.status(500).json(Mock.mock({ test: 111 }))
   },
 }

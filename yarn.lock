@@ -2418,6 +2418,11 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
+ajax-hook@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.npm.taobao.org/ajax-hook/download/ajax-hook-2.0.3.tgz#e9ceced02f940f6223123c7dc90fe2062d417c18"
+  integrity sha1-6c7O0C+UD2IjEjx9yQ/iBi1BfBg=
+
 ajv-errors@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/ajv-errors/download/ajv-errors-1.0.1.tgz#f35986aceb91afadec4102fbd85014950cefa64d"

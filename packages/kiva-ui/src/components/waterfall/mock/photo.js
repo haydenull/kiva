@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   delay: 3000,
   success(req, res, Mock) {
     const { page } = req.query

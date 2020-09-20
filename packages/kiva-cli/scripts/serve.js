@@ -4,7 +4,7 @@ const chalk = require('chalk')
 const ora = require('ora')
 const webpack = require('webpack')
 const getWebpackConfig = require('../webpack/dev')
-const genMockRoutes = require('../lib/genMockRoutes')
+// const genMockRoutes = require('../lib/genMockRoutes')
 
 const spinner = ora('Starting development server...')
 
@@ -25,12 +25,12 @@ function createDevServer (webpackConfig) {
     stats: 'errors-only',     // 禁止显示编译产物信息console
     quiet: true,              // 禁止显示console信息 [wdm]
     // clientLogLevel: 'none',
-    before(app, server, compiler) {
-      genMockRoutes(app)
-      app.get('/some/path', (req, res) => {
-        res.json({ custom: 'mock data' })
-      })
-    },
+    // before(app, server, compiler) {
+    //   genMockRoutes(app)
+    //   app.get('/some/path', (req, res) => {
+    //     res.json({ custom: 'mock data' })
+    //   })
+    // },
   })
 
   return devServer

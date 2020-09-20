@@ -72,7 +72,7 @@ export default {
 
         console.log('=== fetch success ===', data, this.listData)
       } catch (error) {
-        console.log('=== fetch error ===', error.response)
+        console.log('=== fetch error ===', error, error.response)
         this.loading = false
         this.error = true
       }

@@ -4,8 +4,13 @@ import axios from 'axios'
 import Kiva from './entry/ui'
 import App from './App.vue'
 import router from './router'
+import { proxy, unProxy } from '../../utils/ajaxHook'
 
 import DemoBlock from './components/DemoBlock.vue'
+import { mockRoutes } from './entry/mockRoutes'
+
+// 前端请求拦截
+proxy(mockRoutes)
 
 Vue.config.productionTip = false
 

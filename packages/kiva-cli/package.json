@@ -31,6 +31,7 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/runtime": "^7.11.2",
     "@wozjs/kiva-markdown-loader": "^0.0.1",
+    "ajax-hook": "^2.0.3",
     "axios": "^0.20.0",
     "babel-loader": "^8.1.0",
     "chalk": "^4.1.0",
