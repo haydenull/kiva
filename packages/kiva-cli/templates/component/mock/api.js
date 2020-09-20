@@ -1,6 +1,6 @@
 // 接口地址 /mock/<%= kebabCaseName %>/api
 // 支持 mockjs 语法 http://mockjs.com/
-module.exports = {
+export default {
   method: 'GET',
   status: 'success',
   delay: 1000,
