@@ -12,15 +12,33 @@ const componentDocs = {}
 requireComponentDocs.keys().forEach(docPath => {
   const doc = requireComponentDocs(docPath).default
   const key = docPath.match(/components\/([^\/]*)\/README\.md$/)[1]
+  const config = doc.kivaDocConfig || {}
+  if (config.path && !(/^\//.test(config.path))) {
+    config.path = '/' + config.path
+  }
+  doc.kivaDocConfig = Object.assign({
+    path: key,
+    group: '默认分组',
+    title: '默认名称',
+  }, config)
   if (key) componentDocs[key] = doc
 })
 
 // 获取自定义 doc
-const requireCustomDocs = require.context('@ui/docs', false, /.md$/)
+const requireCustomDocs = require.context('@ui/docs', true, /.md$/)
 const customDocs = {}
 requireCustomDocs.keys().forEach(docPath => {
   const doc = requireCustomDocs(docPath).default
   const key = docPath.match(/.\/(.*)\.md$/)[1]
+  const config = doc.kivaDocConfig || {}
+  if (config.path && !(/^\//.test(config.path))) {
+    config.path = '/' + config.path
+  }
+  doc.kivaDocConfig = Object.assign({
+    path: `/docs/${key}`,
+    group: '默认分组',
+    title: '默认名称',
+  }, config)
   if (key) customDocs[`docs/${key}`] = doc
 })
 
@@ -59,8 +77,7 @@ function genRoutes() {
     doc.kivaDocConfig = Object.assign({}, doc.kivaDocConfig, { componentPath: key })
     const config = doc.kivaDocConfig
     let path = config.path || key
-    if (path === '/') path = ''
-    routes.push({ path: `/${path}`, component: doc })
+    routes.push({ path, component: doc })
   })
 
   return routes
