@@ -22,6 +22,14 @@ program
   .version(require('../package.json').version)
   .usage('<command> [options]')
 
+// create
+program
+  .command('create <project-name>')
+  .description('create a new project')
+  .action((projectName, cmd) => {
+    require('../scripts/create')(projectName)
+  })
+
 // new
 program
   .command('new <component-name>')

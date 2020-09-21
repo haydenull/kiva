@@ -8,6 +8,7 @@
     "test": "node scripts/test.js",
     "dev": "yarn workspace @wozjs/kiva-ui dev",
     "new": "yarn workspace @wozjs/kiva-ui new",
+    "create": "yarn workspace @wozjs/kiva-ui create",
     "build:all": "yarn workspace @wozjs/kiva-ui build:all",
     "build:component": "yarn workspace @wozjs/kiva-ui build:component",
     "build:site": "yarn workspace @wozjs/kiva-ui build:site",
