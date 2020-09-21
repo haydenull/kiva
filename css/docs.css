@@ -270,7 +270,7 @@ pre {
   word-wrap: break-word;
   white-space: pre-wrap;
   display: block;
-  background: #f8f8f8;
+  background: #f0f4f4;
   padding: 10px 20px;
   border: none;
   margin-bottom: 25px;
@@ -297,7 +297,7 @@ p > code {
 pre > code.hljs {
   display: block;
   overflow-x: auto;
-  background: #f8f8f8;
+  background: #f0f4f4;
 }
 pre > code.hljs[lang]::before {
   content: attr(lang);
@@ -330,6 +330,13 @@ ul p {
 li {
   margin-bottom: 0.75em;
   margin-top: 0.75em;
+}
+li code {
+  color: #c7264e;
+  background-color: #f9f2f4;
+  font-size: 0.95em;
+  border-radius: 3px;
+  padding: 0.065em 0.4em;
 }
 ol#footnotes {
   font-size: 0.95em;
@@ -461,10 +468,17 @@ body {
   height: 60px;
   padding: 0 30px;
   background-color: #4c706c;
+  display: flex;
+  justify-content: space-between;
 }
-.header span a {
+.header div a {
   color: #fff;
   font-size: 22px;
+}
+.header .top-navs a {
+  color: #e1e1e1;
+  font-size: 16px;
+  margin-left: 20px;
 }
 .container {
   overflow: hidden;
@@ -478,6 +492,10 @@ body {
 .content {
   padding: 30px 20px 30px 30px;
   overflow-y: scroll;
+}
+.content > div {
+  max-width: 800px;
+  flex: 1;
 }
 .content .kiva-markdown-card {
   margin-bottom: 24px;
@@ -534,6 +552,9 @@ body {
   color: #455a64;
   font-size: 14px;
   line-height: 28px;
+}
+.full-page .kiva-anchor {
+  right: 30px;
 }
 .kiva-anchor {
   position: fixed;
