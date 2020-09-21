@@ -2,6 +2,7 @@
 title: 使用
 path: kiva-cli/use
 group: kiva-cli
+topNav: kiva-cli
 ---
 
 # Kiva Cli 工具

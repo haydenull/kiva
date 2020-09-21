@@ -2,6 +2,7 @@
 title: 数据 Mock
 path: kiva-cli/data-mock
 group: kiva-cli
+topNav: kiva-cli
 ---
 
 ## 数据 Mock

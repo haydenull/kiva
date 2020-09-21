@@ -5,12 +5,26 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    docs: [],  // 所有文档配置信息 Front Matter
+    docs: { default: [] },         // 所有文档配置信息 Front Matter
+    currentTopNav: 'default',      // 当前展示的次级路由
+    topNavs: [],                   // 次级路由
     debugSiteUrl: 'debug.html#/',  // iframe 地址
+  },
+  getters: {
+    sideBarDocs(state) {
+      const { docs, currentTopNav } = state
+      return docs[currentTopNav] || []
+    },
   },
   mutations: {
     updateDocs(state, docs) {
       state.docs = docs
+    },
+    updateTopNavs(state, topNavs) {
+      state.topNavs = topNavs
+    },
+    updateTopNav(state, topNav) {
+      state.currentTopNav = topNav
     },
     updateDebugSiteUrl(state, path = '') {
       console.log('=== updateDebugSiteUrl ===', path)

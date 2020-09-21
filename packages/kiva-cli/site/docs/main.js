@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 
 import 'highlight.js/styles/color-brewer.css'
+// import 'highlight.js/styles/rainbow.css'
 import './css/index.less'
 
 Vue.config.productionTip = false

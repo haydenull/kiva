@@ -17,10 +17,18 @@ html, body {
   padding: 0 30px;
   // background-color: #001938;
   background-color: @mainColor;
-  span a {
+  display: flex;
+  justify-content: space-between;
+  div a {
     color: #fff;
     font-size: 22px;
   }
+  .top-navs a {
+    color: #e1e1e1;
+    font-size: 16px;
+    margin-left: 20px;
+  }
+
 }
 
 .container {
@@ -35,6 +43,11 @@ html, body {
 .content {
   padding: 30px 20px 30px 30px;
   overflow-y: scroll;
+
+  > div {
+    max-width: 800px;
+    flex: 1;
+  }
 
   .kiva-markdown-card {
     margin-bottom: 24px;
@@ -101,6 +114,9 @@ html, body {
 }
 
 // 正文目录
+.full-page .kiva-anchor {
+  right: 30px;
+}
 .kiva-anchor {
   position: fixed;
   bottom: 100px;

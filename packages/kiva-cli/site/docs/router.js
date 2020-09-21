@@ -4,6 +4,16 @@ import VurRouter from 'vue-router'
 import Home from './components/Home.vue'
 import store from './store'
 
+const requireKivaConfig = require.context('@ui', false, /kiva\.config\.js$/)
+let kivaConfig = {
+  theme: {},
+  deploy: {},
+}
+requireKivaConfig.keys().forEach(kivaConfigPath => {
+  const _kivaConfig = requireKivaConfig(kivaConfigPath)
+  kivaConfig = Object.assign(kivaConfig, _kivaConfig)
+})
+
 // https://webpack.js.org/guides/dependency-management/#require-context
 // 匹配 components 下一级目录的 README.md    .components/list/README.md
 const requireComponentDocs = require.context('@ui/src', true, /components\/[^\/]*\/README\.md$/)
@@ -11,7 +21,7 @@ const requireComponentDocs = require.context('@ui/src', true, /components\/[^\/]
 const componentDocs = {}
 requireComponentDocs.keys().forEach(docPath => {
   const doc = requireComponentDocs(docPath).default
-  const key = docPath.match(/components\/([^\/]*)\/README\.md$/)[1]
+  const key = '/' + docPath.match(/components\/([^\/]*)\/README\.md$/)[1]
   const config = doc.kivaDocConfig || {}
   if (config.path && !(/^\//.test(config.path))) {
     config.path = '/' + config.path
@@ -20,6 +30,7 @@ requireComponentDocs.keys().forEach(docPath => {
     path: key,
     group: '默认分组',
     title: '默认名称',
+    topNav: 'default',
   }, config)
   if (key) componentDocs[key] = doc
 })
@@ -29,17 +40,18 @@ const requireCustomDocs = require.context('@ui/docs', true, /.md$/)
 const customDocs = {}
 requireCustomDocs.keys().forEach(docPath => {
   const doc = requireCustomDocs(docPath).default
-  const key = docPath.match(/.\/(.*)\.md$/)[1]
+  const key = '/' + docPath.match(/.\/(.*)\.md$/)[1]
   const config = doc.kivaDocConfig || {}
   if (config.path && !(/^\//.test(config.path))) {
     config.path = '/' + config.path
   }
   doc.kivaDocConfig = Object.assign({
-    path: `/docs/${key}`,
+    path: key,
     group: '默认分组',
     title: '默认名称',
+    topNav: 'default',
   }, config)
-  if (key) customDocs[`docs/${key}`] = doc
+  if (key) customDocs[key] = doc
 })
 
 // 归纳所有 doc
@@ -47,23 +59,52 @@ const docs = Object.assign({ '/': Home }, customDocs, componentDocs)
 
 // 生成 docs 站点左侧导航栏数据
 function genDocConfigList() {
-  let docConfigList = []
-  let map = new Map()
+  let docConfigs = {}
+
+  console.log('==== kiva config ===', kivaConfig)
+  const defaultNav = [{ text: 'default', link: '/' }]
+  let topNav = kivaConfig && kivaConfig.theme && kivaConfig.theme.topNav
+  store.commit('updateTopNavs', topNav)
+  topNav = topNav ? defaultNav.concat(topNav) : defaultNav
+
+  // 按照 topNav 分组
+
   Object.keys(docs).forEach(key => {
     const doc = docs[key]
-    const config = doc.kivaDocConfig
-    if (map.has(config.group)) {
-      const index = map.get(config.group)
-      docConfigList[index].navs.push(config)
-    } else {
-      docConfigList.push({
-        group: config.group,
-        navs: [ config ]
-      })
-      map.set(config.group, docConfigList.length - 1)
+    const docConfig = doc.kivaDocConfig
+
+    const index = topNav.findIndex(topNav => topNav.text === docConfig.topNav)
+    if (index >= 0) {
+      const { text, link } = topNav[index]
+      let topNavChildren = docConfigs[text]
+      topNavChildren = topNavChildren ? topNavChildren : []
+      topNavChildren.push(docConfig)
+      docConfigs[text] = topNavChildren
     }
+
   })
-  return docConfigList
+
+  Object.keys(docConfigs).forEach(topNav => {
+    const docList = docConfigs[topNav]
+    let docConfigList = []
+    // 按照 group 分组
+    let map = new Map()
+    docList.forEach(docConfig => {
+      if (map.has(docConfig.group)) {
+        const index = map.get(docConfig.group)
+        docConfigList[index].navs.push(docConfig)
+      } else {
+        docConfigList.push({
+          group: docConfig.group,
+          navs: [ docConfig ]
+        })
+        map.set(docConfig.group, docConfigList.length - 1)
+      }
+    })
+    docConfigs[topNav] = docConfigList
+  })
+
+  return docConfigs
 }
 store.commit('updateDocs', genDocConfigList())
 

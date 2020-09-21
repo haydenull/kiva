@@ -1,4 +1,10 @@
 module.exports = {
+  theme: {
+    topNav: [
+      { text: 'kiva-cli', link: '/kiva-cli/' },
+      { text: 'Github', link: 'https://github.com/wozjs/kiva' },
+    ],
+  },
   // 文档站点部署配置
   deploy: {
     type: 'gh-pages',   // 可选 ftp  gh-pages
