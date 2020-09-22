@@ -1,73 +1,110 @@
-/*
-
-Colorbrewer theme
-Original: https://github.com/mbostock/colorbrewer-theme (c) Mike Bostock <mike@ocks.org>
-Ported by Fabrício Tavares de Oliveira
-
-*/
+/*!
+ * Agate by Taufik Nurrohman <https://github.com/taufik-nurrohman>
+ * ---------------------------------------------------------------
+ *
+ * #ade5fc
+ * #a2fca2
+ * #c6b4f0
+ * #d36363
+ * #fcc28c
+ * #fc9b9b
+ * #ffa
+ * #fff
+ * #333
+ * #62c8f3
+ * #888
+ *
+ */
 
 .hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #fff;
+  background: #333;
+  color: white;
 }
 
-.hljs,
-.hljs-subst {
-  color: #000;
-}
-
-.hljs-string,
-.hljs-meta,
-.hljs-symbol,
-.hljs-template-tag,
-.hljs-template-variable,
-.hljs-addition {
-  color: #756bb1;
-}
-
-.hljs-comment,
-.hljs-quote {
-  color: #636363;
-}
-
-.hljs-number,
-.hljs-regexp,
-.hljs-literal,
-.hljs-bullet,
-.hljs-link {
-  color: #31a354;
-}
-
-.hljs-deletion,
-.hljs-variable {
-  color: #88f;
-}
-
-
-
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-title,
-.hljs-section,
-.hljs-built_in,
-.hljs-doctag,
-.hljs-type,
-.hljs-tag,
 .hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
 .hljs-strong {
-  color: #3182bd;
+  font-weight: bold;
 }
 
+.hljs-code,
 .hljs-emphasis {
   font-style: italic;
 }
 
-.hljs-attribute {
-  color: #e6550d;
+.hljs-tag {
+  color: #62c8f3;
+}
+
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #ade5fc;
+}
+
+.hljs-string,
+.hljs-bullet {
+  color: #a2fca2;
+}
+
+.hljs-type,
+.hljs-title,
+.hljs-section,
+.hljs-attribute,
+.hljs-quote,
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #ffa;
+}
+
+.hljs-number,
+.hljs-symbol,
+.hljs-bullet {
+  color: #d36363;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal {
+  color: #fcc28c;
+}
+
+.hljs-comment,
+.hljs-deletion,
+.hljs-code {
+  color: #888;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #c6b4f0;
+}
+
+.hljs-meta {
+  color: #fc9b9b;
+}
+
+.hljs-deletion {
+  background-color: #fc9b9b;
+  color: #333;
+}
+
+.hljs-addition {
+  background-color: #a2fca2;
+  color: #333;
+}
+
+.hljs a {
+  color: inherit;
+}
+
+.hljs a:focus,
+.hljs a:hover {
+  color: inherit;
+  text-decoration: underline;
 }
 
 html,
@@ -82,7 +119,7 @@ html,
 body {
   color: #323233;
   font-size: 16px;
-  background-color: #f7f8fa;
+  background-color: #fdfdfd;
   -webkit-font-smoothing: antialiased;
 }
 .flex {
@@ -133,6 +170,7 @@ body {
   letter-spacing: 0;
   margin: 0;
   overflow-x: hidden;
+  letter-spacing: 1px;
 }
 h1 {
   font-size: 2.2em;
@@ -140,6 +178,7 @@ h1 {
   line-height: 1.1;
   padding-top: 16px;
   margin-bottom: 26px;
+  border-bottom: 1px solid #629087;
 }
 h2,
 h3,
@@ -152,17 +191,23 @@ h6 {
 }
 h2 {
   font-size: 1.4em;
-  margin: 40px 10px 20px 0;
+  margin: 40px 10px 30px 0;
   padding-left: 9px;
-  border-left: 6px solid #629087;
   font-weight: 700;
   line-height: 1.6;
 }
+h2 > span {
+  padding: 0 10px;
+  display: inline-block;
+  background: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(98, 144, 135, 0.7) 40%);
+}
 h3 {
   font-weight: 700;
-  font-size: 1.2em;
+  font-size: 1.15em;
   line-height: 1.4;
-  margin: 10px 0;
+  margin: 20px 0 5px;
+  padding-left: 10px;
+  border-left: 4px solid #629087;
 }
 h4 {
   font-weight: 700;
@@ -184,7 +229,7 @@ h6 {
   font-weight: normal;
   color: #AAA;
 }
-img {
+.kiva-article img {
   width: 100%;
   border-radius: 5px;
   display: block;
@@ -200,13 +245,13 @@ ul {
   line-height: 1.8;
 }
 p {
-  margin: 0 0 20px;
+  margin: 10px 0;
   padding: 0;
   line-height: 1.8;
 }
-a {
+.kiva-article a {
   color: #629087;
-  text-decoration: none;
+  text-decoration: underline;
 }
 a:hover {
   color: #4c706c;
@@ -219,12 +264,15 @@ blockquote {
   font-size: 1em;
   font-style: normal;
   padding: 30px 38px;
-  margin: 0 0 15px;
+  margin: 20px 0;
   position: relative;
   line-height: 1.8;
   text-indent: 0;
   border: none;
   color: #888;
+  background-color: rgba(240, 244, 244, 0.5);
+  border-radius: 10px;
+  border: 1px solid #bbcece;
 }
 blockquote:before {
   content: "“";
@@ -252,6 +300,8 @@ blockquote:after {
 strong,
 dfn {
   font-weight: 700;
+  background-color: rgba(98, 144, 135, 0.1);
+  padding: 2px;
 }
 em,
 dfn {
@@ -263,29 +313,38 @@ del {
 }
 /* pre {text-align:left; overflow-x: scroll; color: #257fa0; background: #f6f6f6; padding: 10pt 15pt; border-radius: 3px; border: solid 1px #e2e2e2;} */
 pre {
-  margin: 0 0 10px;
   font-size: 13px;
   line-height: 1.42857;
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre-wrap;
   display: block;
-  background: #f0f4f4;
-  padding: 10px 20px;
+  background: #405054;
+  padding: 0 10px 8px 10px;
   border: none;
-  margin-bottom: 25px;
-  /* color: #666; */
+  margin: 20px 0;
   font-family: Courier, sans-serif;
   border-radius: 6px;
   overflow: hidden;
   position: relative;
+  box-shadow: 0 4px 12px #ccdcd9;
+}
+pre::before {
+  content: '';
+  display: block;
+  background: url(https://my-wechat.mdnice.com/point.png);
+  height: 30px;
+  width: 100%;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-color: #405054;
+  margin-bottom: -7px;
+  border-radius: 5px;
+  background-position: 10px 10px;
 }
 code {
-  /* color: #c7254e; */
-  /* background-color: #f9f2f4; */
   border-radius: 6px;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-  /* font-size: 90%; */
 }
 p > code {
   color: #c7264e;
@@ -297,13 +356,14 @@ p > code {
 pre > code.hljs {
   display: block;
   overflow-x: auto;
-  background: #f0f4f4;
+  background: #405054;
+  padding: 16px;
 }
 pre > code.hljs[lang]::before {
   content: attr(lang);
   position: absolute;
-  right: 8px;
-  top: 2px;
+  right: 20px;
+  top: 5px;
   color: #ababab;
 }
 figure {
@@ -330,6 +390,21 @@ ul p {
 li {
   margin-bottom: 0.75em;
   margin-top: 0.75em;
+}
+.kiva-article ul li {
+  list-style: none;
+  position: relative;
+}
+.kiva-article ul li::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 3px;
+  border: 1px solid #629087;
+  position: absolute;
+  left: -16px;
+  top: 12px;
 }
 li code {
   color: #c7264e;
@@ -408,7 +483,7 @@ table {
   /*表格宽度*/
   max-width: 65em;
   /*表格最大宽度，避免表格过宽*/
-  border: 1px solid #bebebe;
+  border: 1px solid #bbcece;
   /*表格外边框设置*/
   margin: 15px auto;
   /*外边距*/
@@ -417,7 +492,7 @@ table {
   empty-cells: show;
   /*单元格无内容依旧绘制边框*/
   border-radius: 6px;
-  overflow: hidden;
+  background-color: rgba(240, 244, 244, 0.5);
 }
 table th,
 table td {
@@ -438,12 +513,6 @@ table th {
 }
 table tbody tr:nth-child(2n) {
   background: rgba(40, 91, 65, 0.1);
-}
-table tr:hover {
-  background: rgba(40, 91, 65, 0.2);
-}
-table tr:nth-child(2n):hover {
-  background: rgba(40, 91, 65, 0.2);
 }
 table th {
   white-space: nowrap;
@@ -492,17 +561,31 @@ body {
 .content {
   padding: 30px 20px 30px 30px;
   overflow-y: scroll;
+  align-items: flex-start;
 }
 .content > div {
   max-width: 800px;
   flex: 1;
+  height: auto;
+  background-image: linear-gradient(90deg, rgba(50, 0, 0, 0.05) 3%, rgba(0, 0, 0, 0) 3%), linear-gradient(360deg, rgba(50, 0, 0, 0.05) 3%, rgba(0, 0, 0, 0) 3%);
+  background-size: 20px 20px;
+  background-position: center center;
 }
 .content .kiva-markdown-card {
   margin-bottom: 24px;
   padding: 24px;
-  border-radius: 12px;
-  background-color: #fff;
-  box-shadow: 0 8px 12px #e8efee;
+  position: relative;
+}
+.content .kiva-markdown-card::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 90px;
+  border-bottom: 2px solid #b7ceca;
+  filter: blur(1px);
+  transform: translateX(-45px);
 }
 .simlator {
   width: 375px;
@@ -553,6 +636,14 @@ body {
   font-size: 14px;
   line-height: 28px;
 }
+.nav__item a:hover {
+  color: #629087;
+  text-decoration: none;
+}
+.nav__item .active span {
+  color: #629087;
+  border-bottom: 2px solid rgba(98, 144, 135, 0.3);
+}
 .full-page .kiva-anchor {
   right: 30px;
 }
@@ -584,12 +675,12 @@ body {
   vertical-align: middle;
   visibility: hidden;
   margin-right: 14px;
-  transition: visibility 0.1s;
 }
 .kiva-anchor:hover {
-  background: rgba(240, 244, 244, 0.86);
+  background: rgba(240, 244, 244, 0.6);
   box-shadow: 0 4px 12px #ccdcd9;
   text-decoration: none;
+  backdrop-filter: blur(4px);
 }
 .kiva-anchor:hover .kiva-anchor__item__circle {
   background: #629087;
