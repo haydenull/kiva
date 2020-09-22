@@ -5,6 +5,7 @@ const grayMatter = require('gray-matter')
 const highlight = require('./util/highlight')
 const htmlToVue = require('./util/htmlToVue')
 const cardWrapper = require('./util/kivaCardWrapper')
+const beautifyTitle = require('./util/beautifyTitle')
 const addAuthor = require('./util/addAuthor')
 
 const markdownParser = new MarkdownIt({
@@ -25,6 +26,7 @@ module.exports = function(source) {
   let htmlString = markdownParser.render(source)
 
   htmlString = addAuthor(htmlString)
+  htmlString = beautifyTitle(htmlString)
 
   if (options.useCardWrapper) htmlString = cardWrapper(htmlString)
 

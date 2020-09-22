@@ -1,6 +1,6 @@
 ---
 title: 介绍
-path: kiva-cli/introduce
+path: kiva-cli
 group: kiva-cli
 topNav: kiva-cli
 ---

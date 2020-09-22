@@ -43,18 +43,42 @@ html, body {
 .content {
   padding: 30px 20px 30px 30px;
   overflow-y: scroll;
+  align-items: flex-start;
 
   > div {
     max-width: 800px;
     flex: 1;
+    height: auto;
+
+    background-image: linear-gradient(90deg, rgba(50, 0, 0, 0.05) 3%, rgba(0, 0, 0, 0) 3%), linear-gradient(360deg, rgba(50, 0, 0, 0.05) 3%, rgba(0, 0, 0, 0) 3%);
+    background-size: 20px 20px;
+    background-position: center center;
   }
 
   .kiva-markdown-card {
     margin-bottom: 24px;
     padding: 24px;
-    border-radius: 12px;
-    background-color: #fff;
-    box-shadow: 0 8px 12px @shadowColor;
+    // border-radius: 12px;
+    // background-color: #fff;
+    // box-shadow: 0 8px 12px @shadowColor;
+
+    position: relative;
+    // padding-bottom: 60px;
+    
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 90px;
+      // height: 90px;
+      border-bottom: 2px solid #b7ceca;
+      filter: blur(1px);
+      transform: translateX(-45px);
+
+     
+    }
   }
 }
 .simlator {
@@ -110,6 +134,15 @@ html, body {
     color: #455a64;
     font-size: 14px;
     line-height: 28px;
+    &:hover {
+      color: @mainColorLight;
+      // text-decoration: underline solid rgba(98,144,135,.5);
+      text-decoration: none;
+    }
+  }
+  .active span {
+    color: @mainColorLight;
+    border-bottom: 2px solid rgba(98,144,135,.3);
   }
 }
 
@@ -144,20 +177,21 @@ html, body {
     vertical-align: middle;
     visibility: hidden;
     margin-right: 14px;
-    transition: visibility .1s;
   }
 }
 
 .kiva-anchor:hover {
-  background: rgba(240,244,244, .86);
+  background: rgba(240,244,244, .6);
   box-shadow: 0 4px 12px #ccdcd9;
   text-decoration: none;
+  backdrop-filter: blur(4px);
   .kiva-anchor__item__circle {
     background: @mainColorLight;
   }
   .kiva-anchor__item__text {
     visibility: visible;
     color: @mainColorLight;
+    // color: #b3babc;
   }
 }
 .kiva-anchor__item:hover {

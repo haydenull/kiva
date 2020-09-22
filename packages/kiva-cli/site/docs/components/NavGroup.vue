@@ -6,7 +6,9 @@
       v-for="nav in groupNavList"
       :key="nav.path"
     >
-      <router-link :to="nav.path">{{ nav.title }}</router-link>
+      <router-link :to="nav.path" active-class="active" exact>
+        <span>{{ nav.title }}</span>
+      </router-link>
     </div>
   </div>
 </template>

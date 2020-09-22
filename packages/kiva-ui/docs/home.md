@@ -1,6 +1,6 @@
 ---
 title: 介绍
-path: home
+path: /
 group: 开发指南
 ---
 

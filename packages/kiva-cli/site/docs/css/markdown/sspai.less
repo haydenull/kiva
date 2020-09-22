@@ -10,6 +10,8 @@
 // 	margin: 0;
 // }
 
+@code-background-color: #405054;
+// @code-background-color: #282C34;
 .inline-code() {
 	color: #c7264e;
 	background-color: #f9f2f4;
@@ -26,6 +28,7 @@ body {
 	letter-spacing: 0;
 	margin: 0;
 	overflow-x: hidden;
+	letter-spacing: 1px;
 }
 h1 {
 	font-size: 2.2em;
@@ -33,6 +36,7 @@ h1 {
 	line-height: 1.1;
 	padding-top: 16px;
 	margin-bottom: 26px;
+	border-bottom: 1px solid @mainColorLight;
 }
 h2, h3, h4, h5, h6 {
 	line-height: 1.5em;
@@ -41,17 +45,23 @@ h2, h3, h4, h5, h6 {
 }
 h2 {
 	font-size: 1.4em;
-	margin: 40px 10px 20px 0;
+	margin: 40px 10px 30px 0;
 	padding-left: 9px;
-	border-left: 6px solid @mainColorLight;
 	font-weight: 700;
 	line-height: 1.6;
+	&>span {
+		padding: 0 10px;
+		display: inline-block;
+		background: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(98,144,135,.7) 40%);
+	}
 }
 h3 {
 	font-weight: 700;
-	font-size: 1.2em;
+	font-size: 1.15em;
 	line-height: 1.4;
-	margin: 10px 0;
+	margin: 20px 0 5px;
+	padding-left: 10px;
+	border-left: 4px solid @mainColorLight;
 }
 h4 {
 	font-weight: 700;
@@ -72,12 +82,13 @@ h6 {
 	font-weight: normal;
 	color: #AAA;
 }
-img {
+.kiva-article img {
 	width: 100%;
 	border-radius: 5px;
 	display: block;
 	margin-bottom: 15px;
 	height: auto;
+	// box-shadow: #84A1A8 0px 10px 15px;
 }
 dl, ol, ul {
 	margin-top: 12px;
@@ -86,13 +97,13 @@ dl, ol, ul {
 	line-height: 1.8;
 }
 p {
-	margin: 0 0 20px;
+	margin: 10px 0;
 	padding: 0;
 	line-height: 1.8;
 }
-a {
+.kiva-article a {
 	color: @mainColorLight;
-	text-decoration: none;
+	text-decoration: underline;
 }
 a:hover {
 	color: @mainColor;
@@ -105,12 +116,15 @@ blockquote {
 	font-size: 1em;
 	font-style: normal;
 	padding: 30px 38px;
-	margin: 0 0 15px;
+	margin: 20px 0;
 	position: relative;
 	line-height: 1.8;
 	text-indent: 0;
 	border: none;
 	color: #888;
+	background-color: rgba(240,244,244,.5);
+	border-radius: 10px;
+	border: 1px solid #bbcece;
 }
 blockquote:before {
 	content: "“";
@@ -137,6 +151,8 @@ blockquote:after {
 }
 strong, dfn {
 	font-weight: 700;
+	background-color: rgba(98,144,135,.1);
+	padding: 2px;
 }
 em, dfn {
 	font-style: italic;
@@ -149,30 +165,38 @@ del {
 /* pre {text-align:left; overflow-x: scroll; color: #257fa0; background: #f6f6f6; padding: 10pt 15pt; border-radius: 3px; border: solid 1px #e2e2e2;} */
 
 pre {
-	margin: 0 0 10px;
 	font-size: 13px;
 	line-height: 1.42857;
 	word-break: break-all;
 	word-wrap: break-word;
 	white-space: pre-wrap;
 	display: block;
-	// background: #f8f8f8;
-	background: #f0f4f4;
-	padding: 10px 20px;
+	background: @code-background-color;
+	padding: 0 10px 8px 10px;
 	border: none;
-	margin-bottom: 25px;
-	/* color: #666; */
+	margin: 20px 0;
 	font-family: Courier, sans-serif;
 	border-radius: 6px;
   overflow: hidden;
-  position: relative;
+	position: relative;
+	box-shadow: 0 4px 12px #ccdcd9;
+	&::before {
+		content: '';
+    display: block;
+    background: url(https://my-wechat.mdnice.com/point.png);
+    height: 30px;
+    width: 100%;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-color: @code-background-color;
+    margin-bottom: -7px;
+    border-radius: 5px;
+    background-position: 10px 10px;
+	}
 }
 code {
-	/* color: #c7254e; */
-	/* background-color: #f9f2f4; */
 	border-radius: 6px;
 	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-	/* font-size: 90%; */
 }
 p > code {
 	.inline-code();
@@ -180,14 +204,14 @@ p > code {
 pre > code.hljs {
 	display: block;
   overflow-x: auto;
-  // background: #f8f8f8;
-  background: #f0f4f4;
+	background: @code-background-color;
+	padding: 16px;
 }
 pre > code.hljs[lang]::before {
   content: attr(lang);
   position: absolute;
-  right: 8px;
-  top: 2px;
+  right: 20px;
+  top: 5px;
   color: #ababab;
 }
 
@@ -214,6 +238,21 @@ ol p, ul p {
 li {
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
+}
+.kiva-article ul li {
+	list-style: none;
+	position: relative;
+	&::before {
+		content: '';
+		display: inline-block;
+		width: 3px;
+		height: 3px;
+		border-radius: 3px;
+		border: 1px solid @mainColorLight;
+		position: absolute;
+		left: -16px;
+		top: 12px;
+	}
 }
 li code {
 	.inline-code();
@@ -286,12 +325,13 @@ a:target {
 table {
 	width: 100%; /*表格宽度*/
 	max-width: 65em; /*表格最大宽度，避免表格过宽*/
-	border: 1px solid #bebebe; /*表格外边框设置*/
+	border: 1px solid #bbcece; /*表格外边框设置*/
 	margin: 15px auto; /*外边距*/
 	border-collapse: collapse; /*使用单一线条的边框*/
 	empty-cells: show; /*单元格无内容依旧绘制边框*/
 	border-radius: 6px;
-	overflow: hidden;
+	// overflow: hidden;
+	background-color: rgba(240,244,244,.5);
 }
 table th,
 table td {
@@ -309,12 +349,12 @@ table tbody tr:nth-child(2n) {
 	background: rgba(40,91,65,0.1);
 }
 
-table tr:hover {
-	background: rgba(40,91,65,0.2);
-}
-table tr:nth-child(2n):hover {
-	background: rgba(40,91,65,0.2);
-}
+// table tr:hover {
+// 	background: rgba(40,91,65,0.2);
+// }
+// table tr:nth-child(2n):hover {
+// 	background: rgba(40,91,65,0.2);
+// }
 
 table th {
 	white-space: nowrap; /*表头内容强制在一行显示*/

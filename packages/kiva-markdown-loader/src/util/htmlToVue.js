@@ -5,8 +5,8 @@ module.exports = function(htmlString, config) {
   htmlString = escape(htmlString)
   return `
     <template>
-      <div>
-        <section v-html="content" v-once />
+      <div class="kiva-markdown">
+        <section class="kiva-article" v-html="content" v-once />
 
 
         <div class="kiva-anchor" v-if="anchors.length > 0">

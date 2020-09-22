@@ -55,7 +55,8 @@ requireCustomDocs.keys().forEach(docPath => {
 })
 
 // 归纳所有 doc
-const docs = Object.assign({ '/': Home }, customDocs, componentDocs)
+// const docs = Object.assign({ '/': Home }, customDocs, componentDocs)
+const docs = Object.assign({}, customDocs, componentDocs)
 
 // 生成 docs 站点左侧导航栏数据
 function genDocConfigList() {
