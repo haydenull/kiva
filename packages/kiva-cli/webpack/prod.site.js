@@ -8,6 +8,7 @@ const Webpackbar = require('webpackbar')
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const FriendlyErrorsPlugin = require('friendly-errors-plugin')
 
+const kivaConfig = require('../config')
 const baseConfig = require('./base')()
 
 module.exports = function() {
@@ -42,7 +43,8 @@ module.exports = function() {
         name: 'Kiva Cli Build Site'
       }),
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, '../site/debug/index.html'),
+        // template: path.resolve(__dirname, '../site/debug/index.html'),
+        template: kivaConfig.demoHtml,
         favicon: path.resolve(__dirname, '../site/common/assets/favicon.ico'),
         filename: 'debug.html',
         chunks: ['chunks', 'debug'],

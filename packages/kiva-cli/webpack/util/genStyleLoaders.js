@@ -6,6 +6,12 @@ module.exports = function(preProcessor) {
 
   const extractLoader = {
     loader: MiniCssExtractPlugin.loader,
+    options: {
+      // https://juejin.im/post/6844904203026956302
+      // 当前的css所在的文件相对于打包后的根路径dist的相对路径
+      // 解决 background-image: url('') 相对路径背景图片,打包完成后路径为 css/img/xxx 错误的问题
+      publicPath: '../',
+    }
   }
 
   const vueStyleLoader = [
