@@ -21,7 +21,8 @@
     "access": "public"
   },
   "files": [
-    "lib"
+    "lib",
+    "src"
   ],
   "repository": {
     "type": "git",
