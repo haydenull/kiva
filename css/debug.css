@@ -6,6 +6,7 @@
   color: red;
 }
 
+
 .kiva-list__error--line {
   flex-direction: row;
   justify-content: center;
@@ -110,6 +111,11 @@ html, body {
   width: 20px;
   height: 20px;
   background-color: sandybrown;
+}
+
+
+.demo-item[data-v-0aa38fd8] {
+  padding: 10px 0;
 }
 
 
