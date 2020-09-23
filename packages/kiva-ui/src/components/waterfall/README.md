@@ -1,5 +1,5 @@
 ---
-title: Waterfall 瀑布流组件
+title: Waterfall 瀑布流
 path: waterfall
 group: 展示组件
 ---

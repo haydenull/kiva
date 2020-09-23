@@ -1,5 +1,5 @@
 ---
-title: List 列表组件
+title: List 列表
 path: list
 group: 展示组件
 ---
