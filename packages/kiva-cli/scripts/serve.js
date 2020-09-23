@@ -4,6 +4,7 @@ const chalk = require('chalk')
 const ora = require('ora')
 const webpack = require('webpack')
 const getWebpackConfig = require('../webpack/dev')
+const path = require('path')
 // const genMockRoutes = require('../lib/genMockRoutes')
 
 const spinner = ora('Starting development server...')
@@ -16,6 +17,8 @@ function createDevServer (webpackConfig) {
   const devServer = new DevServer(compiler, {
     host: 'localhost',
     port: 3002,
+    contentBase: path.resolve(process.cwd(), './public'),
+    watchContentBase: true,
     historyApiFallback: {
       rewrites: [{ from: /./, to: '/index.html' }],
     },
