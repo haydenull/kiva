@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   // 文档站点部署配置
   deploy: {
@@ -11,5 +13,6 @@ module.exports = {
       password: '',      // 账号密码不要上传到公网
       remotePath: '/wap_front/chenhui12/kiva',
     }
-  }
+  },
+  demoHtml: path.resolve(__dirname, '../site/debug/index.html'),
 }

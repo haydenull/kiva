@@ -7,6 +7,7 @@ try {
   const configFilePath = path.resolve(process.cwd(), 'kiva.config.js')
   fs.accessSync(configFilePath)
   kivaConfig = require(configFilePath)
+  kivaConfig.demoHtml = path.resolve(process.cwd(), kivaConfig.demoHtml)
 } catch (err) {
   // console.log('未找到 kiva 配置文件', err)
   kivaConfig = {}

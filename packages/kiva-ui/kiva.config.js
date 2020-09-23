@@ -17,5 +17,6 @@ module.exports = {
       password: '',      // 账号密码不要上传到公网
       remotePath: '/wap_front/chenhui12/kiva/kiva-ui',
     }
-  }
+  },
+  demoHtml: './public/index.html',
 }
