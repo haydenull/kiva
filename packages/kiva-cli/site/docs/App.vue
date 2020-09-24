@@ -69,6 +69,7 @@ export default {
   },
   methods: {
     onClickTopNav(topNav) {
+      if (/^http/.test(topNav.link)) return window.open(topNav.link)
       this.$store.commit('updateTopNav', topNav.text)
       this.$router.push({
         path: topNav.link,

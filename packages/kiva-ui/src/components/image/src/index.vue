@@ -1,13 +1,15 @@
 <template>
-  <div>
+  <div class="kiva-image" :class="{ 'kiva-image--round': round }">
     <slot v-if="loading" name="loading">
-      <span>loading</span>
+      <div class="kiva-image__loading">加载中</div>
     </slot>
     <slot v-else-if="error" name="error">
-      <span>error</span>
+      <div class="kiva-image__error">加载失败</div>
     </slot>
     <img
       v-else
+      class="kiva-image__img"
+      :class="[ fitClass ]"
       :src="src"
       v-bind="$attrs"
       v-on="$listeners"
@@ -16,11 +18,20 @@
 </template>
 
 <script>
+const FIT_CLASS = {
+  fill: 'kiva-image--fill',
+  contain: 'kiva-image--contain',
+  cover: 'kiva-image--cover',
+  none: 'kiva-image--none',
+  'scale-down': 'kiva-image--scale-down',
+}
 export default {
   name: 'kiva-image',  // 必须
   props: {
     src: String,
     fit: String,
+    round: Boolean,
+    loadingDemo: Boolean,
     // alt: String,
     // width: [Number, String],
     // height: [Number, String],
@@ -32,12 +43,18 @@ export default {
       show: true,
     }
   },
+  computed: {
+    fitClass() {
+      return FIT_CLASS[this.fit]
+    }
+  },
   watch: {
     show(val) {
       if (val) this.loadImage()
     }
   },
   mounted() {
+    if (this.loadingDemo) return
     this.loadImage()
   },
   methods: {

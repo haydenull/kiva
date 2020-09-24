@@ -18,5 +18,5 @@ module.exports = {
       remotePath: '/wap_front/chenhui12/kiva/kiva-ui',
     }
   },
-  demoHtml: './public/index.html',
+  // demoHtml: './public/index.html',
 }

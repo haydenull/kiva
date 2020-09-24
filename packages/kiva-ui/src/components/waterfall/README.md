@@ -4,7 +4,7 @@ path: waterfall
 group: 展示组件
 ---
 
-# Waterfall 瀑布流组件
+# Waterfall 瀑布流
 
 ### 介绍
 瀑布流组件，自动将 list 数据依据图片高度分割成指定个子数组。
