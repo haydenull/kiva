@@ -1,12 +1,17 @@
 <template>
-  <div @click="onClick">
+  <div>
     <slot v-if="loading" name="loading">
       <span>loading</span>
     </slot>
-    <slot v-if="error" name="error">
+    <slot v-else-if="error" name="error">
       <span>error</span>
     </slot>
-    <img v-if="!error" :src="src" :alt="alt" @load="onLoad" @error="onError">
+    <img
+      v-else
+      :src="src"
+      v-bind="$attrs"
+      v-on="$listeners"
+    >
   </div>
 </template>
 
@@ -15,17 +20,37 @@ export default {
   name: 'kiva-image',  // 必须
   props: {
     src: String,
-    alt: String,
-    width: [Number, String],
-    height: [Number, String],
+    fit: String,
+    // alt: String,
+    // width: [Number, String],
+    // height: [Number, String],
   },
   data() {
     return {
       loading: true,
       error: false,
+      show: true,
     }
   },
+  watch: {
+    show(val) {
+      if (val) this.loadImage()
+    }
+  },
+  mounted() {
+    this.loadImage()
+  },
   methods: {
+    loadImage() {
+      this.loading = true
+      this.error = false
+
+      const img = new Image()
+      img.onload = e => this.onLoad(e)
+      img.onerror = e => this.onError(e)
+      img.src = this.src
+
+    },
     onClick(event) {
       this.$emit('click', event)
     },
