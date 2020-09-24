@@ -114,27 +114,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      list: [],
-    }
-  },
-  async created() {
-    try {
-      const { data } = await this.$axios.get('/mock/image/api', {
-        params: { category: 'random' }
-      })
-      this.list = data.list
-      console.log('success', data)
-    } catch (error) {
-      console.log('error', error.response)
-    }
-  }
-}
-</script>
-
 <style lang="less" scoped>
 .demo-item--inline {
   display: inline-block;
