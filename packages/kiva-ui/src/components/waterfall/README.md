@@ -17,8 +17,8 @@ group: 展示组件
 ### 引入
 ```js
 import Vue from 'vue'
-import Waterfall from 'kiva-ui/lib/waterfall'
-import 'kiva-ui/lib/waterfall/style'
+import Waterfall from '@wozjs/kiva-ui/lib/waterfall'
+import '@wozjs/kiva-ui/lib/waterfall/style'
 
 Vue.use(Waterfall)
 ```

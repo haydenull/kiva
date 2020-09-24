@@ -1811,11 +1811,6 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
-"@mfelibs/base-css@^3.1.15":
-  version "3.1.15"
-  resolved "http://registry.cnpm.sina.com.cn/@mfelibs/base-css/download/@mfelibs/base-css-3.1.15.tgz#f3def17b30d9d17ae4e31a90daae5a7459e7021d"
-  integrity sha1-897xezDZ0Xrk4xqQ2q5adFnnAh0=
-
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.npm.taobao.org/@mrmlnc/readdir-enhanced/download/@mrmlnc/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"

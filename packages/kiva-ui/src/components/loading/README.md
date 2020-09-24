@@ -10,8 +10,8 @@ group: 反馈组件
 
 ```js
 import Vue from 'vue'
-import List from 'kiva/lib/loading'
-import 'kiva/lib/loading/style'
+import List from '@wozjs/kiva-ui/lib/loading'
+import '@wozjs/kiva-ui/lib/loading/style'
 
 Vue.use(List)
 ```

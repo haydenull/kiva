@@ -14,8 +14,8 @@ group: 基础组件
 
 ```js
 import Vue from 'vue'
-import Image from 'kiva-ui/lib/image'
-import 'kiva-ui/lib/image/style'
+import Image from '@wozjs/kiva-ui/lib/image'
+import '@wozjs/kiva-ui/lib/image/style'
 
 Vue.use(Image)
 ```

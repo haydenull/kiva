@@ -14,8 +14,8 @@ group: 反馈组件
 
 ```js
 import Vue from 'vue'
-import Toast from 'kiva-ui/lib/toast'
-import 'kiva-ui/lib/toast/style'
+import Toast from '@wozjs/kiva-ui/lib/toast'
+import '@wozjs/kiva-ui/lib/toast/style'
 
 Vue.use(Toast)
 ```

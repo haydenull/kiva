@@ -14,8 +14,8 @@ group: 展示组件
 
 ```js
 import Vue from 'vue'
-import List from 'kiva-ui/lib/list'
-import 'kiva-ui/lib/list/style'
+import List from '@wozjs/kiva-ui/lib/list'
+import '@wozjs/kiva-ui/lib/list/style'
 
 Vue.use(List)
 ```

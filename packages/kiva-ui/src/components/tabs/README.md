@@ -10,8 +10,8 @@ group: 导航组件
 
 ```js
 import Vue from 'vue'
-import Tabs from 'kiva/lib/tabs'
-import 'kiva/lib/tabs/style'
+import Tabs from '@wozjs/kiva-ui/lib/tabs'
+import '@wozjs/kiva-ui/lib/tabs/style'
 
 // 将会注册两个组件 kiva-tabs kiva-tabs-pane
 Vue.use(Tabs)
