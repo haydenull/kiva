@@ -1,11 +1,40 @@
-.button {
-  color: aqua;
-}
-
-.button {
+.kiva-image {
   color: red;
 }
-
+.kiva-image__loading,
+.kiva-image__error,
+.kiva-image__img {
+  width: 100%;
+  height: 100%;
+}
+.kiva-image__loading,
+.kiva-image__error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f7fa;
+  color: #c0c4cc;
+  font-size: 14px;
+}
+.kiva-image--round {
+  border-radius: 50%;
+  overflow: hidden;
+}
+.kiva-image--fill {
+  object-fit: fill;
+}
+.kiva-image--contain {
+  object-fit: contain;
+}
+.kiva-image--cover {
+  object-fit: cover;
+}
+.kiva-image--none {
+  object-fit: none;
+}
+.kiva-image--scale-down {
+  object-fit: scale-down;
+}
 
 .kiva-list__error--line {
   flex-direction: row;
@@ -90,6 +119,7 @@
 }
 
 
+
 .common-color {
   color: aliceblue;
 }
@@ -102,20 +132,14 @@ html, body {
   background-color: #fafafa;
 }
 
-.test {
-  background: red;
-  padding: 10px;
+.demo-item--inline[data-v-85de790c] {
+  display: inline-block;
 }
-.test span {
-  display: block;
-  width: 20px;
-  height: 20px;
-  background-color: sandybrown;
-}
-
-
-.demo-item[data-v-0aa38fd8] {
-  padding: 10px 0;
+.demo-item--inline div[data-v-85de790c] {
+  color: #aaa;
+  text-align: center;
+  margin-top: 6px;
+  font-size: 12px;
 }
 
 
@@ -145,6 +169,11 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+.demo-item[data-v-76926bca] {
+  padding: 10px 0;
 }
 
 .demo-waterfall[data-v-263abed4] {
