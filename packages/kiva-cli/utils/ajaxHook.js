@@ -80,7 +80,6 @@ export const proxy = function(mockRoutes) {
   _proxy({
     //请求发起前进入
     onRequest: (config, handler) => {
-      console.log('=== ajax hook config ===', config)
       const { url: requestUrl, method: requestMethod } = config
 
       const routePaths = Object.keys(mockRoutes)
@@ -98,10 +97,16 @@ export const proxy = function(mockRoutes) {
           }
         }
       }
-
       handler.next(config)
 
     },
+    // onResponse 与 onError 不可缺少,否则会导致未拦截的网络请求失败
+    onResponse(response, handler) {
+      handler.next(response)
+    },
+    onError(err, handler) {
+      handler.next(err)
+    }
   })
 }
 

@@ -1,15 +1,7 @@
 <template>
-  <kiva-toast>
-    <div
-      class="demo-item"
-      v-for="item in list"
-      :key="item.url"
-    >
-      <div>title: {{ item.title }}</div>
-      <div>url: {{ item.url }}</div>
-      <div>category: {{ item.category }}</div>
-    </div>
-  </kiva-toast>
+  <div>
+    <button @click="showDefault">显示 toast</button>
+  </div>
 </template>
 
 <script>
@@ -19,15 +11,9 @@ export default {
       list: [],
     }
   },
-  async created() {
-    try {
-      const { data } = await this.$axios.get('/mock/toast/api', {
-        params: { category: 'random' }
-      })
-      this.list = data.list
-      console.log('success', data)
-    } catch (error) {
-      console.log('error', error.response)
+  methods: {
+    showDefault() {
+      this.$toast('默认 toast')
     }
   }
 }
