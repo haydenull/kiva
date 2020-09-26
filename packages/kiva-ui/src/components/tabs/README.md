@@ -6,6 +6,7 @@ group: 导航组件
 
 # Tabs 选项卡
 
+
 ### 引入
 
 ```js
@@ -17,7 +18,7 @@ import '@wozjs/kiva-ui/lib/tabs/style'
 Vue.use(Tabs)
 ```
 
-## 使用
+## 代码演示
 
 ### 基础用法
 
@@ -52,3 +53,15 @@ export default {
 ```
 
 ## API
+
+### kiva-tabs Props
+
+|参数|说明|类型|默认值|
+|----|---|----|-----|
+|active-index|激活的选项卡下标|`number`|`0`|
+
+### kiva-tabs-pane Props
+
+|参数|说明|类型|默认值|
+|----|---|----|-----|
+|title|选项卡标题|`string`|-|
