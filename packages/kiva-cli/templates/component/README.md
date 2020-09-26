@@ -14,8 +14,8 @@ group: 默认分组
 
 ```js
 import Vue from 'vue'
-import <%= pascalCaseName %> from 'kiva-ui/lib/<%= kebabCaseName %>'
-import 'kiva-ui/lib/<%= kebabCaseName %>/style'
+import <%= pascalCaseName %> from '@wozjs/kiva-ui/lib/<%= kebabCaseName %>'
+import '@wozjs/kiva-ui/lib/<%= kebabCaseName %>/style'
 
 Vue.use(<%= pascalCaseName %>)
 ```
