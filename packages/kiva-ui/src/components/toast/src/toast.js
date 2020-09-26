@@ -28,11 +28,12 @@ function getOptions(options) {
 }
 
 export default function(Vue) {
+  let timer = null
   return function(options = {}) {
     const toast = createInstance(Vue)
 
     options = getOptions(options)
-    options = Object.assign(DEFAULT_OPTIONS, options)
+    options = Object.assign({}, DEFAULT_OPTIONS, options)
 
     Object.assign(toast, options)
 
@@ -42,11 +43,12 @@ export default function(Vue) {
       toast.visible = false
     }
 
+    if (timer) clearTimeout(timer)
     if (options.duration) {
-      setTimeout(toast.close, options.duration)
+      timer = setTimeout(toast.close, options.duration)
     }
 
-    console.log('==== toast 实例1 ===', toast, options)
+    return toast
 
   }
 }
