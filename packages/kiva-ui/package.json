@@ -8,6 +8,11 @@
     "example": "examples",
     "test": "test"
   },
+  "files": [
+    "lib",
+    "dist",
+    "types"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "kiva serve",
