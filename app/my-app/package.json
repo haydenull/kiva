@@ -1,0 +1,25 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Haaayden <brooklyn1984@qq.com>",
+  "scripts": {
+    "build": "marax build",
+    "test": "marax test",
+    "dev": "marax dev"
+  },
+  "dependencies": {
+    "vue": "^2.6.12",
+    "vue-class-component": "^7.2.6",
+    "vue-property-decorator": "^9.0.0"
+  },
+  "devDependencies": {
+    "@mara/x": "^2.13.0",
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.2",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-sinamfe"
+  }
+}

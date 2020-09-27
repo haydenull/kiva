@@ -2,7 +2,8 @@
   "name": "root",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "app/*"
   ],
   "scripts": {
     "test": "node scripts/test.js",
@@ -13,7 +14,8 @@
     "build:component": "yarn workspace @wozjs/kiva-ui build:component",
     "build:site": "yarn workspace @wozjs/kiva-ui build:site",
     "build": "yarn workspace @wozjs/kiva-ui build",
-    "deploy": "yarn workspace @wozjs/kiva-ui deploy"
+    "deploy": "yarn workspace @wozjs/kiva-ui deploy",
+    "app": "yarn workspace my-app dev"
   },
   "devDependencies": {
     "jest": "^26.4.2",
