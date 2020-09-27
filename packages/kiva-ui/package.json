@@ -2,7 +2,8 @@
   "name": "@wozjs/kiva-ui",
   "version": "0.0.1-alpha.9",
   "description": "kiva-ui",
-  "main": "index.js",
+  "main": "dist/kiva-ui.common.js",
+  "typings": "types/index.d.ts",
   "directories": {
     "doc": "docs",
     "example": "examples",
@@ -20,6 +21,11 @@
     "build": "npm run build:all && npm run build:component && npm run build:site",
     "deploy": "kiva deploy"
   },
+  "files": [
+    "lib",
+    "dist",
+    "types"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -36,5 +42,8 @@
     "vue-class-component": "^7.2.5",
     "vue-property-decorator": "^9.0.0",
     "vue-router": "^3.4.3"
+  },
+  "peerDependencies": {
+    "vue": ">= 2.5.22"
   }
 }
