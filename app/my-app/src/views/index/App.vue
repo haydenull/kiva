@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <Logo />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/> -->
+    <kiva-image
+      src="https://files.catbox.moe/1c387i.jpg"
+      style="width: 100px; height: 100px;"
+    />
   </div>
 </template>
 
@@ -10,13 +14,19 @@ import { Component, Vue } from 'vue-property-decorator'
 import Logo from '../../components/Logo.vue'
 import HelloWorld from '../../components/HelloWorld.vue'
 
+
+
 @Component({
   components: {
     Logo,
     HelloWorld
-  }
+  },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  mounted() {
+    // this.$toast()
+  }
+}
 </script>
 
 <style>
