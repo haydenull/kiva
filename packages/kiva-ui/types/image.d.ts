@@ -23,5 +23,5 @@ export declare class KivaImage extends KivaUIComponent {
   /** 是否显示为圆角 */
   round?: boolean
 
-  $slots: ImageSlots
+  $slots?: ImageSlots
 }
