@@ -1,17 +1,14 @@
 import Vue from 'vue'
 import App from './App.vue'
-import Kiva from '@wozjs/kiva-ui'
-import '@wozjs/kiva-ui/dist/kiva-ui.css'
-// import Image from '@wozjs/kiva-ui/lib/image'
-// import '@wozjs/kiva-ui/lib/image/style'
 
-// import { Image } from '@wozjs/kiva-ui'
+import Vant from 'vant'
+import 'vant/lib/index.css'
 
-// Vue.use(Image)
+Vue.use(Vant)
 
 Vue.config.productionTip = false
 
-Vue.use(Kiva)
+// Vue.use(Kiva)
 
 new Vue({
   render: h => h(App)

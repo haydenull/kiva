@@ -24,7 +24,7 @@ import HelloWorld from '../../components/HelloWorld.vue'
 })
 export default class App extends Vue {
   mounted() {
-    // this.$toast()
+
   }
 }
 </script>
