@@ -5,10 +5,10 @@ export type ImageFit = 'contain' | 'cover' | 'fill' | 'none' | 'scale-down'
 
 export interface ImageSlots {
   /** 自定义加载中 */
-  loading: VNode[]
+  loading?: VNode[]
 
   /** 自定义加载失败 */
-  error: VNode[]
+  error?: VNode[]
 
   [propName: string]: VNode[]
 }

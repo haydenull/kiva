@@ -29,7 +29,7 @@ export class KivaToast extends Vue {
 
 export interface ToastFunc {
   (message: ToastOptions | string): KivaToast
-  install(): void
+  install(vue: typeof Vue): void
 }
 
 declare module 'vue/types/vue' {
