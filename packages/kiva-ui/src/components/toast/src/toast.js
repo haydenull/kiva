@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 import VueToast from './index.vue'
 import { isObject } from '../../../utils'
 
@@ -27,28 +29,35 @@ function getOptions(options) {
   }
 }
 
-export default function(Vue) {
-  let timer = null
-  return function(options = {}) {
-    const toast = createInstance(Vue)
 
-    options = getOptions(options)
-    options = Object.assign({}, DEFAULT_OPTIONS, options)
+let timer = null
+function Toast (options = {}) {
+  const toast = createInstance(Vue)
 
-    Object.assign(toast, options)
+  options = getOptions(options)
+  options = Object.assign({}, DEFAULT_OPTIONS, options)
 
-    toast.visible = true
+  Object.assign(toast, options)
 
-    toast.close = function() {
-      toast.visible = false
-    }
+  toast.visible = true
 
-    if (timer) clearTimeout(timer)
-    if (options.duration) {
-      timer = setTimeout(toast.close, options.duration)
-    }
-
-    return toast
-
+  toast.close = function() {
+    toast.visible = false
   }
+
+  if (timer) clearTimeout(timer)
+  if (options.duration) {
+    timer = setTimeout(toast.close, options.duration)
+  }
+
+  return toast
+
 }
+
+Toast.install = function(Vue) {
+  Vue.component(VueToast.name, VueToast)
+}
+
+Vue.prototype.$toast = Toast
+
+export default Toast

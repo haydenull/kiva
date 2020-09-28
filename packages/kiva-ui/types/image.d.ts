@@ -1,5 +1,5 @@
 import { VNode } from 'vue'
-import { KivaUIComponent } from '../component'
+import { KivaUIComponent } from './component'
 
 export type ImageFit = 'contain' | 'cover' | 'fill' | 'none' | 'scale-down'
 

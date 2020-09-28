@@ -8,7 +8,7 @@
       <button @click="showDialogWithoutCancel">隐藏取消按钮</button>
     </kiva-demo-block>
 
-    <!-- <kiva-dialog :show.sync="show" message="xxxx"></kiva-dialog> -->
+    <!-- <kiva-dialog :show.sync="show" message="xxxx">yyyyyy</kiva-dialog> -->
   </div>
 </template>
 

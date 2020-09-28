@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 import toast from '../../toast/src/toast'
 import VueDialog from './index.vue'
 
@@ -29,18 +31,25 @@ function createInstance(Vue) {
   return dialog
 }
 
-export default function(Vue) {
-  return function(options = {}) {
-    const dialog = createInstance(Vue)
-    options = Object.assign({}, DEFAULT_OPTIONS, options)
-    Object.assign(dialog, options)
 
-    dialog.show = true
-    dialog.$off('confirm')
-    dialog.$off('cancel')
-    if (options.confirm) dialog.$on('confirm', options.confirm)
-    if (options.cancel) dialog.$on('cancel', options.cancel)
+function Dialog (options = {}) {
+  const dialog = createInstance(Vue)
+  options = Object.assign({}, DEFAULT_OPTIONS, options)
+  Object.assign(dialog, options)
 
-    return dialog
-  }
+  dialog.show = true
+  dialog.$off('confirm')
+  dialog.$off('cancel')
+  if (options.confirm) dialog.$on('confirm', options.confirm)
+  if (options.cancel) dialog.$on('cancel', options.cancel)
+
+  return dialog
 }
+
+Dialog.install = function(Vue) {
+  Vue.component(VueDialog.name, VueDialog)
+}
+
+Vue.prototype.$dialog = Dialog
+
+export default Dialog

@@ -11,6 +11,7 @@
   "dependencies": {
     "@wozjs/kiva-ui": "^0.0.1-alpha.9",
     "cache-loader": "^4.1.0",
+    "vant": "^2.10.8",
     "vue": "^2.6.12",
     "vue-class-component": "^7.2.6",
     "vue-property-decorator": "^9.0.0"
