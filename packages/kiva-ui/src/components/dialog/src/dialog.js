@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-import toast from '../../toast/src/toast'
+// import toast from '../../toast/src/toast'
 import VueDialog from './index.vue'
 
 const DEFAULT_OPTIONS = {
