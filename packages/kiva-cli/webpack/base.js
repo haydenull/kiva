@@ -1,15 +1,17 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const genStyleLoaders = require('./util/genStyleLoaders')
 const babelLoader = require('./util/genBabelLoader')
 const tsLoader = require('./util/genTsLoader')
 const genCopyPlugin = require('./util/genCopyPlugin')
-const externals = require('./util/genExternals')
+
+const config = require('../config')
 
 const isProd = process.env.NODE_ENV === 'production'
+const bundleAnalyzerPlugin = config.webpackBundleAnalyzer ? [new BundleAnalyzerPlugin()] : []
 module.exports = function() {
   const baseConfig = {
     module: {
@@ -71,14 +73,13 @@ module.exports = function() {
     plugins: [
       new VueLoaderPlugin(),
       ...genCopyPlugin(),
-      new BundleAnalyzerPlugin(),
+      ...bundleAnalyzerPlugin,
     ],
     resolve: {
       alias: {
         '@ui': process.cwd(),
       }
     },
-    externals,
   }
   return baseConfig
 }

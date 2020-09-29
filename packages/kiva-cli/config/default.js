@@ -1,6 +1,8 @@
 const path = require('path')
 
 module.exports = {
+  // 包名
+  packageName: '',
   // 文档站点部署配置
   deploy: {
     type: 'gh-pages',   // 可选 ftp  gh-pages
@@ -15,4 +17,5 @@ module.exports = {
     }
   },
   demoHtml: path.resolve(__dirname, '../site/debug/index.html'),
+  webpackBundleAnalyzer: false,
 }

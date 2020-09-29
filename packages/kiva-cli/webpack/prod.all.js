@@ -33,14 +33,14 @@ module.exports = function() {
       ],
     },
     resolve: {},
-    externals: {
-      vue: {
-        root: 'Vue',
-        commonjs: 'vue',
-        commonjs2: 'vue',
-        amd: 'vue'
-      }
-    },
+    // externals: {
+    //   vue: {
+    //     root: 'Vue',
+    //     commonjs: 'vue',
+    //     commonjs2: 'vue',
+    //     amd: 'vue'
+    //   }
+    // },
     plugins: [
       new MiniCssExtractPlugin({
         filename: '[name].css',

@@ -9,6 +9,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 
 const baseConfig = require('./base')()
 const compressConfig = require('./util/genCompress')
+const externals = require('./util/genExternals')
 
 function getEntries() {
   const glob = require('glob')
@@ -75,6 +76,7 @@ module.exports = function() {
         // ...compressConfig,
       ],
     },
+    externals,
     output: {
       path: path.resolve(process.cwd(), 'lib/'),
       publicPath: '/lib/',

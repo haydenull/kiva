@@ -2,6 +2,7 @@ import Vue from 'vue'
 
 // import toast from '../../toast/src/toast'
 import VueDialog from './index.vue'
+import KivaMask from '@ui/src/components/mask'
 
 const DEFAULT_OPTIONS = {
   show: true,
@@ -48,6 +49,7 @@ function Dialog (options = {}) {
 
 Dialog.install = function(Vue) {
   Vue.component(VueDialog.name, VueDialog)
+  if (KivaMask.install) KivaMask.install(Vue)
 }
 
 Vue.prototype.$dialog = Dialog
