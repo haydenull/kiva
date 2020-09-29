@@ -9,7 +9,7 @@
     "dev": "marax dev"
   },
   "dependencies": {
-    "@wozjs/kiva-ui": "^0.0.1-alpha.9",
+    "@wozjs/kiva-ui": "^0.0.1-alpha.10",
     "cache-loader": "^4.1.0",
     "element-ui": "^2.13.2",
     "vant": "^2.10.8",
