@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
 import VueToast from './index.vue'
-import { isObject } from '../../../utils'
+import { isObject } from '@ui/src/utils'
 
 const DEFAULT_OPTIONS = {
   message: '',

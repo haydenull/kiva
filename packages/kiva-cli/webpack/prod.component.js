@@ -24,7 +24,7 @@ function getEntries() {
     // 设置打包后的目录及文件名
     res[`/${key}/index`] = filePath
   })
-  // console.log('=== muli component paths weboack ===', componentFiles, res)
+  console.log('=== muli component paths weboack ===', componentFiles, res)
   return res
 }
 
@@ -72,18 +72,18 @@ module.exports = function() {
     ],
     optimization: {
       minimizer: [
-        ...compressConfig,
+        // ...compressConfig,
       ],
     },
     output: {
-      path: path.resolve(process.cwd(), 'dist/components'),
-      publicPath: '/dist/',
+      path: path.resolve(process.cwd(), 'lib/'),
+      publicPath: '/lib/',
       filename: '[name].js',
       chunkFilename: '[name].chunk.js',
-      pathinfo: true,
-      library: 'kiva-ui-component',
-      libraryTarget: 'umd',
-      umdNamedDefine: true,
+      // pathinfo: true,
+      // library: 'kiva-ui-component',
+      libraryTarget: 'commonjs2',
+      // umdNamedDefine: true,
     },
   }
 
