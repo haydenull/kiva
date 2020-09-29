@@ -27,6 +27,7 @@ async function build(type) {
   // }
 
   const getWebpackConfig = require(`../webpack/prod.${type}`)
+  console.log('=== webpack config ===', getWebpackConfig())
   const compiler = webpack(getWebpackConfig())
 
   return new Promise((resolve, reject) => {
