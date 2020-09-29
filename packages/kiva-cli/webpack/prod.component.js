@@ -6,6 +6,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const Webpackbar = require('webpackbar')
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+const KivaImportAnalyzerPlugin = require('@wozjs/kiva-import-analyzer-plugin')
 
 const baseConfig = require('./base')()
 const compressConfig = require('./util/genCompress')
@@ -70,6 +71,7 @@ module.exports = function() {
         name: 'Kiva Cli Build Component'
       }),
       new CleanWebpackPlugin(),
+      new KivaImportAnalyzerPlugin('this is option'),
     ],
     optimization: {
       minimizer: [

@@ -1,0 +1,24 @@
+{
+  "name": "@wozjs/kiva-import-analyzer-plugin",
+  "version": "0.0.1",
+  "description": "analyze import",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/wozjs/kiva.git"
+  },
+  "keywords": [
+    "js",
+    "import",
+    "analyze"
+  ],
+  "author": "Haaayden",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wozjs/kiva/issues"
+  },
+  "homepage": "https://github.com/wozjs/kiva#readme"
+}
