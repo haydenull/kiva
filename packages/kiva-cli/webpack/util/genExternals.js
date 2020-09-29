@@ -24,8 +24,9 @@ mixinsList.forEach(file => {
 })
 
 externals = [Object.assign({
-  vue: 'vue'
-}, externals)]
+  // vue: 'vue',
+  // 'vue-loader': 'vue-loader'
+}, externals), nodeExternals()]
 
 console.log('======== externals', externals)
 

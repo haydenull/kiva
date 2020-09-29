@@ -16,7 +16,7 @@ function getEntries() {
   // glob 花括号展开式  a{/b/c,bcd} 将展开为 a/b/c 与 abcd
   // https://juejin.im/post/6844903906024095758
   const componentFiles = glob.sync(`${basePath}/components/**/index.{js,ts}`)
-  console.log('=== componentFiles ===', componentFiles)
+  // console.log('=== componentFiles ===', componentFiles)
   if (componentFiles.length <= 0) throw new Error('未检测到合法组件,请检查目录结构及文件名 \n')
   let res = {}
   componentFiles.forEach(filePath => {
@@ -24,7 +24,7 @@ function getEntries() {
     // 设置打包后的目录及文件名
     res[`/${key}/index`] = filePath
   })
-  console.log('=== muli component paths weboack ===', componentFiles, res)
+  // console.log('=== muli component paths weboack ===', res)
   return res
 }
 
@@ -52,14 +52,14 @@ module.exports = function() {
       ],
     },
     resolve: {},
-    externals: {
-      vue: {
-        root: 'Vue',
-        commonjs: 'vue',
-        commonjs2: 'vue',
-        amd: 'vue'
-      }
-    },
+    // externals: {
+    //   vue: {
+    //     root: 'Vue',
+    //     commonjs: 'vue',
+    //     commonjs2: 'vue',
+    //     amd: 'vue'
+    //   }
+    // },
     plugins: [
       new MiniCssExtractPlugin({
         filename: '[name].css',
