@@ -19,7 +19,8 @@
     "build:demo": "kiva build demo",
     "build:site": "kiva build site",
     "build": "npm run build:all && npm run build:component && npm run build:site",
-    "deploy": "kiva deploy"
+    "deploy": "kiva deploy",
+    "clean": "rm -rf dist lib site"
   },
   "files": [
     "lib",

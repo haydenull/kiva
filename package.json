@@ -15,7 +15,8 @@
     "build:site": "yarn workspace @wozjs/kiva-ui build:site",
     "build": "yarn workspace @wozjs/kiva-ui build",
     "deploy": "yarn workspace @wozjs/kiva-ui deploy",
-    "app": "yarn workspace my-app dev"
+    "app": "yarn workspace my-app dev",
+    "clean": "yarn workspace @wozjs/kiva-ui clean"
   },
   "devDependencies": {
     "jest": "^26.4.2",

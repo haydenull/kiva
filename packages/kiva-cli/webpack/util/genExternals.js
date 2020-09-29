@@ -2,6 +2,9 @@ const path = require('path')
 const fs = require('fs-extra')
 const nodeExternals = require('webpack-node-externals')
 
+const config = require('../../config')
+
+const packageName = config.packageName
 const baseDir = process.cwd()
 
 let externals = {}
@@ -12,22 +15,19 @@ const mixinsList = fs.readdirSync(path.resolve(baseDir, './src/mixins'))
 
 componentsList.forEach(file => {
   file = path.basename(file, '.js')
-  externals[`@ui/src/components/${file}`] = `@ui/lib/${file}`
+  externals[`@ui/src/components/${file}`] = `${packageName}/lib/${file}`
 })
 utilsList.forEach(file => {
   file = path.basename(file, '.js')
-  externals[`@ui/src/utils/${file}`] = `@ui/lib/utils/${file}`
+  externals[`@ui/src/utils/${file}`] = `${packageName}/lib/utils/${file}`
 })
 mixinsList.forEach(file => {
   file = path.basename(file, '.js')
-  externals[`@ui/src/mixins/${file}`] = `@ui/lib/mixins/${file}`
+  externals[`@ui/src/mixins/${file}`] = `${packageName}/lib/mixins/${file}`
 })
 
 externals = [Object.assign({
-  // vue: 'vue',
-  // 'vue-loader': 'vue-loader'
+  vue: 'vue',
 }, externals), nodeExternals()]
-
-console.log('======== externals', externals)
 
 module.exports = externals

@@ -14,11 +14,8 @@ const baseConfig = require('./base')()
 module.exports = function() {
   const prodConfig = {
     mode: 'production',
-    // entry: {
-    //   demo: path.resolve(__dirname, '../site/debug/main.js'),
-    // },
     entry: {
-      debug: [path.resolve(__dirname, '../site/debug/main.js')],
+      demo: [path.resolve(__dirname, '../site/debug/main.js')],
       docs: [path.resolve(__dirname, '../site/docs/main.js')],
     },
     module: {

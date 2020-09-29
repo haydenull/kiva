@@ -1,4 +1,6 @@
 module.exports = {
+  packageName: '@wozjs/kiva-ui',
+  // 文档站点主题配置
   theme: {
     topNav: [
       { text: 'kiva-cli', link: '/kiva-cli/' },
@@ -19,4 +21,5 @@ module.exports = {
     }
   },
   // demoHtml: './public/index.html',
+  webpackBundleAnalyzer: false,
 }
