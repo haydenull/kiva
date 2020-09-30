@@ -42,17 +42,40 @@ function taskGenStyleIndexFile(done) {
   const cssFiles = glob.sync(`${destDir}/**/style/index.css`)
   const jsFiles = glob.sync(`${basePath}/components/**/index.js`)
   jsFiles.forEach(file => {
+    // 分析该组件依赖的内部组件
     let componentName = file.match(/components\/([^\/]*)\/index\.(?:js|ts)$/)[1]
     const componentDependencies = require(path.resolve(process.cwd(), './dist/kiva-analyzer', `${componentName}/index.json`))
-    // TODO: 分析依赖的内部组件
-    console.log('=== js file ===', componentDependencies)
+    const deps = getDeps(componentDependencies.dependencies)
+    const selfName = getDepComponent(file)
+    deps.delete(selfName)
+    console.log('========= 分析 ===', file, deps, selfName)
+    
+    const depsStyle = Array.from(deps).map(depComponentName => `import '../../${depComponentName}/style'`).join('\n')
+    const styleIndexFileContent = `import './index.css'\n${depsStyle}`
+    const destFilePath = `${destDir}/${selfName}/style/index.js`
+    fs.writeFileSync(destFilePath, styleIndexFileContent)
   })
-  cssFiles.forEach(file => {
-    const jsFile = file.replace(/index.css$/, 'index.js')
-    // TODO: 分析组件依赖, 并将依赖的 css 注入到样式 js 入口文件
-    fs.writeFileSync(jsFile, `import './index.css'`)
-  })
+  // cssFiles.forEach(file => {
+  //   const jsFile = file.replace(/index.css$/, 'index.js')
+  //   // TODO: 分析组件依赖, 并将依赖的 css 注入到样式 js 入口文件
+  //   fs.writeFileSync(jsFile, `import './index.css'`)
+  // })
   done()
+}
+
+function getDepComponent(file) {
+  const _basePath = basePath.replace('/', '\/')
+  const reg = new RegExp(`^${_basePath}\/components\/([^\/]+)\/`)
+  const res = file.match(reg)
+  return res ? res[1] : null
+}
+function getDeps(dependencies, deps = new Set()) {
+  dependencies.forEach(item => {
+    const depComponent = getDepComponent(item.path)
+    if (depComponent) deps.add(depComponent)
+    if (item.dependencies && item.dependencies.length > 0) getDeps(item.dependencies, deps)
+  })
+  return deps
 }
 
 exports.default = gulp.series(taskBuildPackageStyle, taskBuildCommonStyle, taskGenStyleIndexFile)
