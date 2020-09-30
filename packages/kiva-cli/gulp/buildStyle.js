@@ -40,8 +40,16 @@ function taskBuildCommonStyle() {
 function taskGenStyleIndexFile(done) {
   const destDir = path.resolve(process.cwd(), './lib')
   const cssFiles = glob.sync(`${destDir}/**/style/index.css`)
+  const jsFiles = glob.sync(`${basePath}/components/**/index.js`)
+  jsFiles.forEach(file => {
+    let componentName = file.match(/components\/([^\/]*)\/index\.(?:js|ts)$/)[1]
+    const componentDependencies = require(path.resolve(process.cwd(), './dist/kiva-analyzer', `${componentName}/index.json`))
+    // TODO: 分析依赖的内部组件
+    console.log('=== js file ===', componentDependencies)
+  })
   cssFiles.forEach(file => {
     const jsFile = file.replace(/index.css$/, 'index.js')
+    // TODO: 分析组件依赖, 并将依赖的 css 注入到样式 js 入口文件
     fs.writeFileSync(jsFile, `import './index.css'`)
   })
   done()
