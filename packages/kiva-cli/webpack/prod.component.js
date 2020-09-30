@@ -71,7 +71,9 @@ module.exports = function() {
         name: 'Kiva Cli Build Component'
       }),
       new CleanWebpackPlugin(),
-      new KivaImportAnalyzerPlugin('this is option'),
+      new KivaImportAnalyzerPlugin({
+        path: './dist/kiva-analyzer',
+      }),
     ],
     optimization: {
       minimizer: [
