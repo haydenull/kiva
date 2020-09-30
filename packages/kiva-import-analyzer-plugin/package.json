@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/wozjs/kiva/issues"
   },
-  "homepage": "https://github.com/wozjs/kiva#readme"
+  "homepage": "https://github.com/wozjs/kiva#readme",
+  "dependencies": {
+    "fs-extra": "^9.0.1"
+  }
 }
