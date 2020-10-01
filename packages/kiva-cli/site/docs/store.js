@@ -15,6 +15,11 @@ const store = new Vuex.Store({
       const { docs, currentTopNav } = state
       return docs[currentTopNav] || []
     },
+    showTopNavs(state) {
+      const { topNavs } = state
+      // 顶部导航栏不展示默认次级路由
+      return topNavs.filter(item => item.text !== 'default')
+    },
   },
   mutations: {
     updateDocs(state, docs) {

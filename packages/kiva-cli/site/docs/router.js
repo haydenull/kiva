@@ -63,13 +63,18 @@ function genDocConfigList() {
   let docConfigs = {}
 
   console.log('==== kiva config ===', kivaConfig)
-  const defaultNav = [{ text: 'default', link: '/' }]
+  let defaultNav = [{ text: 'default', link: '/' }]
   let topNav = kivaConfig && kivaConfig.theme && kivaConfig.theme.topNav
-  store.commit('updateTopNavs', topNav)
+
+  // 若已经配置了 default nav
+  const defaultIndex = topNav.findIndex(item => item.text === 'default')
+  if (defaultIndex >= 0) defaultNav = []
+
   topNav = topNav ? defaultNav.concat(topNav) : defaultNav
+  store.commit('updateTopNavs', topNav)
+
 
   // 按照 topNav 分组
-
   Object.keys(docs).forEach(key => {
     const doc = docs[key]
     const docConfig = doc.kivaDocConfig
@@ -77,14 +82,15 @@ function genDocConfigList() {
     const index = topNav.findIndex(topNav => topNav.text === docConfig.topNav)
     if (index >= 0) {
       const { text, link } = topNav[index]
-      let topNavChildren = docConfigs[text]
-      topNavChildren = topNavChildren ? topNavChildren : []
+      let topNavChildren = docConfigs[text] || []
+      // topNavChildren = topNavChildren ? topNavChildren : []
       topNavChildren.push(docConfig)
       docConfigs[text] = topNavChildren
     }
 
   })
 
+  // 按照 group 分组
   Object.keys(docConfigs).forEach(topNav => {
     const docList = docConfigs[topNav]
     let docConfigList = []
@@ -103,6 +109,30 @@ function genDocConfigList() {
       }
     })
     docConfigs[topNav] = docConfigList
+  })
+
+
+  // 按照指定 group 排序
+  Object.keys(docConfigs).forEach(topNav => {
+
+    let topNavConfig = kivaConfig && kivaConfig.theme && kivaConfig.theme.topNav
+    const sideBar = docConfigs[topNav]
+    const { group = [] } = topNavConfig.find(item => item.text === topNav)
+    if (group.length > 0) {
+      let groupSorted = []
+      group.forEach(groupName => {
+        const i = sideBar.findIndex(item => item.group === groupName)
+        if (i >= 0) {
+          const res = sideBar.splice(i, 1)[0]
+          groupSorted.push(res)
+        }
+      })
+      if (sideBar.length > 0) {
+        groupSorted = groupSorted.concat(sideBar)
+      }
+      docConfigs[topNav] = groupSorted
+    }
+
   })
 
   return docConfigs
