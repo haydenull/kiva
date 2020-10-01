@@ -6,7 +6,9 @@ topNav: kiva-cli
 sortIndex: 3
 ---
 
-## 数据 Mock
+# 数据 Mock
+
+> 0 配置，基于前端拦截，支持发布到静态站点的数据 mock 服务。
 
 Kiva 会自动扫描组件 mock 文件夹下的 js 文件，以 button 组件为例，如下目录结构：
 
