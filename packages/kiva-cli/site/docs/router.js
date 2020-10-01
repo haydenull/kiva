@@ -180,7 +180,7 @@ const router = new VurRouter({
   routes,
 })
 
-// docs 站 点切换路由时联动切换 debug 站点 url
+// docs 站 点切换路由时联动切换 demo 站点 url
 router.afterEach((to, from) => {
   let componentPath = ''
   for (let i = 0; i < routes.length; i++) {
@@ -192,7 +192,7 @@ router.afterEach((to, from) => {
   }
   console.log('=== 导航守卫 ===', to, from)
   componentPath = componentPath.replace(/^\/(.*)/, (res, $1) => $1)
-  store.commit('updateDebugSiteUrl', componentPath)
+  store.commit('updateDemoSiteUrl', componentPath)
 })
 
 export default router

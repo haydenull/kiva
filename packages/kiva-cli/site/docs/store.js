@@ -8,7 +8,7 @@ const store = new Vuex.Store({
     docs: { default: [] },         // 所有文档配置信息 Front Matter
     currentTopNav: 'default',      // 当前展示的次级路由
     topNavs: [],                   // 次级路由
-    debugSiteUrl: 'debug.html#/',  // iframe 地址
+    demoSiteUrl: 'demo.html#/',  // iframe 地址
   },
   getters: {
     sideBarDocs(state) {
@@ -31,9 +31,9 @@ const store = new Vuex.Store({
     updateTopNav(state, topNav) {
       state.currentTopNav = topNav
     },
-    updateDebugSiteUrl(state, path = '') {
-      console.log('=== updateDebugSiteUrl ===', path)
-      state.debugSiteUrl = state.debugSiteUrl.replace(/(^debug.html#\/).*/, (res, $1) => $1 + path)
+    updateDemoSiteUrl(state, path = '') {
+      console.log('=== updateDemoSiteUrl ===', path)
+      state.demoSiteUrl = state.demoSiteUrl.replace(/(^demo.html#\/).*/, (res, $1) => $1 + path)
     },
   }
 })

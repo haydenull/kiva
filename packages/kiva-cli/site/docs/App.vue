@@ -39,7 +39,7 @@
           <img src="../common/assets/img/phtitle.png" alt="status bar" />
           <input class="border-box" type="text" :value="simlatorShowUrl" readonly />
         </div>
-        <iframe class="w100 flex1" :src="$store.state.debugSiteUrl" frameborder="0"></iframe>
+        <iframe class="w100 flex1" :src="$store.state.demoSiteUrl" frameborder="0"></iframe>
       </div>
 
     </div>
@@ -61,7 +61,7 @@ export default {
   },
   computed: {
     simlatorShowUrl() {
-      return `${window.location.origin}/${this.$store.state.debugSiteUrl}`
+      return `${window.location.origin}/${this.$store.state.demoSiteUrl}`
     },
     isShowSimlator() {
       return this.$store.state.currentTopNav === 'default'

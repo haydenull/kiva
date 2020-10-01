@@ -43,8 +43,8 @@ module.exports = function() {
         // template: path.resolve(__dirname, '../site/debug/index.html'),
         template: kivaConfig.demoHtml,
         favicon: path.resolve(__dirname, '../site/common/assets/favicon.ico'),
-        filename: 'debug.html',
-        chunks: ['chunks', 'debug'],
+        filename: 'demo.html',
+        chunks: ['chunks', 'demo'],
         inject: true,
       }),
       new HtmlWebpackPlugin({

@@ -14,7 +14,7 @@ module.exports = function() {
     mode: 'development',
     devtool: 'cheap-module-source-map',
     entry: {
-      debug: [path.resolve(__dirname, '../site/debug/main.js')],
+      demo: [path.resolve(__dirname, '../site/debug/main.js')],
       docs: [path.resolve(__dirname, '../site/docs/main.js')],
     },
     module: {
@@ -43,8 +43,8 @@ module.exports = function() {
         // template: path.resolve(__dirname, '../site/debug/index.html'),
         template: kivaConfig.demoHtml,
         favicon: path.resolve(__dirname, '../site/common/assets/favicon.ico'),
-        filename: 'debug.html',
-        chunks: ['chunks', 'debug'],
+        filename: 'demo.html',
+        chunks: ['chunks', 'demo'],
         inject: true,
       }),
       new HtmlWebpackPlugin({
