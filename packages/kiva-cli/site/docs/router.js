@@ -112,9 +112,9 @@ function genDocConfigList() {
   })
 
 
-  // 按照指定 group 排序
   Object.keys(docConfigs).forEach(topNav => {
 
+    // 按照指定 group 对 sidebar 分组进行排序
     let topNavConfig = kivaConfig && kivaConfig.theme && kivaConfig.theme.topNav
     const sideBar = docConfigs[topNav]
     const { group = [] } = topNavConfig.find(item => item.text === topNav)
@@ -133,7 +133,25 @@ function genDocConfigList() {
       docConfigs[topNav] = groupSorted
     }
 
+    // 按照文章 sortIndex 对单篇文章进行排序
+    const sortedSideBar = docConfigs[topNav]
+    docConfigs[topNav] = sortedSideBar.map(sideBar => {
+      const sideBarNavs = sideBar.navs
+      let sideBarNavsSorted = sideBarNavs.sort((article1, article2) => {
+        const indexArticle1 = article1.sortIndex || Infinity
+        const indexArticle2 = article2.sortIndex || Infinity
+        return indexArticle1 - indexArticle2
+      })
+      return {
+        ...sideBar,
+        navs: sideBarNavsSorted,
+      }
+    })
+
+
   })
+
+
 
   return docConfigs
 }
