@@ -3,7 +3,8 @@ module.exports = {
   // 文档站点主题配置
   theme: {
     topNav: [
-      { text: 'kiva-cli', link: '/kiva-cli/' },
+      { text: 'default', link: '/', group: [ '开发指南', '基础组件', '展示组件', '导航组件', '反馈组件' ] },
+      { text: 'kiva-cli', link: '/kiva-cli/', group: [] },
       { text: 'Github', link: 'https://github.com/wozjs/kiva' },
     ],
   },

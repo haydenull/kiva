@@ -6,7 +6,7 @@
       </div>
       <div class="top-navs">
         <a
-          v-for="(topNav, index) in $store.state.topNavs"
+          v-for="(topNav, index) in $store.getters.showTopNavs"
           :key="index"
           href="javascript: void(0);"
           @click="onClickTopNav(topNav)"
