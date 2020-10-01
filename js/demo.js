@@ -898,7 +898,7 @@
   \****************************************/
 /*! no static exports found */
 /*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(t,e,n){"use strict";var r=n(/*! @babel/runtime/helpers/interopRequireDefault */1);Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var o=r(n(/*! @babel/runtime/helpers/newArrowCheck */2)),i=r(n(/*! vue */5)),a=r(n(/*! vue-router */100)),s=n(/*! ./entry/demos */213),u=r(n(/*! ./components/Home.vue */282));function c(){var t=this,e=[{path:"/",component:u.default}];return Object.keys(s.demos).forEach(function(n){(0,o.default)(this,t);var r=s.demos[n];e.push({path:"/".concat(n),component:r})}.bind(this)),e}console.log("=== demos ===",s.demos),console.log("=== debug site routes ===",c()),i.default.use(a.default);var l=new a.default({routes:c()});e.default=l},
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(t,e,n){"use strict";var r=n(/*! @babel/runtime/helpers/interopRequireDefault */1);Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var o=r(n(/*! @babel/runtime/helpers/newArrowCheck */2)),i=r(n(/*! vue */5)),a=r(n(/*! vue-router */100)),s=n(/*! ./entry/demos */213),u=r(n(/*! ./components/Home.vue */282));function c(){var t=this,e=[{path:"/",component:u.default}];return Object.keys(s.demos).forEach(function(n){(0,o.default)(this,t);var r=s.demos[n];e.push({path:"/".concat(n),component:r})}.bind(this)),e}console.log("=== demos ===",s.demos),console.log("=== demo site routes ===",c()),i.default.use(a.default);var l=new a.default({routes:c()});e.default=l},
 /*!*********************************************!*\
   !*** ../kiva-cli/site/debug/entry/demos.js ***!
   \*********************************************/
