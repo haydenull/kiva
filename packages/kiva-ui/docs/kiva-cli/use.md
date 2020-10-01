@@ -3,6 +3,7 @@ title: 使用
 path: kiva-cli/use
 group: kiva-cli
 topNav: kiva-cli
+sortIndex: 2
 ---
 
 # Kiva Cli 工具

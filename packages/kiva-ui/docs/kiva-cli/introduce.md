@@ -3,6 +3,7 @@ title: 介绍
 path: kiva-cli
 group: kiva-cli
 topNav: kiva-cli
+sortIndex: 1
 ---
 
 # Kiva Cli 工具
