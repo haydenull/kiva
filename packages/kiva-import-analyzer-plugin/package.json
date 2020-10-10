@@ -1,6 +1,6 @@
 {
   "name": "@wozjs/kiva-import-analyzer-plugin",
-  "version": "0.0.1-alpha.13",
+  "version": "0.0.1-alpha.16",
   "description": "analyze import",
   "main": "src/index.js",
   "scripts": {
