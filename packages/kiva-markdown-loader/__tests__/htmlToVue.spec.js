@@ -1,4 +1,4 @@
-const htmlToVue = require('../src/htmlToVue')
+const htmlToVue = require('../src/util/htmlToVue')
 
 describe('kiva-markdown-loader', function() {
 

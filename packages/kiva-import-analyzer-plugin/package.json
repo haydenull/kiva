@@ -23,5 +23,6 @@
   "homepage": "https://github.com/wozjs/kiva#readme",
   "dependencies": {
     "fs-extra": "^9.0.1"
-  }
+  },
+  "gitHead": "d868e44206db633c584d6bc793babf1f010744eb"
 }

@@ -1,4 +1,4 @@
-const kivaCardWrapper = require('../src/kivaCardWrapper')
+const kivaCardWrapper = require('../src/util/kivaCardWrapper')
 
 describe('kiva-markdown-loader', function() {
 

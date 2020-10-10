@@ -1,4 +1,4 @@
-const addAuthor = require('../src/addAuthor')
+const addAuthor = require('../src/util/addAuthor')
 
 describe('kiva-markdown-loader', function() {
 

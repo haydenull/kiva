@@ -50,5 +50,6 @@
   },
   "peerDependencies": {
     "vue": ">= 2.5.22"
-  }
+  },
+  "gitHead": "d868e44206db633c584d6bc793babf1f010744eb"
 }
