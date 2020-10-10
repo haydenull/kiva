@@ -1,6 +1,6 @@
 {
   "name": "@wozjs/kiva-cli",
-  "version": "0.0.1-alpha.13",
+  "version": "0.0.1-alpha.17",
   "description": "kiva-cli",
   "main": "index.js",
   "bin": {
@@ -30,8 +30,8 @@
     "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
     "@babel/runtime": "^7.11.2",
-    "@wozjs/kiva-import-analyzer-plugin": "^0.0.1-alpha.13",
-    "@wozjs/kiva-markdown-loader": "^0.0.1-alpha.4",
+    "@wozjs/kiva-import-analyzer-plugin": "^0.0.1-alpha.17",
+    "@wozjs/kiva-markdown-loader": "^0.0.1-alpha.17",
     "ajax-hook": "^2.0.3",
     "axios": "^0.20.0",
     "babel-loader": "^8.1.0",
