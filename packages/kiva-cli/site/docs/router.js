@@ -67,8 +67,10 @@ function genDocConfigList() {
   let topNav = kivaConfig && kivaConfig.theme && kivaConfig.theme.topNav
 
   // 若已经配置了 default nav
-  const defaultIndex = topNav.findIndex(item => item.text === 'default')
-  if (defaultIndex >= 0) defaultNav = []
+  if (topNav) {
+    const defaultIndex = topNav.findIndex(item => item.text === 'default')
+    if (defaultIndex >= 0) defaultNav = []
+  }
 
   topNav = topNav ? defaultNav.concat(topNav) : defaultNav
   store.commit('updateTopNavs', topNav)
@@ -115,9 +117,9 @@ function genDocConfigList() {
   Object.keys(docConfigs).forEach(topNav => {
 
     // 按照指定 group 对 sidebar 分组进行排序
-    let topNavConfig = kivaConfig && kivaConfig.theme && kivaConfig.theme.topNav
+    let topNavConfig = kivaConfig && kivaConfig.theme && kivaConfig.theme.topNav || []
     const sideBar = docConfigs[topNav]
-    const { group = [] } = topNavConfig.find(item => item.text === topNav)
+    const { group = [] } = topNavConfig.find(item => item.text === topNav) || {}
     if (group.length > 0) {
       let groupSorted = []
       group.forEach(groupName => {

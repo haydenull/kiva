@@ -78,7 +78,9 @@ module.exports = function() {
     resolve: {
       alias: {
         '@ui': process.cwd(),
-      }
+      },
+      // 部分文件省略后缀名
+      extensions: [ ".ts", ".tsx", ".js", ".json" ],
     },
   }
   return baseConfig
