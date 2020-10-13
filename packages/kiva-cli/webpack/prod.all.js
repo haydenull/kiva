@@ -9,7 +9,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const baseConfig = require('./base')()
+const ChainConfig = require('webpack-chain')
 const compressConfig = require('./util/genCompress')
+const kivaConfig = require('../config')
 
 module.exports = function() {
   const prodConfig = {
@@ -68,5 +70,10 @@ module.exports = function() {
     },
   }
 
-  return merge(baseConfig, prodConfig)
+  const chainConfig = new ChainConfig()
+  if (typeof kivaConfig.chainWebpack === 'function') {
+    kivaConfig.chainWebpack(chainConfig)
+  }
+
+  return merge(baseConfig, prodConfig, chainConfig.toConfig(), kivaConfig.configureWebpack)
 }
