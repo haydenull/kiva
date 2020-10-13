@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const Webpackbar = require('webpackbar')
 const chalk = require('chalk')
 const FriendlyErrorsPlugin = require('friendly-errors-plugin')
-const ChainConfig = require('webpack-chain')
 
 const kivaConfig = require('../config')
 const baseConfig = require('./base')()
@@ -69,10 +68,5 @@ module.exports = function() {
     },
   }
 
-  const chainConfig = new ChainConfig()
-  if (typeof kivaConfig.chainWebpack === 'function') {
-    kivaConfig.chainWebpack(chainConfig)
-  }
-
-  return merge(baseConfig, devConfig, chainConfig.toConfig(), kivaConfig.configureWebpack)
+  return merge(baseConfig, devConfig, kivaConfig.configureWebpack(webpack))
 }

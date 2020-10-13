@@ -14,4 +14,9 @@ $ lerna boostrap
 
 ```shell
 $ yarn workspace @wozjs/kiva-ui run dev
+
+$ yarn workspace @wozjs/kiva-cli remove webpack-chain
+$ lerna add webpack-chain --scope @wozjs/kiva-cli
+
+$ lerna publish
 ```

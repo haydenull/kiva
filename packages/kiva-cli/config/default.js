@@ -20,8 +20,6 @@ module.exports = {
   demoHtml: path.resolve(__dirname, '../site/debug/index.html'),
   // 是否启用 webpack bundle 分析
   webpackBundleAnalyzer: false,
-  // 使用 webpack-chain 修改内部 wenpack 配置
-  chainWebpack: (config) => {},
   // webpack 配置
-  configureWebpack: {},
+  configureWebpack: (webpack) => { return {} },
 }

@@ -10,7 +10,6 @@ const KivaImportAnalyzerPlugin = require('@wozjs/kiva-import-analyzer-plugin')
 
 const baseConfig = require('./base')()
 const kivaConfig = require('../config')
-const ChainConfig = require('webpack-chain')
 const compressConfig = require('./util/genCompress')
 const externals = require('./util/genExternals')
 
@@ -95,10 +94,5 @@ module.exports = function() {
     },
   }
 
-  const chainConfig = new ChainConfig()
-  if (typeof kivaConfig.chainWebpack === 'function') {
-    kivaConfig.chainWebpack(chainConfig)
-  }
-
-  return merge(baseConfig, prodConfig, chainConfig.toConfig(), kivaConfig.configureWebpack)
+  return merge(baseConfig, prodConfig, kivaConfig.configureWebpack(webpack))
 }

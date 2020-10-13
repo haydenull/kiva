@@ -8,6 +8,11 @@ try {
   fs.accessSync(configFilePath)
   kivaConfig = require(configFilePath)
   if (kivaConfig.demoHtml) kivaConfig.demoHtml = path.resolve(process.cwd(), kivaConfig.demoHtml)
+  if (kivaConfig.configureWebpack && typeof kivaConfig.configureWebpack !== 'function') {
+    kivaConfig.configureWebpack = webpack => {
+      return kivaConfig.configureWebpack
+    }
+  }
 } catch (err) {
   console.log('未找到 kiva 配置文件', err)
   kivaConfig = {}

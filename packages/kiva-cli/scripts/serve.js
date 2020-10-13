@@ -45,7 +45,7 @@ async function serve() {
   const webpackConfig = getWebpackConfig()
   const devServer = createDevServer(webpackConfig)
   // 禁止显示 wds 信息, 负面影响：无法打开浏览器
-  devServer.showStatus = () => {}
+  // devServer.showStatus = () => {}
 
   spinner.stop()
 
