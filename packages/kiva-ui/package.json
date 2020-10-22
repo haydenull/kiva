@@ -21,6 +21,7 @@
     "create": "kiva create",
     "build:all": "kiva build all",
     "build:component": "kiva build component",
+    "build:noCompile": "kiva build noCompile",
     "build:demo": "kiva build demo",
     "build:site": "kiva build site",
     "build": "npm run build:all && npm run build:component && npm run build:site",
