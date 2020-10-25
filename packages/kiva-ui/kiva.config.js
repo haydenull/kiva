@@ -22,5 +22,5 @@ module.exports = {
     }
   },
   // demoHtml: './public/index.html',
-  webpackBundleAnalyzer: true,
+  webpackBundleAnalyzer: false,
 }
