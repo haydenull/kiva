@@ -898,7 +898,7 @@
   \****************************************/
 /*! no static exports found */
 /*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(t,e,n){"use strict";var r=n(/*! @babel/runtime/helpers/interopRequireDefault */1);Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var o=r(n(/*! @babel/runtime/helpers/newArrowCheck */2)),i=r(n(/*! vue */5)),a=r(n(/*! vue-router */100)),s=n(/*! ./entry/demos */213),u=r(n(/*! ./components/Home.vue */282));function c(){var t=this,e=[{path:"/",component:u.default}];return Object.keys(s.demos).forEach(function(n){(0,o.default)(this,t);var r=s.demos[n];e.push({path:"/".concat(n),component:r})}.bind(this)),e}console.log("=== demos ===",s.demos),console.log("=== demo site routes ===",c()),i.default.use(a.default);var l=new a.default({routes:c()});e.default=l},
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(t,e,n){"use strict";var r=n(/*! @babel/runtime/helpers/interopRequireDefault */1);Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var o=r(n(/*! @babel/runtime/helpers/newArrowCheck */2)),i=r(n(/*! vue */5)),a=r(n(/*! vue-router */100)),s=n(/*! ./entry/demos */213),u=r(n(/*! ./components/Home.vue */283));function c(){var t=this,e=[{path:"/",component:u.default}];return Object.keys(s.demos).forEach(function(n){(0,o.default)(this,t);var r=s.demos[n];e.push({path:"/".concat(n),component:r})}.bind(this)),e}console.log("=== demos ===",s.demos),console.log("=== demo site routes ===",c()),i.default.use(a.default);var l=new a.default({routes:c()});e.default=l},
 /*!*********************************************!*\
   !*** ../kiva-cli/site/debug/entry/demos.js ***!
   \*********************************************/
@@ -910,7 +910,7 @@
   \********************************************************/
 /*! no static exports found */
 /*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(t,e,n){var r={"./components/dialog/demo/index.vue":215,"./components/image/demo/index.vue":283,"./components/list/demo/index.vue":218,"./components/loading/demo/index.vue":223,"./components/mask/demo/index.vue":224,"./components/tabs/demo/index.vue":226,"./components/toast/demo/index.vue":228,"./components/waterfall/demo/index.vue":230};function o(t){var e=i(t);return n(e)}function i(t){if(!n.o(r,t)){var e=new Error("Cannot find module '"+t+"'");throw e.code="MODULE_NOT_FOUND",e}return r[t]}o.keys=function(){return Object.keys(r)},o.resolve=i,t.exports=o,o.id=214},
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(t,e,n){var r={"./components/dialog/demo/index.vue":215,"./components/image/demo/index.vue":284,"./components/list/demo/index.vue":218,"./components/loading/demo/index.vue":223,"./components/mask/demo/index.vue":224,"./components/tabs/demo/index.vue":226,"./components/toast/demo/index.vue":228,"./components/waterfall/demo/index.vue":230};function o(t){var e=i(t);return n(e)}function i(t){if(!n.o(r,t)){var e=new Error("Cannot find module '"+t+"'");throw e.code="MODULE_NOT_FOUND",e}return r[t]}o.keys=function(){return Object.keys(r)},o.resolve=i,t.exports=o,o.id=214},
 /*!**********************************************!*\
   !*** ./src/components/dialog/demo/index.vue ***!
   \**********************************************/
@@ -1122,7 +1122,7 @@
   \************************************************/
 /*! no static exports found */
 /*! all exports used */
-/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;e.default={method:"GET",status:"error",success:{videoId:11111,videoTitle:"video title","list|1-10":[{"id|+1":1}]},error:function(t,e,n){e.status(500).json(n.mock({test:111}))}}},,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+/*! ModuleConcatenation bailout: Module is not an ECMAScript module */function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;e.default={method:"GET",status:"error",success:{videoId:11111,videoTitle:"video title","list|1-10":[{"id|+1":1}]},error:function(t,e,n){e.status(500).json(n.mock({test:111}))}}},,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 /*!**************************************************************!*\
   !*** ../kiva-cli/site/debug/components/Home.vue + 2 modules ***!
   \**************************************************************/
