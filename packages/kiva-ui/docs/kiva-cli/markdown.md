@@ -17,7 +17,7 @@ kiva 扫描每个组件下的 `README.md` 文件，作为该组件的文档。
 
 |属性名|说明|默认值|是否必填|
 |--|--|--|--|
-|title|文档在 sidebar 的标题|-|Y|
+|title|文档在 sidebar (侧边栏)的标题|-|Y|
 |path|router 路径|组件名|N|
 |group|文档所属分组|-|Y|
 |topNav|文档所属次级路由 nav|`default`|N|

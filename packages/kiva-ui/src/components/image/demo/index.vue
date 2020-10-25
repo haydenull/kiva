@@ -3,7 +3,7 @@
 
     <kiva-demo-block title="基础用法">
       <kiva-image
-        src="https://files.catbox.moe/1c387i.jpg"
+        src="http://pocket.faiz.top/picgo/20201025194253.jpg"
         style="width: 100px; height: 100px;"
       >
       </kiva-image>
@@ -12,7 +12,7 @@
     <kiva-demo-block title="加载中提示">
       <div class="demo-item--inline">
         <kiva-image
-          src="https://files.catbox.moe/1c387i.jpg"
+          src="http://pocket.faiz.top/picgo/20201025194253.jpg"
           style="width: 100px; height: 100px;"
           loading-demo
         >
@@ -21,7 +21,7 @@
       </div>
       <div class="demo-item--inline">
         <kiva-image
-          src="https://files.catbox.moe/1c387i.jpg"
+          src="http://pocket.faiz.top/picgo/20201025194253.jpg"
           style="width: 100px; height: 100px;"
           loading-demo
         >
@@ -52,7 +52,7 @@
     <kiva-demo-block title="填充模式">
       <div class="demo-item--inline">
         <kiva-image
-          src="https://files.catbox.moe/1c387i.jpg"
+          src="http://pocket.faiz.top/picgo/20201025194253.jpg"
           style="width: 100px; height: 100px;"
           fit="fill"
         >
@@ -62,7 +62,7 @@
 
       <div class="demo-item--inline">
         <kiva-image
-          src="https://files.catbox.moe/1c387i.jpg"
+          src="http://pocket.faiz.top/picgo/20201025194253.jpg"
           style="width: 100px; height: 100px;"
           fit="contain"
         >
@@ -72,7 +72,7 @@
 
       <div class="demo-item--inline">
         <kiva-image
-          src="https://files.catbox.moe/1c387i.jpg"
+          src="http://pocket.faiz.top/picgo/20201025194253.jpg"
           style="width: 100px; height: 100px;"
           fit="cover"
         >
@@ -82,7 +82,7 @@
 
       <div class="demo-item--inline">
         <kiva-image
-          src="https://files.catbox.moe/1c387i.jpg"
+          src="http://pocket.faiz.top/picgo/20201025194253.jpg"
           style="width: 100px; height: 100px;"
           fit="none"
         >
@@ -92,7 +92,7 @@
 
       <div class="demo-item--inline">
         <kiva-image
-          src="https://files.catbox.moe/1c387i.jpg"
+          src="http://pocket.faiz.top/picgo/20201025194253.jpg"
           style="width: 100px; height: 100px;"
           fit="scale-down"
         >
@@ -105,7 +105,7 @@
     <kiva-demo-block title="圆角">
       <kiva-image
         round
-        src="https://files.catbox.moe/1c387i.jpg"
+        src="http://pocket.faiz.top/picgo/20201025194253.jpg"
         style="width: 100px; height: 100px;"
       >
       </kiva-image>

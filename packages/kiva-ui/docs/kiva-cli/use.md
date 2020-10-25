@@ -17,7 +17,7 @@ sortIndex: 2
 ```bash
 $ npx @wozjs/kiva-cli create hello-kiva
 
-# 如果你是全局安装 @wozjs/kiva-cli 的话
+# 如果你是全局安装 @wozjs/kiva-cli
 $ kiva create hello-kiva
 ```
 
@@ -139,4 +139,4 @@ $ kiva build site      # 文档静态站点打包
 $ kiva deploy
 ```
 
-将 site 中的文件上传到 ftp 服务器
+将 site 中的文件上传到 ftp 服务器(需要在 `kiva.config.js` 中配置 ftp）

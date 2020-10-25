@@ -44,13 +44,13 @@ topNav: kiva-cli
 // 文档站点部署配置
 deploy: {
   type: 'ftp',
-  dir: './site',      // 文档站点所在文件夹
+  dir: './site',      // 需要上传的文件夹
   ftp: {
     host: '',
     port: 2121,
     user: '',
     password: '',      // 账号密码不要上传到公网
-    remotePath: '/wap_front/chenhui12/kiva/kiva-ui',
+    remotePath: '/wap_front/chenhui12/kiva/kiva-ui',  // 设置服务器路径
   }
 }
 ```

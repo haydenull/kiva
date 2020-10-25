@@ -15,3 +15,21 @@ $ npm i @wozjs/kiva-ui -S
 # 通过 yarn 安装
 $ yarn add @wozjs/kiva-ui
 ```
+
+### 引入
+
+#### 全量引入
+```js
+import Kiva from '@wozjs/kiva-ui'
+import '@wozjs/kiva-ui/dist/kiva-ui.css'
+
+Vue.use(Kiva)
+```
+
+#### 按需引入
+```js
+import KivaDialog from '@wozjs/kiva-ui/lib/dialog'
+import '@wozjs/kiva-ui/lib/dialog/style'
+
+Vue.use(KivaDialog)
+```
