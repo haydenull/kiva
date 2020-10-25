@@ -3,6 +3,7 @@ import VurRouter from 'vue-router'
 
 import Home from './components/Home.vue'
 import store from './store'
+import { getDocArticleContainer } from '../../utils'
 
 const requireKivaConfig = require.context('@ui', false, /kiva\.config\.js$/)
 let kivaConfig = {
@@ -195,6 +196,10 @@ router.afterEach((to, from) => {
   console.log('=== 导航守卫 ===', to, from)
   componentPath = componentPath.replace(/^\/(.*)/, (res, $1) => $1)
   store.commit('updateDemoSiteUrl', componentPath)
+
+  // 切换路由时复位滚动条
+  const contentEle = getDocArticleContainer ()
+  if (contentEle) contentEle.scrollTo(0, 0)
 })
 
 export default router
