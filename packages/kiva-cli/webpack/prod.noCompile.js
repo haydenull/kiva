@@ -83,8 +83,8 @@ module.exports = function() {
     },
     externals,
     output: {
-      path: path.resolve(process.cwd(), 'lib/'),
-      publicPath: '/lib/',
+      path: path.resolve(process.cwd(), 'source/'),
+      publicPath: '/source/',
       filename: '[name].js',
       chunkFilename: '[name].chunk.js',
       // pathinfo: true,
