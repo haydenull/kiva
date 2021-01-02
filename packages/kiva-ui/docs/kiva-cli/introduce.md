@@ -27,7 +27,7 @@ Vue 组件脚手架工具：
 
 ### 包含 demo 的文档站点
 
-![img](http://pocket.faiz.top/picgo/20201025173437.png)
+![img](https://magic-pocket.oss-cn-beijing.aliyuncs.com/picgo/20201025173437.png)
 
 `kiva serve`
 

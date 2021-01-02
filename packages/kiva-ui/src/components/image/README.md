@@ -28,7 +28,7 @@ Vue.use(Image)
 
 ```html
 <kiva-image
-  src="http://pocket.faiz.top/picgo/20201025194253.jpg"
+  src="https://magic-pocket.oss-cn-beijing.aliyuncs.com/picgo/20201025194253.jpg"
   style="width: 100px; height: 100px;"
 />
 ```
@@ -39,7 +39,7 @@ Vue.use(Image)
 
 ```html
 <kiva-image
-  src="http://pocket.faiz.top/picgo/20201025194253.jpg"
+  src="https://magic-pocket.oss-cn-beijing.aliyuncs.com/picgo/20201025194253.jpg"
   style="width: 100px; height: 100px;"
 >
   <template v-slot:loading>loading...</template>
@@ -64,7 +64,7 @@ Vue.use(Image)
 
 ```html
 <kiva-image
-  src="http://pocket.faiz.top/picgo/20201025194253.jpg"
+  src="https://magic-pocket.oss-cn-beijing.aliyuncs.com/picgo/20201025194253.jpg"
   style="width: 100px; height: 100px;"
   fit="cover"
 >
@@ -78,7 +78,7 @@ Vue.use(Image)
 ```html
 <kiva-image
   round
-  src="http://pocket.faiz.top/picgo/20201025194253.jpg"
+  src="https://magic-pocket.oss-cn-beijing.aliyuncs.com/picgo/20201025194253.jpg"
   style="width: 100px; height: 100px;"
 >
 </kiva-image>
