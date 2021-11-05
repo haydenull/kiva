@@ -7,6 +7,12 @@ const fs = require('fs-extra')
 const inquirer = require('inquirer')
 const validateNpmPackageName = require('validate-npm-package-name')
 
+const TEMPLATE_PATH_MAP = {
+  'react-spa': 'genReactSpaTemplate',         // react spa single entry
+  'component': 'genComponentTemplate',        // vue component
+  'component-library': 'genProjectTemplate',  // vue component library
+}
+
 async function create(projectName) {
 
   const cwd = process.cwd()
@@ -41,8 +47,17 @@ async function create(projectName) {
     await fs.remove(targetDir)
   }
 
+  const {type} = await inquirer.prompt([
+    {
+      name: 'type',
+      type: 'list',
+      message: 'Select the type of project you want to create',
+      choices: [ 'react-spa', new inquirer.Separator(), 'component', 'component-library' ],
+    }
+  ])
+
   // 生成文件
-  await require('../lib/genProjectTemplate')(projectName, targetDir)
+  await require(`../lib/${TEMPLATE_PATH_MAP[type]}`)(projectName, targetDir)
 
 }
 

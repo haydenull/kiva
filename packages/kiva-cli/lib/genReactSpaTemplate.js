@@ -12,7 +12,7 @@ const { render } = require('../utils/ejsRender')
  */
 async function renderPackageJson(appName) {
   try {
-    const npmPkgs = [ '@wozjs/kiva-cli' ]
+    const npmPkgs = [ '@wozjs/kiva-cli', 'react', 'react-dom' ]
     const npmPkgsVersion = await getNpmLatestVersion(npmPkgs)
     debugger
     // 生成 package.json
@@ -24,16 +24,14 @@ async function renderPackageJson(appName) {
       private: true,
       scripts: {
         "dev": "kiva serve",
-        "new": "kiva new",
         "build:all": "kiva build all",
         "build:component": "kiva build component",
-        "build:demo": "kiva build demo",
-        "build:site": "kiva build site",
-        "build": "npm run build:all && npm run build:component && npm run build:site",
+        "build": "kiva build react-spa",
         "deploy": "kiva deploy"
       },
       dependencies: {
-
+        "react": `^${npmPkgsVersion['react']}`,
+        "react-dom": `^${npmPkgsVersion['react-dom']}`
       },
       devDependencies: {
         "@wozjs/kiva-cli": `^${npmPkgsVersion['@wozjs/kiva-cli']}`
@@ -52,12 +50,12 @@ async function renderPackageJson(appName) {
 async function pkgInstall(targetDir) {
   const execa = require('execa')
   try {
-    await execa('npm', ['install', '--loglevel', 'error' ], {
+    await execa('yarn', {
       cwd: targetDir,
       stdio: 'inherit',
     })
   } catch (error) {
-    console.log('=== npm install error ===', error)
+    console.log('=== yarn install error ===', error)
   }
 }
 
@@ -72,7 +70,7 @@ module.exports = async function(projectName, dest) {
     'package.json': JSON.stringify(pkg, null, 2),
   })
 
-  const source = path.resolve(__dirname, '../templates/project')
+  const source = path.resolve(__dirname, '../templates/react-spa')
   const files = await render(source, {
     projectName, // ejs data
   })
