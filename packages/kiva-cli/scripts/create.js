@@ -47,12 +47,26 @@ async function create(projectName) {
     await fs.remove(targetDir)
   }
 
-  const {type} = await inquirer.prompt([
+  const { type } = await inquirer.prompt([
     {
       name: 'type',
       type: 'list',
       message: 'Select the type of project you want to create',
-      choices: [ 'react-spa', new inquirer.Separator(), 'component', 'component-library' ],
+      choices: [
+        {
+          name: 'react spa single entry',
+          value: 'react-spa',
+        },
+        new inquirer.Separator(),
+        {
+          name: 'vue component',
+          value: 'component',
+        },
+        {
+          name: 'vue component library',
+          value: 'component-library',
+        }
+      ],
     }
   ])
 
@@ -63,7 +77,7 @@ async function create(projectName) {
 
 module.exports = (...args) => {
   return create(...args).catch(err => {
-    console.error(chalk.red(`😭 create project error: \n`, err, '\n'))
+    console.error(chalk.red(`\n😭 create project error: \n`, err, '\n'))
     process.exit(1)
   })
 }

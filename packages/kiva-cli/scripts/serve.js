@@ -3,9 +3,16 @@ process.env.NODE_ENV = 'development'
 const chalk = require('chalk')
 const ora = require('ora')
 const webpack = require('webpack')
-const getWebpackConfig = require('../webpack/dev')
+const getWebpackConfig = require('../webpack/dev.component')
 const path = require('path')
 // const genMockRoutes = require('../lib/genMockRoutes')
+
+const WEBPACK_CONFIG_MAP = {
+  'react-spa': 'dev.reactSpa',
+  'component-libaray': 'dev.component',
+}
+
+const kivaConfig = require('../kiva.config')
 
 const spinner = ora('Starting development server...')
 
@@ -42,7 +49,7 @@ function createDevServer (webpackConfig) {
 async function serve() {
   spinner.start()
 
-  const webpackConfig = getWebpackConfig()
+  const webpackConfig = require(`../webpack/${WEBPACK_CONFIG_MAP[kivaConfig.appType]}`)()
   const devServer = createDevServer(webpackConfig)
   // 禁止显示 wds 信息, 负面影响：无法打开浏览器
   // devServer.showStatus = () => {}

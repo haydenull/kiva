@@ -1,4 +1,5 @@
 module.exports = {
+  appType: 'react-spa',
   // 文档站点部署配置
   deploy: {
     type: 'ftp',

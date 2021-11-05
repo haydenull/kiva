@@ -1,6 +1,7 @@
 const path = require('path')
 
 module.exports = {
+  appType: 'react-spa',
   // 包名
   packageName: '',
   // 文档站点部署配置
