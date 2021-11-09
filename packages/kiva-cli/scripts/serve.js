@@ -12,12 +12,12 @@ const WEBPACK_CONFIG_MAP = {
   'component-libaray': 'dev.component',
 }
 
-const kivaConfig = require('../kiva.config')
+const kivaConfig = require('../config')
 
 const spinner = ora('Starting development server...')
 
 function createDevServer (webpackConfig) {
-  // console.log('=== webpackConfig ===', webpackConfig)
+  console.log('=== webpackConfig ===', webpackConfig)
   const compiler = webpack(webpackConfig)
 
   const DevServer = require('webpack-dev-server')

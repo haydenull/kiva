@@ -1,3 +1,5 @@
+const presetReact = require('@babel/preset-react')
+console.log('[faiz:] === @babel/preset-react', presetReact)
 module.exports = {
   presets: [
     [
@@ -20,7 +22,9 @@ module.exports = {
         // "useBuiltIns": "usage",
         "debug": false
       }
-    ]
+    ],
+    // '@babel/preset-react',
+    presetReact,
   ],
   plugins: [ '@babel/plugin-transform-runtime' ],
 }

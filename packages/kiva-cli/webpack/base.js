@@ -80,7 +80,7 @@ module.exports = function() {
         '@ui': process.cwd(),
       },
       // 部分文件省略后缀名
-      extensions: [ ".ts", ".tsx", ".js", ".json" ],
+      extensions: [ ".ts", ".tsx", ".js", ".jsx", ".json" ],
     },
   }
   return baseConfig

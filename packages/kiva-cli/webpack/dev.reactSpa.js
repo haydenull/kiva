@@ -42,7 +42,7 @@ module.exports = function() {
         template: path.resolve(basePath, './src/index.html'),
         favicon: path.resolve(__dirname, '../site/common/assets/favicon.ico'),
         filename: 'index.html',
-        chunks: ['chunks', 'index'],
+        // chunks: ['chunks', 'index'],
         inject: true,
       }),
       new FriendlyErrorsPlugin({

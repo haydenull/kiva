@@ -16,9 +16,9 @@
     "node": ">=8.9"
   },
   "peerDependencies": {
+    "react": ">= 16",
     "vue": "^2.6.12",
-    "vue-template-compiler": "^2.6.12",
-    "react": ">= 16"
+    "vue-template-compiler": "^2.6.12"
   },
   "keywords": [
     "kiva",
@@ -30,6 +30,7 @@
     "@babel/core": "^7.11.6",
     "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.16.0",
     "@babel/runtime": "^7.11.2",
     "@wozjs/kiva-import-analyzer-plugin": "^0.0.1-alpha.17",
     "@wozjs/kiva-markdown-loader": "^0.0.1-alpha.17",
