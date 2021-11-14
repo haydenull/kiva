@@ -1,0 +1,21 @@
+{
+  "name": "react-spa",
+  "version": "0.0.1",
+  "author": "",
+  "main": "dist/index.js",
+  "private": true,
+  "scripts": {
+    "dev": "kiva serve",
+    "build:all": "kiva build all",
+    "build:component": "kiva build component",
+    "build": "kiva build react-spa",
+    "deploy": "kiva deploy"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@wozjs/kiva-cli": "^0.0.1-alpha.22"
+  }
+}
